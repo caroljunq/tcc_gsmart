@@ -1,3 +1,3 @@
 # tcc_gsmart
-Using smartphones to measeure people traffic - geomarketing
+Using smartphones to measure people traffic - geomarketing
 gsmart 
