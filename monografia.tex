@@ -1,0 +1,522 @@
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% Monografia 2017
+% Trabalho de Conclusão de Curso
+% Baseia-se no documento modelo de TCC do abntex2
+% Para saber mais, acesse https://github.com/abntex/abntex2
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+\documentclass[
+		% -- opções da classe memoir --
+		12pt,				% tamanho da fonte
+		openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+		oneside,			% para impressão em verso e anverso. Oposto a oneside
+		a4paper,			% tamanho do papel.
+		% -- opções da classe abntex2 --
+		chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+		%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+		%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+		%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+		% -- opções do pacote babel --
+		english,			% idioma adicional para hifenização
+		brazil				% o último idioma é o principal do documento
+	]{abntex2}
+
+
+% ----------------------------------------------------------
+% Pacotes básicos
+% ----------------------------------------------------------
+%\usepackage{helvet}
+\usepackage[scaled]{helvet}
+\renewcommand*\familydefault{\sfdefault} 	% Only if the base font of the document is to be sans serif
+										% Foi necessário para acertar o documento, continha diversos erros
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}	% Codificacao do documento (conversão automática dos acentos)
+\usepackage{lastpage}		% Usado pela Ficha catalográfica
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}			% Controle das cores
+\usepackage{graphicx}		% Inclusão de gráficos
+\usepackage{microtype} 		% para melhorias de justificação
+% ----------------------------------------------------------
+
+
+% ----------------------------------------------------------
+% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+%% ----------------------------------------------------------
+\usepackage{lipsum}				% para geração de dummy text
+\usepackage{customizacoes} 		% customizações feitas pelo autor
+% ----------------------------------------------------------
+\usepackage{pdfpages}
+
+% ----------------------------------------------------------
+% Pacotes de citações
+% ----------------------------------------------------------
+\usepackage[alf]{abntex2cite}				% Citações padrão ABNT
+
+% ----------------------------------------------------------
+% CONFIGURAÇÕES DE PACOTES
+% ----------------------------------------------------------
+
+% ----------------------------------------------------------
+% Configurações do pacote backref
+% ----------------------------------------------------------
+\definecolor{thered}{rgb}{0.65,0.04,0.07}
+\definecolor{thegreen}{rgb}{0.06,0.44,0.08}
+\definecolor{thegrey}{gray}{0.5}
+\definecolor{theshade}{rgb}{1,1,0.97}
+\definecolor{theframe}{gray}{0.6}
+% ----------------------------------------------------------
+
+
+
+% ----------------------------------------------------------
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ----------------------------------------------------------
+
+\titulo{Não sabemos o nome ainda}
+\autor{Carolina Junqueira Ferreira \\ Juliana D'alessio Grandini}
+\local{Bauru}
+\data{2017}
+\orientador{Prof. Dr. Sidnei Bergamaschi}
+
+\instituicao{%
+  Universidade Estadual Paulista "Júlio de Mesquita Filho"
+  \par
+  Faculdade de Ciências - Campus Bauru
+  \par
+  Departamento de Computação
+}
+\tipotrabalho{Monografia (Trabalho de Conclusão de Curso)}
+% O preambulo deve conter o tipo do trabalho, o objetivo,
+% o nome da instituição e a área de concentração
+% foi necessário utilizar \~{a} e etc para os acentos por problemas na geração do PDF
+\preambulo{Trabalho de Conclus\~{a}o do Curso de Bacharelado em Sistemas de Informação apresentado ao Departamento de Computa\c{c}\~{a}o da Faculdade de Ci\^{e}ncias da Universidade Estadual Paulista ``J\'{ú}lio de Mesquita Filho'' – UNESP, C\^{a}mpus de Bauru.}
+
+% ----------------------------------------------------------
+
+
+% ----------------------------------------------------------
+% Configurações de aparência do PDF final
+% ----------------------------------------------------------
+
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{0,0,0}
+
+% informações do PDF
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title},
+		pdfauthor={\@author},
+    	pdfsubject={\imprimirpreambulo},
+	    pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={beacon}{raspberry pi}{internet das coisas}{abntex2}{trabalho acadêmico},
+		colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=blue,          	% color of internal links
+    	citecolor=blue,        		% color of links to bibliography
+    	filecolor=magenta,      		% color of file links
+		urlcolor=blue,
+		bookmarksdepth=4
+}
+\makeatother
+% ----------------------------------------------------------
+
+
+% ----------------------------------------------------------
+% Espaçamentos entre linhas e parágrafos
+% ----------------------------------------------------------
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.3cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+% ----------------------------------------------------------
+% compila o indice
+% ----------------------------------------------------------
+\makeindex
+% ----------------------------------------------------------
+
+
+% ----------------------------------------------------------
+% Configurações de projeto
+% ----------------------------------------------------------
+\newif\iffinal
+\finaltrue % define se é um arquivo final, se for não for retira umas partes.
+
+\newif\ifrelatorio
+\relatoriofalse % define se é um arquivo final, se for não for retira umas partes.
+
+\newif\ifabstract
+\abstractfalse % define se mostra o abstract em inglês ou não.
+
+\newif\ifresumo
+\resumotrue % define se mostra o resumo ou não.
+
+\newif\ifficha
+\fichafalse % define se mostra a ficha catalográfica ou não
+% ----------------------------------------------------------
+
+
+% ----------------------------------------------------------
+% Início do documento
+% ----------------------------------------------------------
+\begin{document}
+
+% Seleciona o idioma do documento (conforme pacotes do babel)
+%\selectlanguage{english}
+\selectlanguage{brazil}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+\pretextual
+
+
+% ----------------------------------------------------------
+% Capa
+% ----------------------------------------------------------
+\imprimircapa
+% ----------------------------------------------------------
+
+
+% ----------------------------------------------------------
+% Folha de rosto
+% (o * indica que haverá a ficha bibliográfica)
+% ----------------------------------------------------------
+\imprimirfolhaderosto
+% ----------------------------------------------------------
+
+
+% ----------------------------------------------------------
+% Inserir a ficha catalográfica
+% ----------------------------------------------------------
+
+% Isto é um exemplo de Ficha Catalográfica, ou "Dados internacionais de
+% catalogação-na-publicação''. Você pode utilizar este modelo como referência.
+% Porém, provavelmente a biblioteca da sua universidade lhe fornecerá um PDF
+% com a ficha catalográfica definitiva após a defesa do trabalho. Quando estiver
+% com o documento, salve-o como PDF no diretório do seu projeto e substitua todo
+% o conteúdo de implementação deste arquivo pelo comando abaixo:
+%
+% \begin{fichacatalografica}
+%     \includepdf{fig_ficha_catalografica.pdf}
+% \end{fichacatalografica}
+
+%\begin{fichacatalografica}
+%	\sffamily
+%	\vspace*{\fill}					% Posição vertical
+%	\begin{center}					% Minipage Centralizado
+%		\fbox{\begin{minipage}[c][8cm]{13.5cm}		% Largura
+%				\small
+%				\imprimirautor
+%				%Sobrenome, Nome do autor
+%
+%				\hspace{0.5cm} \imprimirtitulo / \imprimirautor. --
+%				\imprimirlocal, \imprimirdata-
+%
+%				\hspace{0.5cm} \pageref{LastPage} p. : il. (algumas color.) ; 30 cm.\\
+%
+%				\hspace{0.5cm} \imprimirorientadorRotulo~\imprimirorientador\\
+%
+%				\hspace{0.5cm}
+%				\parbox[t]{\textwidth}{\imprimirtipotrabalho~--~\\ \imprimirinstituicao,
+%					\imprimirdata.}\\
+%
+%				\hspace{0.5cm}
+%				1. Balanceamento de Cargas.
+%				2. Redes Neurais Artificiais.
+%				3. Computação em Nuvem.
+%				I. \imprimirorientador.
+%				II. Universidade Estadual Paulista "Júlio de Mesquita Filho".
+%				III. Faculdade de Ciências.
+%				IV. \imprimirtitulo
+%			\end{minipage}}
+%		\end{center}
+%	\end{fichacatalografica}
+
+%\begin{fichacatalografica}
+%	\ttfamily
+%	\vspace*{\fill}					% Posição vertical
+%	\hspace{1.5cm}
+%	\begin{centering}	% Minipage Centralizado
+%		\fbox{\begin{minipage}[c][7.5cm]{12.5cm}		% Largura
+%				\footnotesize
+%				\vspace{0.3cm}
+%				\hspace{2.0cm} Setoue, Karoline Kimiko Figueiredo.
+%				%Sobrenome, Nome do autor
+%
+%				\hspace{2.0cm} \parbox[t]{\textwidth}{\hspace{0.5cm} Aplicação de redes neurais artificiais no balanceamento de carga em serviços de nuvem / \imprimirautor, \imprimirdata} \\
+%
+%				\hspace{2.0cm} \parbox[t]{\textwidth}{\hspace{0.5cm} \pageref{LastPage} f. : il.} \\
+%
+%				\hspace{2.0cm} \parbox[t]{\textwidth}{\hspace{0.5cm} \imprimirorientador} \\
+%
+%				\hspace{2.0cm} \parbox[t]{\textwidth}{\hspace{0.5cm} Monografia (Graduação)~--~Universidade Estadual \\ Paulista. Faculdade de Ciências, Bauru, 2017 \\}
+%				\\
+%
+%
+%				\hspace{2.0cm} \parbox[t]{\textwidth}{\hspace{0.5cm} 1. Balanceamento de carga. 2. Redes neurais artificiais. \\ 3. Computação em nuvem. I. Universidade \\ Estadual Paulista. Faculdade de Ciências. II. Título.}
+%			\end{minipage}}
+%		\end{centering}
+%\end{fichacatalografica}
+
+ %\begin{fichacatalografica}
+    % \includepdf{ficha.pdf}
+ %\end{fichacatalografica}
+% ----------------------------------------------------------
+
+
+% ----------------------------------------------------------
+% Inserir errata
+% ----------------------------------------------------------
+%\begin{errata}
+%Elemento opcional da \citeonline[4.2.1.2]{NBR14724:2011}. Exemplo:
+
+%\vspace{\onelineskip}
+
+%FERRIGNO, C. R. A. \textbf{Tratamento de neoplasias ósseas apendiculares com
+%reimplantação de enxerto ósseo autólogo autoclavado associado ao plasma
+%rico em plaquetas}: estudo crítico na cirurgia de preservação de membro em
+%cães. 2011. 128 f. Tese (Livre-Docência) - Faculdade de Medicina Veterinária e
+%Zootecnia, Universidade de São Paulo, São Paulo, 2011.
+
+%\begin{table}[htb]
+%\center
+%\footnotesize
+%\begin{tabular}{|p{1.4cm}|p{1cm}|p{3cm}|p{3cm}|}
+%  \hline
+%   \textbf{Folha} & \textbf{Linha}  & \textbf{Onde se lê}  & \textbf{Leia-se}  \\
+%    \hline
+%    1 & 10 & auto-conclavo & autoconclavo\\
+%   \hline
+%\end{tabular}
+%\end{table}
+
+%\end{errata}
+% ----------------------------------------------------------
+
+
+% ----------------------------------------------------------
+% Inserir folha de aprovação
+% ----------------------------------------------------------
+
+% Isto é um exemplo de Folha de aprovação, elemento obrigatório da NBR
+% 14724/2011 (seção 4.2.1.3). Você pode utilizar este modelo até a aprovação
+% do trabalho. Após isso, substitua todo o conteúdo deste arquivo por uma
+% imagem da página assinada pela banca com o comando abaixo:
+%
+% \includepdf{folhadeaprovacao_final.pdf}
+%
+%\begin{folhadeaprovacao}
+
+	%\begin{center}
+		%{\ABNTEXchapterfont\large\imprimirautor}
+
+		%\vspace*{\fill}\vspace*{\fill}
+		%\begin{center}
+			%\ABNTEXchapterfont\bfseries\Large\imprimirtitulo
+		%\end{center}
+		%\vspace*{\fill}
+
+		%\hspace{.45\textwidth}
+		%\begin{minipage}{.5\textwidth}
+			%\imprimirpreambulo
+		%\end{minipage}%
+		%\vspace*{\fill}
+	%%\end{center}
+
+	%\center Banca Examinadora
+	%\begin{center}
+		%\vspace*{0.5cm}
+		%\textbf{\imprimirorientador} \\ Orientador \\ Universidade Estadual Paulista "Júlio de Mesquita Filho" \\ Departamento de computação\\ Faculdade de Ciências \\
+	%\end{center}
+	%\begin{center}
+		%\vspace*{0.5cm}
+		%\textbf{Profa. Dra. Simone das Graças Domingues Prado} \\ Universidade Estadual Paulista "Júlio de Mesquita Filho" \\ Departamento de computação\\ Faculdade de Ciências \\
+	%\end{center}
+	%\begin{center}
+		%\vspace*{0.5cm}
+		%\textbf{Profa. Dra. Roberta Spolon} \\ Universidade Estadual Paulista "Júlio de Mesquita Filho" \\ Departamento de computação\\ Faculdade de Ciências \\
+	%\end{center}
+	%\assinatura{\textbf{Professor} \\ Convidado 3}
+	%\assinatura{\textbf{Professor} \\ Convidado 4}
+
+	%\begin{center}
+		%\vspace*{0.5cm}
+		%\par
+		%{Bauru, 07 de Fevereiro de 2017.}
+		%\vspace*{1cm}
+	%\end{center}
+
+%\end{folhadeaprovacao}
+% ----------------------------------------------------------
+
+
+% ----------------------------------------------------------
+% Dedicatória
+% ----------------------------------------------------------
+%\ifrelatorio
+	%\begin{dedicatoria}
+		%\vspace*{\fill}
+		%\centering
+		%\noindent
+		%\textit{ Este trabalho é dedicado às crianças adultas que,\\
+		%		quando pequenas, sonharam em se tornar cientistas.}
+		%\vspace*{\fill}
+	%\end{dedicatoria}
+%\fi
+% ----------------------------------------------------------
+
+
+% ----------------------------------------------------------
+% Agradecimentos
+% ----------------------------------------------------------
+%\iffinal
+	%\begin{agradecimentos}
+
+	%\end{agradecimentos}
+%\fi
+% ----------------------------------------------------------
+
+
+% ----------------------------------------------------------
+% Epígrafe
+% ----------------------------------------------------------
+%\iffinal
+	%\begin{epigrafe}
+		%\vspace*{\fill}
+		%	\begin{flushright}
+
+
+		%\textit{"Mundo mundo vasto mundo..."\\
+		%	(Carlos Drummond de Andrade)}
+		%%\textit{""\\
+		%		}
+		%\end{flushright}
+	%\end{epigrafe}
+%\fi
+% ----------------------------------------------------------
+
+
+% ----------------------------------------------------------
+% RESUMOS
+% ----------------------------------------------------------
+\ifresumo
+	% resumo em português
+	\setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
+	\begin{resumo}
+			Teste
+
+		\textbf{Palavras-chave}: Teste. Teste
+
+	\end{resumo}
+
+	% resumo em inglês
+	\begin{resumo}[Abstract]
+	 	\begin{otherlanguage*}{english}
+
+		Test. Test.
+
+		\textbf{Keywords}: Test. Test.
+		\end{otherlanguage*}
+	\end{resumo}
+
+\fi
+% ----------------------------------------------------------
+
+
+% ----------------------------------------------------------
+% inserir lista de ilustrações
+% ----------------------------------------------------------
+\iffinal
+	\pdfbookmark[0]{\listfigurename}{lof}
+	\listoffigures*
+	\cleardoublepage
+\fi
+% ----------------------------------------------------------
+
+
+% ----------------------------------------------------------
+% inserir lista de tabelas
+% ----------------------------------------------------------
+\iffinal
+	\pdfbookmark[0]{\listtablename}{lot}
+	\listoftables*
+	\cleardoublepage
+\fi
+% ----------------------------------------------------------
+
+
+% ----------------------------------------------------------
+% inserir lista de abreviaturas e siglas
+% ----------------------------------------------------------
+\iffinal
+	\begin{siglas}
+			\item[TXT] \textit{Texto}
+			\item[AWS] \textit{Amazon Web Services}
+	\end{siglas}
+\fi
+% ----------------------------------------------------------
+
+
+% ----------------------------------------------------------
+% inserir lista de símbolos
+% ----------------------------------------------------------
+%\iffinal
+%	\begin{simbolos}
+%			\item[$ \Gamma $] Letra grega Gama
+%			\item[$ \Lambda $] Lambda
+%			\item[$ \zeta $] Letra grega minúscula zeta
+%			\item[$ \in $] Pertence
+%	\end{simbolos}
+%\fi
+% ----------------------------------------------------------
+
+
+% ----------------------------------------------------------
+% inserir o sumario
+% ----------------------------------------------------------
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+% ----------------------------------------------------------
+
+
+
+% ----------------------------------------------------------------------------------------------------------------------------------
+
+
+
+% ----------------------------------------------------------------------------------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------------------------------------------------------------------------------
+\textual
+
+
+\include{introducao} % inclui o arquivo introducao.tex
+
+\include{fundamentacao} % inclui o arquivo fundamentacao.tex
+
+\include{metodologia} % inclui o arquivo metodologia.tex
+
+\include{cronograma}
+
+\include{conclusao} % inclui o arquivo conclusao.tex
+
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+
+% ----------------------------------------------------------
+% Referências bibliográficas
+% ----------------------------------------------------------
+\bibliography{referencias}
+% ----------------------------------------------------------
+
+\end{document}

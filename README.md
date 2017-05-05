@@ -1,3 +1,7 @@
-# tcc_gsmart
+# Sem nome ainda
+Este trabalho ainda não tem descrição.
 
-Using smartphones to measure people traffic - geomarketing
+## Tecnologias
+ - Latex
+ - MikTeX
+ - TeXnicCenter
