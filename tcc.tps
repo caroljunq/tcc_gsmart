@@ -11,12 +11,18 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
+<<<<<<< HEAD
 NormalPos.right=1008
 NormalPos.bottom=361
+=======
+NormalPos.right=962
+NormalPos.bottom=296
+>>>>>>> 1a681f0326962133f2192cb4434d6e8601e03311
 Class=LaTeXView
-Document=introducao.tex
+Document=monografia.bbl
 
 [Frame0_View0,0]
+<<<<<<< HEAD
 TopLine=37
 Cursor=234
 
@@ -131,6 +137,14 @@ Cursor=564
 [SessionInfo]
 FrameCount=7
 ActiveFrame=3
+=======
+TopLine=67
+Cursor=3385
+
+[SessionInfo]
+FrameCount=1
+ActiveFrame=0
+>>>>>>> 1a681f0326962133f2192cb4434d6e8601e03311
 
 [Bookmarks]
 fundamentacao.tex=10 
