@@ -163,17 +163,74 @@ há diversificadas soluções partindo desde uso dessas imagens até o uso de em
 As soluções em TI que empregam o Wi-Fi para identificar pessoas são variadas. Por exemplo,
 uma área amplamente explorada em pesquisas é a localização de pessoas em
 ambientes fechados (\emph{indoor location}) que utiliza dispositivos móveis e emissão de sinais Wi-Fi \cite{Ferreira2016}
-\cite{Souza2016} \cite{Figuera2011}. No entanto, o uso dessa técnica como ferramenta para a realização o \emph{geomarketing} não
+\cite{Puhl2016} \cite{Figuera2011}. No entanto, o uso dessa técnica como ferramenta para a realização o \emph{geomarketing} não
 é amplamente desenvolvida na comunidade aberta, estando restrita principalmente a empresas de consultoria e serviços de TI, como citadas
 em \autoref{produtos-empresas}.
 
 Visto a baixa exploração do uso do Wi-Fi como ferramenta de \emph{geomarketing} em comunidade aberta, este trabalho pretende
 desenvolver um sistema que empregue a comunicação Wi-Fi para a contagem e identificação de pessoas e seus perfis para contribuir com uma
-ferramenta de \emph{geomarketing} \emph{opensource}.
+ferramenta de \emph{geomarketing} \emph{opensource}. Além disso, como o foco é da ferramenta é poder aplicá-la em zonas aberta e fechadas, a utilização
+do Wi-Fi permite isso, abrangendo pequenas e grandes áreas.
+
+\section{Internet das Coisas (IoT)}
+A Internet das Coisas (em inglês, Internet of Things - IoT) é uma expressão criada por Kevin Ashton,  "um pioneiro tecnológico britânico que concebeu um sistema de sensores onipresentes
+conectando o mundo físico à Internet, enquanto trabalhava em identificação por rádio frequência (RFID)" \cite{Amazon2017}. De acordo com
+\citeonline{Ashton2009}, até 2009, todos os 50 petabytes de dados na Internet foram capturados e disponibilizados por seres humanos digitando,
+pressionando botões digitalizando arquivos e códigos de barra, tirando fotos, etc. Ainda no mesmo pensamento, Ashton diz que os diagramas da Internet
+incluem roteadores e servidores, mas se esquecem dos principais roteadores: as pessoas. Essas tem tempo, atenção e precisão limitadas, então
+não são muito bons em capturar dados sobre coisas do mundo real. Segundo ele, nosso mundo é feito por coisas, então por quê não dar a capacidade
+delas contarem o que se passa com elas e ao seu redor?
+
+A Internet das Coisas "conecta objetos à Internet, gerando dados e informações" \cite{Cisco2017}. Alguns exemplos de soluções IoT são:
+\emph{smarthomes}, pulseiras de exercícios controladas por aplicações em \emph{smartphones}, \emph{wearables}, controle de cadeia de suprimentos
+e/ou produção com o uso de RFID, entre outros. Portanto, são objetos contando "como é ver, ouvir e cheirar o mundo" \cite{Ashton2009}.
+
+Este trabalho utiliza o conceito de IoT na escolha de dispositivos móveis como meio de identificação e fonte de informação de pessoas.
+
+\subsection{Número e uso de dispositivos}
+
+A abundância de dispositivos móveis por pessoas tende a crescer cada vez mais. Segundo a \citeonline{Ciscoblogs} até 2013, havia 80 "coisas"
+se conectando por segundo na Internet, e até 2020 serão 250 "coisas" se conectando. Ainda nessa pesquisa, revela-se que haverão em média
+50 bilhões de dispositivos conectados até 2020. Já a \citeonline{Gartner2014} estima que até 2020 haverão 20.8 milhões de dispositivos.
+Até o final de 2016 foram estimados 6,4 bilhões de dispositivos conectados \cite{Gartner2014}. Como pode ser visto, a \autoref{cisco2011}
+revela que até 2020 serão quase 7 "coisas" conectadas por pessoa.
+
+\begin{figure}[htb]
+  \caption{\label{cisco2011}Número de dispositivos conectados - Cisco IBSG 2011}
+  \begin{center}
+    \includegraphics[width=0.70\textwidth]{img/cisco-2011.png}
+  \end{center}
+  \legend{Fonte: \cite{Evans2011}.}
+\end{figure}
+
+Apesar de expressiva a diferença entre as estimativas anteriores, ambas revelam o aumento do uso de dispositivos conectados.
+A pesquisa da \citeonline{Cisco2017a} pode revelar mais sobre o crescimento do uso e o tipo de "coisas". Segundo essa pesquisa,
+como mostra a \autoref{cisco-2017}, desde
+2016 até 2021, o maior de tráfego de exabytes por mês é de \emph{smartphones}.
+
+\begin{figure}[htb]
+  \caption{\label{cisco-2017}Tráfego mundial de dispositivos móveis por tipo}
+  \begin{center}
+    \includegraphics[width=0.70\textwidth]{img/cisco-2017.png}
+  \end{center}
+  \legend{Fonte: \cite{Cisco2017a}.}
+\end{figure}
+
+Segundo a \citeonline{Teleco}, ela aponta que na pesquisa da IDC Brasil
+no último trimestre de 2016 foram vendidos 48,4 milhões de dispositivos no Brasil, sendo 4,9 celulares tradicionais e 43,5 smartphones. Apesar
+de haver que de vendas nos últimos anos de \emph{smartphones}, a proporção de venda ainda é maior para este tipo de dispositivo.
+
+\subsection{Dispositivo móveis como ``coisas''}
+Assim como os RFID passivos utilizados em uma cadeias de suprimentos para identicar produtos que vão num caminhão, ou como os códigos de barras
+que fornecem ao operador de caixa informações sobre um produto, os dispositivos móveis, como os \emph{smartphones}, serão utilizados
+como "coisas" neste trabalho. Tendo em vista que a proporção de \emph{smartphones} é maior que a de celulares tradicionais no Brasil e em
+todo o mundo, considera-se esse equipamento de uso comum. Além disso, esses dispositivos móveis fornecem informação pública passiva
+através da rede Wi-Fi e independem da fabricante para serem detectados numa rede. Portanto, este artefato será utilizado como meio
+de identificação das pessoas e fonte de dados para a construção do perfil dos mesmos.
 
 \section{Trabalhos correlatos}
 Este subcapítulo apresenta algumas soluções que
-empregam o tráfego de usuários como técnica de \emph{geomarketing}.
+empregam a detecção de dispositivos móveis por sinais Wi-Fi.
 
 \subsection{Cidade Jardim}
 A Zebra Technologies é uma empresa internacional
