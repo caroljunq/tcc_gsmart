@@ -2,6 +2,7 @@
 Type=TeXnicCenterProjectSessionInformation
 Version=2
 
+<<<<<<< HEAD
 [Frame0]
 Flags=0
 ShowCmd=1
@@ -20,12 +21,12 @@ Document=introducao.tex
 TopLine=43
 Cursor=3479
 
+=======
+>>>>>>> 45010f225c92804f194f4c00805806150133349d
 [SessionInfo]
-FrameCount=1
-ActiveFrame=0
+FrameCount=0
+ActiveFrame=-1
 
 [Bookmarks]
-fundamentacao.tex=10 122 
-introducao.tex=27 
-referencias.bib=27 35 
+monografia.bbl=12 
 
