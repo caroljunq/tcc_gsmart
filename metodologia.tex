@@ -3,8 +3,6 @@
 \label{metodologia}
 Este capítulo descreve o modo como a construção do sistema proposto na \autoref{objetivos} será conduzida.
 
-Este artigo visa inicialmente desenvolver os primeiros testes em ambiente controlado, numa área pequena e com poucos dispositivos móveis, para verificar o comportamento do software desenvolvido na medição de  frequência. Após testes iniciais, pretende-se encontrar uma organização parceira que esteja dentro das especificações necessárias e deseje conhecer melhor seu público alvo, cedendo seu espaço e sua rede para alguns procedimentos e testes com o aparelho a ser desenvolvido - nessa etapa, o projeto busca realmente verificar o desempenho do software em ambiente real, com maior quantidade de dispositivos móveis e de fabricantes.
-
 \section{Tecnologias utilizadas}
 A escolhas das tecnologias seguem de acordo com a arquitetura do sistema.
 
@@ -13,7 +11,7 @@ Para a detecção de dispositivos móveis será utilizado um Raspberry Pi Model 
 pois oferece interface amigável de programação (Debian Jessie); possui poder de processamento para receber os milhares de pacotes, pré-processá-los
 e enviar para a \emph{cloud}; possui entradas USB que podem receber um modem 3G e entrada Ethernet e seu tamanho pequeno \cite{rpi2017}. Apesar de possuir
 antena Wi-Fi, o adaptador será usado para ampliar a área de cobertura do sinal. Já foram adquiridos dois aparelhos e dois adaptadores, então
-nenhum custo de harware será necessário.
+nenhum custo de hardware será necessário.
 
 Outras opções foram consideradas por serem baratas, acessíveis e terem documentação aberta. Foi o caso do ESP8266 que é possui um tamanho extremamente
 reduzido e possui o custo médio de R\$15,00 \cite{Embarcados2015}, mas seu uso para este trabalho fica impossibilitado. Isso
@@ -23,19 +21,18 @@ ocorre, pois essa tecnologia não consegue ser habilitada para o modo monitor da
 \subsection{Comunicação Wi-Fi}
 A comunicação entre dispositivos móveis e o sensor será feita através do protocolo de rede Tshark \cite{Wireshark2017}. Este é uma versão de terminal do protocolo
 analisador de rede Wireshark \cite{Wireshark2017a}. Esses protocolos permitem realizar o estudo da rede a partir do recebimento de pacotes e seus campos. Por
-ser uma tecnologia aberta e iniciada em 1998, possui ampla documentação e maturidade, tanto que detectar aparelho na rede através dessa comunicação
-está presente em trabalhos como \citeonline{Puhl2016} e \citeonline{Ferreira2016}.
+ser uma tecnologia aberta e iniciada em 1998, possui ampla documentação e maturidade, tanto que detectar aparelhos na rede através dessa comunicação
+está presente em trabalhos como o de \citeonline{Puhl2016} e de \citeonline{Ferreira2016}.
 
 \subsection{Objeto identificador}
 O objeto que distinguirá as pessoas para a contagem será seu dispositivo móvel. Os motivos pela escolha são apresentado na \autoref{dispositivo-coisa}.
 
 \subsection{Processamento}
-Com o poder de processamento do Raspberry Pi um pré-processamento dos dados captados será feito. Estes então serão enviados ao servidor onde
+Com o poder de processamento do Raspberry Pi, um pré-processamento dos dados captados será feito. Estes então serão enviados ao servidor onde
 ocorrerá o agrupamento para fins estatísticos. O servidor ainda precisa ser adquirido.
 
 \subsubsection{Interface}
 Para apresentar os dados estatísticos sobre o tráfego de pessoas e seus perfis, uma interface será desenvolvida.
-
 
 \section{Pontos de Entrega}
 \label{pontos-entrega}
@@ -44,36 +41,45 @@ Os módulos assemelham-se à arquitetura do sistema proposto. Os módulos a sere
   \item \textbf{Módulo Sensor:} a detecção de aparelhos móveis pelo Raspberry Pi;
   \item \textbf{Módulo Pré-processamento:} os dados captados pelo sensor estão prontos para serem enviados ao servidor;
   \item \textbf{Módulo Servidor:} preparação do servidor para receber os dados do sensor;
-  \item \textbf{Módulos Integração:}integração da comunicação do Raspberry Pi e do Servidor, ou seja, transmissão de dados;
-  \item \textbf{Módulo Interface:}conectar servidor e interface apresentando os dados recolhidos.
+  \item \textbf{Módulos Integração:} integração da comunicação do Raspberry Pi e do Servidor, ou seja, transmissão de dados;
+  \item \textbf{Módulo Interface:} conectar servidor e interface apresentando os dados recolhidos.
 \end{itemize}
 
 \section{Testes e validação do projeto}
-Para a validação do sistema proposto serão realizados teste de "caixa-branca" e "caixa-preta". Os testes de caixa-preta incluem testar:
+Para a validação do sistema proposto serão realizados testes de "caixa-branca" e "caixa-preta". Os testes de caixa-preta incluem testar:
 \begin{itemize}
-  \item a comunicação entre sensor e dispositivos móveis;
+  \item a comunicação entre sensor e os dispositivos móveis;
   \item comunicação entre Raspberry Pi e servidor;
   \item se os dados capturados são os desejados;
-  \item se o processamento dos dados capturados estao corretos.
-  \item comunicação servido e interface.
+  \item se o processamento dos dados capturados estão corretos.
+  \item comunicação servidor e interface.
 \end{itemize}
 
 Já os testes de caixa-branca são resumidos na usabilidade do sistema. Ambiente controlados e não controlados serão selecionados
 para testar a precisão na determinação do tráfego de pessoas e dos perfis, então validar se o sistema proposto funciona ou não.
 O sistema final vai ser considerado aplicável ou não como técnica de geomarketing caso uma margem de erro a ser determinada fique dentro
-dos limites. Os ambientes controlados correspodem a locais em que sei o número de pessoas passando a cada instante e qual o modelo de celular
+dos limites. Os ambientes controlados correspondem a locais em que sei o número de pessoas passando a cada instante e qual o modelo de celular
 de cada uma. Já os ambientes não controlados são locais onde o tráfego e contagem será feita de maneira manual e comparada a do sistema.
+
+Inicialmente, visa-se desenvolver os primeiros testes em ambiente
+controlado, numa área pequena e com poucos dispositivos móveis, para verificar o
+comportamento do sistema desenvolvido na medição do tráfego. Após testes
+iniciais, pretende-se encontrar uma organização parceira que esteja dentro das
+especificações necessárias e deseje conhecer melhor seu público alvo, cedendo
+seu espaço e sua rede para alguns procedimentos e testes com a aplicação proposta
+ - nessa etapa, o projeto busca verificar o desempenho do
+sistema em ambiente real, com maior quantidade de dispositivos móveis e de
+fabricantes.
 
 \section{Análise de Riscos}
 Considerando as premissas dos tópicos anteriores, há alguns itens e áreas que podem sofrer desvios ao longo do trabalho. Estes itens e seus planos
 de contingência respectivamente são:
 
 \begin{itemize}
-  \item Falha da detecção de dispositivos (precisão): serão feitas duas formas de detecção através do protocolo Tshark, as duas garante que os dados
-  de uma e outra são verídicos, caso uma falhe há a outra para detectar o aparelho;
+  \item Falha da detecção de dispositivos (precisão): serão feitas duas formas de detecção através do protocolo Tshark, as duas garantem que os dados
+  de uma e outra são verídicos, caso uma falhe há a outra para detectar os aparelhos móveis;
   \item Processamento no servidor é complexa: caso o desenvolvimento do processamento de dados no servidor seja muito complexa e considerando
   que trabalharemos com estatísticas, optar por uma \emph{cloud} seria uma opção;
-  \item Raspberry Pi perder a conexão com a rede para mandar dados ao servidor: uma backup dos dados será feita no aparelho, e então quando
-  a conexão retornar, esses dados serão enviado ao servidor. Também há a possibilidade do uso de um Modem 3G para garantir o envio;
-  \item Não haver tempo para o desenvolvimento da interface: caso isso ocorra, haverá o processamento de dados, mas sem a apresentação de uma interface final.
+  \item Raspberry Pi perder a conexão com a rede para mandar dados ao servidor: um backup dos dados será feita no aparelho, e então quando
+  a conexão retornar, esses dados serão enviado ao servidor. Também há a possibilidade do uso de um Modem 3G para garantir o envio.
 \end{itemize}
