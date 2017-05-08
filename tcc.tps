@@ -12,12 +12,12 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=4
 NormalPos.right=1362
-NormalPos.bottom=334
+NormalPos.bottom=477
 Class=LaTeXView
 Document=introducao.tex
 
 [Frame0_View0,0]
-TopLine=30
+TopLine=43
 Cursor=3479
 
 [SessionInfo]
