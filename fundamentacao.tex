@@ -4,14 +4,14 @@
 \section{Geomarketing}
 \label{Geom}
 Segundo \citeonline{Sergio2005}, \emph{Geomarketing} é o nome dado à área de
-gerenciamento de informação que incorpora as dimensões espaciais para auxilio à
++gerenciamento de informação que incorpora as dimensões espaciais para auxílio à
 tomada de decisões dentro do domínio específico de mercado, o que permite
 levantar as características de uma determinada região e analisar seu potencial
 sócio-econômico. Pode ser entendido, assim, como uma ferramenta de análise
 estatística de dados, com intuito de localizar padrões que possam ser utilizados
 e combinados na elaboração de indicadores, perfis de consumo e estratégias de
 negócios, de modo a gerar informação relevante na tomada de decisões.
-Geralmente, o serviço é oferecido por consultorias especializadas - o  objetivo
++Geralmente, o serviço é oferecido por consultorias especializadas - o  objetivo
 da empresa  contratante é a melhoria no desempenho de seu negócio.
 
 O termo \emph{Geomarketing} é ainda pouco conhecido no Brasil, no entanto cada
@@ -21,8 +21,7 @@ de localização geográfica evoluiu e alcançou importância dentro da estraté
 expansão das empresas: grupos como Coca-Cola e O Boticário usam o marketing
 geográfico e pequenas e médias empresas já começam a mirar em sistemas de busca
 com foco na geolocalização. Podemos citar como exemplo de pequeno negócio a
-empregar análise de \emph{Geomarketing} um restaurante voltado à alimentação saudável
-em Natal/ RN - o objetivo foi verificar a distribuição geográfica de clientes e
+empregar análise de \emph{Geomarketing} um restaurante voltado à alimentação saudável em Natal/ RN - o objetivo foi verificar a distribuição geográfica de clientes e
 mapear áreas de influência para conhecer melhor a demanda do mercado. De acordo
 com \citeonline{Seabra2014}, esta investigação permitiu uma compreensão do
 fenômeno da área de influência e de variáveis que modelam seu comportamento. O
@@ -115,6 +114,7 @@ as pesquisas diferenciam-se por técnicas de computação utilizadas. Alguns exe
   ambientes de multidão e processamento em tempo real.
 
 \subsection{Produtos na área empresarial}
+\label{produtos-empresas}
 Esta seção apresenta alguns contadores de algumas empresas. Na \autoref{density}, a empresa Density oferece a contagem a partir de um
 dispositivo localizado no topo da entrada que processa imagens 2D \cite{Density2017}. Já na \autoref{axper}, a empresa Axper além de oferecer
 o processamento de imagens 2D como a Density, oferece também um dispositivo que processa imagens 3D, cobrindo todo o ambiente \cite{Axper2017}.
@@ -155,8 +155,21 @@ mostra as soluções que processam imagens e a temperatura para identificar os c
   \legend{Fonte: \cite{V-Count2017}.}
 \end{figure}
 
-\subsection{Motivos de adoção}
-Os motivos que levam uma organização a adotar as ferramentas de contagem de pessoas são:
+%\subsection{Motivos de adoção} ISSo AQUI VAMOS COLOCAR DEPOIS SE NÃO NAO DÀ TEMPO
+%Os motivos que levam uma organização a adotar as ferramentas de contagem de pessoas são:
+\subsection{Escolha da forma de contagem}
+Foi observado que as principais pesquisas de técnicas para a contagem de pessoas abordam o processamento de imagens e vídeo. Já no âmbito empresarial,
+há diversificadas soluções partindo desde uso dessas imagens até o uso de emissão de sinais Wi-Fi.
+As soluções em TI que empregam o Wi-Fi para identificar pessoas são variadas. Por exemplo,
+uma área amplamente explorada em pesquisas é a localização de pessoas em
+ambientes fechados (\emph{indoor location}) que utiliza dispositivos móveis e emissão de sinais Wi-Fi \cite{Ferreira2016}
+\cite{Souza2016} \cite{Figuera2011}. No entanto, o uso dessa técnica como ferramenta para a realização o \emph{geomarketing} não
+é amplamente desenvolvida na comunidade aberta, estando restrita principalmente a empresas de consultoria e serviços de TI, como citadas
+em \autoref{produtos-empresas}.
+
+Visto a baixa exploração do uso do Wi-Fi como ferramenta de \emph{geomarketing} em comunidade aberta, este trabalho pretende
+desenvolver um sistema que empregue a comunicação Wi-Fi para a contagem e identificação de pessoas e seus perfis para contribuir com uma
+ferramenta de \emph{geomarketing} \emph{opensource}.
 
 \section{Trabalhos correlatos}
 Este subcapítulo apresenta algumas soluções que
