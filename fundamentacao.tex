@@ -110,7 +110,7 @@ as pesquisas diferenciam-se por técnicas de computação utilizadas. Alguns exe
   os ruídos. Depois, estima-se o número de pessoas através de "ombro-cabeça". Por fim, para reduzir as oclusões,
   há um filtro que separa quadro por quadro do vídeo e faz um tratamento. Já o segundo, foca em subtrair o fundo, estima
   o número de pessoas e utiliza técnicas para identificar as pessoas em imagens de baixa resolução;
-  
+
   \item \textbf{Múltiplos recursos:} os artigos de \citeonline{Venkatesh2015} e \citeonline{Ma2012} consideram múltiplos recursos para contar pessoas
   em ambientes densos. O primeiro utiliza, principalmente, técnicas matemáticas e técnicas de filtros e imagens para estimar. Já o segundo, utiliza
   múltiplas câmeras e vários níveis de textura para lidar com aparência humana e posições.
@@ -131,7 +131,7 @@ o processamento de imagens 2D como a Density, oferece também um dispositivo que
   \begin{center}
     \includegraphics[width=0.40\textwidth]{img/density.png}
   \end{center}
-  \legend{Fonte: \cite{Density2017}.}
+  \legend{Fonte: \citeonline{Density2017}.}
 \end{figure}
 
 \begin{figure}[htb]
@@ -139,10 +139,10 @@ o processamento de imagens 2D como a Density, oferece também um dispositivo que
   \begin{center}
     \includegraphics[width=0.70\textwidth]{img/axper.png}
   \end{center}
-  \legend{Fonte: \cite{Axper2017}.}
+  \legend{Fonte: \citeonline{Axper2017}.}
 \end{figure}
 
-A empresa \cite{V-Count2017} oferece soluções de contagem a partir de imagens termais e sinais Wi-Fi. Na \autoref{v-count1}, a contagem ocorre por um
+A empresa \citeonline{V-Count2017} oferece soluções de contagem a partir de imagens termais e sinais Wi-Fi. Na \autoref{v-count1}, a contagem ocorre por um
 aparelho fixado na entrada da loja que recebe sinais dos dispositivos móveis das pessoas que passam em frente. Já a \autoref{v-count2}
 mostra as soluções que processam imagens e a temperatura para identificar os clientes e seus hábitos.
 
@@ -151,7 +151,7 @@ mostra as soluções que processam imagens e a temperatura para identificar os c
   \begin{center}
     \includegraphics[width=0.70\textwidth]{img/v-count.png}
   \end{center}
-  \legend{Fonte: \cite{V-Count2017}.}
+  \legend{Fonte: \citeonline{V-Count2017}.}
 \end{figure}
 
 \begin{figure}[htb]
@@ -159,25 +159,25 @@ mostra as soluções que processam imagens e a temperatura para identificar os c
   \begin{center}
     \includegraphics[width=0.70\textwidth]{img/termal-vcount.png}
   \end{center}
-  \legend{Fonte: \cite{V-Count2017}.}
+  \legend{Fonte: \citeonline{V-Count2017}.}
 \end{figure}
 
 %\subsection{Motivos de adoção} ISSo AQUI VAMOS COLOCAR DEPOIS SE NÃO NAO DÀ TEMPO
 %Os motivos que levam uma organização a adotar as ferramentas de contagem de pessoas são:
 \subsection{Escolha da forma de contagem}
 Foi observado que as principais pesquisas de técnicas para a contagem de pessoas abordam o processamento de imagens e vídeo. Já no âmbito empresarial,
-há diversificadas soluções partindo desde uso dessas imagens até o uso de emissão de sinais Wi-Fi.
-As soluções em TI que empregam o Wi-Fi para identificar pessoas são variadas. Por exemplo,
+há diversificadas soluções partindo desde o uso dessas imagens até o uso de emissão de sinais Wi-Fi.
+As soluções em TI que empregam as redes sem fio para identificar pessoas são variadas. Por exemplo,
 uma área amplamente explorada em pesquisas é a localização de pessoas em
-ambientes fechados (\emph{indoor location}) que utiliza dispositivos móveis e emissão de sinais Wi-Fi \cite{Ferreira2016}
-\cite{Puhl2016} \cite{Figuera2011}. No entanto, o uso dessa técnica como ferramenta para a realização o \emph{geomarketing} não
+ambientes fechados (\emph{indoor location}) que utiliza dispositivos móveis e emissão de sinais \emph{wireless} \cite{Ferreira2016}
+\cite{Puhl2016} \cite{Figuera2011}. No entanto, o uso da técnica de contagem por Wi-Fi como ferramenta do \emph{geomarketing} não
 é amplamente desenvolvida na comunidade aberta, estando restrita principalmente a empresas de consultoria e serviços de TI, como citadas
-em \autoref{produtos-empresas}.
+na \autoref{produtos-empresas}.
 
 Visto a baixa exploração do uso do Wi-Fi como ferramenta de \emph{geomarketing} em comunidade aberta, este trabalho pretende
-desenvolver um sistema que empregue a comunicação Wi-Fi para a contagem e identificação de pessoas e seus perfis para contribuir com uma
-ferramenta de \emph{geomarketing} \emph{opensource}. Além disso, como o foco é da ferramenta é poder aplicá-la em zonas aberta e fechadas, a utilização
-do Wi-Fi permite isso, abrangendo pequenas e grandes áreas.
+desenvolver um sistema que empregue esse tipo de comunicação para a contagem e identificação de pessoas e seus perfis. A escolha da comunicação
+sem fio ocorreu também devido sua grande área de cobertura, pois o tema de indicar pessoas
+em multidões foi apontado como tendência de pesquisa.
 
 \section{Internet das Coisas (IoT)}
 A Internet das Coisas (em inglês, Internet of Things - IoT) é uma expressão criada por Kevin Ashton,  "um pioneiro tecnológico britânico que concebeu um sistema de sensores onipresentes
