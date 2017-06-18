@@ -252,16 +252,8 @@ empregam a detecção de dispositivos móveis por sinais Wi-Fi e utilizam como f
 de \emph{geomarketing}.
 
 \subsection{Cidade Jardim}
-A Zebra Technologies é uma empresa internacional
-líder em fornecer serviços e soluções que permitem às organizações observarem
-suas operações em tempo real. As áreas de atuação da empresa se diversificam:
-saúde, transporte e logística, inteligência, localização e \emph{e-commerce}.
-Como soluções, a empresa oferece produtos que utilizam tecnologias, como: RFID,
-computadores móveis, leitor de código de barras, quiosques interativos,
-software, impressoras, entre outros. Já serviços, a Zebra oferece planejamento e
-execução de projetos para identificação e rastreamento computadorizado.
 
-Em 2016, a empresa implantou no Shopping Cidade Jardim em São Paulo o seu
+Em 2016, a empresa Zebra Technologies implantou no Shopping Cidade Jardim, em São Paulo, o seu
 projeto MPact. Este oferece aos clientes acesso gratuito à Internet e, quando esses indivíduos estão
 conectados, consegue a localização do consumidor em três níveis: zona, posição e
 presença. Com estas informações, é possível saber sobre uma determinada pessoa:
@@ -288,7 +280,7 @@ número de veículos em tempo real passando em certo ponto, média de tempo que
 veículo fica parado, média de velocidade e tempos de viagem em rotas
 alternativas quando congestionamento é detectado.
 
-Através de sinais Wi-fi e Bluetooth, os dispositivos detectados não precisam
+Os dispositivos detectados não precisam
 estar conectados a nenhum AP, possibilitando a detecção de qualquer um
 independente da fabricante. Já veículos são detectados até 100 km/h. O objetivo
 principal deste produto é medir a quantidade de pessoas e carros num determinado
@@ -300,7 +292,7 @@ funcionamento do produto.
 \begin{figure}[htb]
   \caption{\label{meshlium-celulares}Detecção de \emph{smartphones}}
   \begin{center}
-    \includegraphics[width=0.70\textwidth]{img/meshlium-celulares.png}
+    \includegraphics[width=0.60\textwidth]{img/meshlium-celulares.png}
   \end{center}
   \legend{Fonte: \citeonline{libelium}.}
 \end{figure}
@@ -308,7 +300,11 @@ funcionamento do produto.
 \begin{figure}[htb]
   \caption{\label{meshlium-carros}Detecção de veículos}
   \begin{center}
-    \includegraphics[width=0.70\textwidth]{img/meshlium-carros.png}
+    \includegraphics[width=0.60\textwidth]{img/meshlium-carros.png}
   \end{center}
   \legend{Fonte: \citeonline{libelium}.}
 \end{figure}
+
+\subsection{How many people are around}
+``How many people are around'' (em inglês, quantas pessoas estão ao redor) é um projeto encontrado no Github do usuário \citeonline{Schollz2017} que utiliza um \emph{cluster} de Raspberry Pi's para calcular o número de pessoas próximas e/ou dentro de casa. Para tanto, ele utiliza o protocolo de análise Tshark para detectar Wi-Fi \emph{probe requests} de \emph{smartphones} e a linguagem Python. Além disso, os dados capturados podem ser observados em forma de gráfico.
+
