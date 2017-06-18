@@ -182,28 +182,14 @@ desenvolver um sistema que empregue esse tipo de comunicação para a contagem e
 sem fio ocorreu também devido sua grande área de cobertura, pois o tema de identificar indivíduos
 em multidões foi apontado como tendência de pesquisa.
 
-\section{Internet das Coisas (IoT)}
-A Internet das Coisas (em inglês, Internet of Things - IoT) é uma expressão criada por Kevin Ashton,  "um pioneiro tecnológico britânico que concebeu um sistema de sensores onipresentes
-conectando o mundo físico à Internet, enquanto trabalhava em identificação por rádio frequência (RFID)" \cite{Amazon2017}. De acordo com
-\citeonline{Ashton2009}, até 2009, todos os 50 petabytes de dados na Internet foram capturados e disponibilizados por seres humanos digitando,
-pressionando botões, digitalizando arquivos e códigos de barra, tirando fotos, etc. Ainda no mesmo pensamento, Ashton diz que os diagramas da Internet
-incluem roteadores e servidores, mas se esquecem dos principais roteadores: as pessoas. Estas têm tempo, atenção e precisão limitadas, então
-não são muito boas em capturar dados sobre coisas do mundo real. Segundo ele, se nosso mundo é feito por coisas, então por quê não dar a capacidade
-delas contarem o que se passa com elas e ao seu redor?
 
-A Internet das Coisas "conecta objetos à Internet, gerando dados e informações"  \cite{Cisco2017}. Alguns exemplos de soluções IoT são:
-\emph{smarthomes}, pulseiras de exercícios controladas por aplicações em \emph{smartphones}, \emph{wearables}, controle de cadeia de suprimentos
-e/ou produção com o uso de RFID, entre outros. Portanto, são objetos contando "como é ver, ouvir e cheirar o mundo"  \cite{Ashton2009}.
+\section{Número e uso de dispositivos}
 
-Este trabalho utiliza o conceito de IoT na escolha de dispositivos móveis como meio de reconhecimento e fonte de informação de pessoas.
-
-\subsection{Número e uso de dispositivos}
-
-A abundância de dispositivos móveis por pessoas tende a crescer cada vez mais. Segundo a \citeonline{Ciscoblogs} até 2013, havia 80 ``coisas''
-se conectando por segundo na Internet, e até 2020 serão 250 ``coisas'' se conectando. Ainda nessa pesquisa, revela-se que haverão em média
+A abundância de dispositivos móveis por pessoas tende a crescer cada vez mais. Segundo a \citeonline{Ciscoblogs} até 2013, havia 80 dispositivos
+se conectando por segundo na Internet, e até 2020 serão 250 se conectando. Ainda nessa pesquisa, revela-se que haverão em média
 50 bilhões de dispositivos conectados até 2020. Já a \citeonline{Gartner2014} estima que até 2020 haverão 20.8 milhões de dispositivos.
 Até o final de 2016 foram estimados 6,4 bilhões de dispositivos conectados \cite{Gartner2014}. Como pode ser visto, a \autoref{cisco2011}
-revela que até 2020 serão quase 7 ``coisas'' conectadas por pessoa.
+revela que até 2020 serão quase 7 aparelhos conectados por pessoa.
 
 \begin{figure}[htb]
   \caption{\label{cisco2011}Número de dispositivos conectados - Cisco IBSG 2011}
@@ -214,7 +200,7 @@ revela que até 2020 serão quase 7 ``coisas'' conectadas por pessoa.
 \end{figure}
 
 Apesar de expressiva a diferença entre as estimativas anteriores, ambas revelam o aumento do uso de dispositivos conectados.
-A pesquisa da \citeonline{Cisco2017a} pode revelar mais sobre o crescimento do uso e o tipo de "coisas". Segundo essa pesquisa,
+A pesquisa da \citeonline{Cisco2017a} pode revelar mais sobre o crescimento do uso e o tipo de aparelhos. Segundo essa pesquisa,
 como mostra a \autoref{cisco-2017}, desde
 2016 até 2021, o maior de tráfego de exabytes por mês é e será de \emph{smartphones}.
 
@@ -226,7 +212,7 @@ como mostra a \autoref{cisco-2017}, desde
   \legend{Fonte: \citeonline{Cisco2017a}.}
 \end{figure}
 
-Segundo a \citeonline{Teleco}, ela aponta que na pesquisa da IDC Brasil
+Segundo a \citeonline{Teleco}, na pesquisa da IDC Brasil
 no último trimestre de 2016 foram vendidos 48,4 milhões de dispositivos no Brasil, sendo 4,9 milhões de celulares tradicionais e 43,5
 milhões de smartphones. Apesar
 de haver queda de vendas nos últimos anos de \emph{smartphones}, a proporção de vendas ainda é maior para este tipo de aparelho. Já o total
@@ -240,14 +226,24 @@ de celulares no Brasil, em março de 2017, é de aproximadamente 242 milhões, c
   \legend{Fonte: \citeonline{Teleco}.}
 \end{figure}
 
-\subsection{Dispositivos móveis como ``coisas''}
+\section{Dispositivo móvel como objeto identificador}
 \label{dispositivo-coisa}
 Assim como os RFIDs passivos utilizados em uma cadeia de suprimentos para identificar produtos que vão num caminhão, ou como os códigos de barras
 que fornecem ao operador de caixa informações sobre um produto, os dispositivos móveis, como os \emph{smartphones}, serão utilizados
-como "coisas" neste trabalho. Tendo em vista que a proporção de \emph{smartphones} é maior que a de celulares tradicionais no Brasil e, em
+como objetos identificadores neste trabalho. Tendo em vista que a proporção de \emph{smartphones} é maior que a de celulares tradicionais no Brasil e, em
 todo o mundo, considera-se esse equipamento de uso comum. Além disso, esses dispositivos móveis fornecem informação pública passiva
 através da rede Wi-Fi e independem da fabricante para serem detectados numa rede - portanto, serão utilizados como meio
-de identificação das pessoas e fonte de dados para a construção do perfil dos mesmos.
+de identificação das pessoas.
+
+\section{Modo Monitor}
+\label{modo-monitor}
+Para que um dispositivo móvel seja identificado independente de qualquer rede ou AP, é essencial que o sistema de detecção possua uma placa e/ou adaptador de rede (NIC) que possa ser habilitado para o modo monitor.
+
+Geralmente, uma interface de rede qualquer captura pacotes dos tipos \emph{managed} e \emph{beacons} que são originados por APs. Estes pacotes são transmitidos
+muitas vezes por segundo por APs para indicar quais redes estão realizando \emph{broadcasting}. O modo monitor (\emph{monitor mode}) é um modo de operação em que um NIC consegue capturar todos os tipos de pacotes sem estar associado a um AP \cite{Acrylic} \cite{Wireshark2017b}. Dessa forma, é possível capturar todos os tipos, como os de \emph{probe request} que são enviados de dispositivos móveis para pontos de acesso para saber quais redes próximas estão disponíveis para se conectar.
+
+Neste trabalho, um Raspberry Pi com um adaptador Wi-Fi habilitado no modo monitor captura pacotes \emph{probe request} de \meph{smartphones}
+para que ocorra a identificação de indivíduos.
 
 \section{Trabalhos correlatos}
 \label{trabalhos-correlatos}
