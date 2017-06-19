@@ -3,48 +3,65 @@
 \label{metodologia}
 Este capítulo descreve o modo como a construção do sistema proposto na \autoref{objetivos} será conduzida.
 
-\section{Tecnologias utilizadas}
-A escolhas das tecnologias seguem de acordo com a arquitetura do sistema.
+\section{Arquitetura geral do sistema}
+O sistema proposto para medir o tráfego de pessoas dentro de uma determinada zona a partir de sinais Wi-Fi é baseado no esquema da \autoref{esquema-geral} que será explicado pelos itens a seguir.
 
-\subsection{Sensor}
-Para a detecção de dispositivos móveis será utilizado um Raspberry Pi Model 3 B juntamente com um adaptador Wi-Fi. O Raspberry foi escolhido,
-pois oferece interface amigável de programação (Debian Jessie); possui poder de processamento para receber os milhares de pacotes, pré-processá-los
-e enviar para a \emph{cloud}; possui entradas USB que podem receber um modem 3G e entrada Ethernet e seu tamanho pequeno \cite{rpi2017}. Apesar de possuir
-antena Wi-Fi, o adaptador será usado para ampliar a área de cobertura do sinal. Já foram adquiridos dois aparelhos e dois adaptadores, então
-nenhum custo de hardware será necessário.
+\begin{figure}[!h]
+  \caption{\label{esquema-geral}Arquitetura geral do sistema}
+  \begin{center}
+    \includegraphics[width=0.50\textwidth]{img/esquema_geral.png}
+  \end{center}
+  \legend{Fonte: Elaborada pelas autoras.}
+\end{figure}
 
-Outras opções foram consideradas por serem baratas, acessíveis e terem documentação aberta. Foi o caso do ESP8266 que é possui um tamanho extremamente
+\section{Detalhamento de processos}
+O esquema da \autoref{esquema-geral} expõe de maneira mais abstrata o funcionamento do sistema de medição de tráfego. Já o diagrama de fluxo da \autoref{diagrama-fluxo} apresenta os processos, entidades externas e repositórios de armazenamento que compõe o sistema. 
+
+\begin{figure}[!h]
+  \caption{\label{diagrama-fluxo}Processos e entidades do sistema}
+  \begin{center}
+    \includegraphics[width=0.70\textwidth]{img/diagrama_fluxo.png}
+  \end{center}
+  \legend{Fonte: Elaborada pelas autoras.}
+\end{figure}
+
+\section{\emph{Dispositivo Móvel} e \emph{Probe Request}}
+\label{smartphone-probe}
+Para encontrar redes a que possa se conectar, um dispositivo móvel emite de tempos em tempos (depende da fabricante) pacotes do tipo \emph{probe request} para os APs próximos \cite{Meraki}. Todos os APs que receberem, responderão ao dispositivo (\emph{probe response} ou \emph{received}), então o aparelho descobrirá as redes ao redor disponíveis para conexão.
+
+\section{Sensor}
+O sensor é responsável pela detecção de aparelhos e envio de dados ao servidor.
+
+\subsection{Raspberry Pi}
+Para a detecção de dispositivos móveis um Raspberry Pi Model 3 B juntamente com um adaptador Wi-Fi são utilizados. O Raspberry foi escolhido,
+pois oferece interface amigável de programação (Debian); possui poder de processamento para receber os milhares de pacotes, pré-processá-los
+e enviar para o servidor; possui entrada USB pode receber uma antena Wi-Fi e seu tamanho pequeno \cite{rpi2017}. 
+
+Outras opções foram consideradas por serem baratas, acessíveis e terem documentação aberta. Foi o caso do ESP8266 que possui um tamanho extremamente
 reduzido e possui o custo médio de R\$15,00 \cite{Embarcados2015}, mas seu uso para este trabalho fica impossibilitado. Isso
-ocorre, pois essa tecnologia não consegue ser habilitada para o modo monitor da interface de rede que é essencial para detectar dispositivos móveis
-\cite{Puhl2016} \cite{Ferreira2016}.
+ocorre, pois essa tecnologia não consegue ser habilitada para o modo monitor da interface de rede \cite{Puhl2016} \cite{Ferreira2016}.
 
-\subsection{Comunicação Wi-Fi}
-A comunicação entre dispositivos móveis e o sensor será feita através do protocolo de rede Tshark \cite{Wireshark2017}. Este é uma versão de terminal do protocolo
-analisador de rede Wireshark \cite{Wireshark2017a}. Esses protocolos permitem realizar o estudo da rede a partir do recebimento de pacotes e seus campos. Por
-ser uma tecnologia aberta e iniciada em 1998, possui ampla documentação e maturidade, tanto que detectar aparelhos na rede através dessa comunicação
-está presente em trabalhos como o de \citeonline{Puhl2016} e de \citeonline{Ferreira2016}.
+Uma antena Wi-Fi foi equipada no Raspberry para ampliar o alcance da captura já que o propósito do sistema é detecção em zonas que podem
+apresentar esparcidade de indivíduos (espalhados) e já que ela pôde ser habilitada para o modo monitor (\autoref{modo-monitor}). A antena nativa 
+do Raspberry não conseguiu ser habilitada para o \emph{monitor mode}.
 
-\subsection{Objeto identificador}
-O objeto que distinguirá as pessoas para a contagem será seu dispositivo móvel. Os motivos pela escolha são apresentado na \autoref{dispositivo-coisa}.
+\subsection{Tshark}
 
-\subsection{Processamento}
-Com o poder de processamento do Raspberry Pi, um pré-processamento dos dados captados será feito. Estes então serão enviados ao servidor onde
-ocorrerá o agrupamento para fins estatísticos. O servidor ainda precisa ser adquirido.
+O protocolo Tshark é uma versão de terminal do protocolo
+analisador de rede Wireshark \cite{Wireshark2017} \cite{Wireshark2017a}. Ele é utilizado para analisar e filtrar (\emph{sniff}) e converter os dados dos pacotes capturados pelo sensor em arquivo formato CSV. Esse protocolo foi escolhido, pois permite realizar o estudo da rede a partir do recebimento de pacotes e seus campos, além possuir ampla documentação, maturidade e exemplos por ser uma tecnologia aberta.
 
-\subsection{Interface Web}
-Para apresentar os dados estatísticos sobre o tráfego de pessoas e seus perfis, uma interface Web será desenvolvida com as tecnologias
-HTML5, Material Design e Javascript.
+\section{Servidor}
+O servidor que servirá o Web App será baseado em Node.js. Ele possui duas partes principais que serão apresentadas a seguir.
 
-\section{Pontos de Entrega}
-\label{pontos-entrega}
-Os módulos assemelham-se à arquitetura do sistema proposto. Os módulos a serem desenvolvidos são:
-\begin{itemize}
-  \item \textbf{Módulo Sensor:} a detecção de aparelhos móveis pelo Raspberry Pi;
-  \item \textbf{Módulo Pré-processamento:} os dados captados pelo sensor estão prontos para serem enviados ao servidor;
-  \item \textbf{Módulo Servidor:} preparação do servidor para receber os dados do sensor;
-  \item \textbf{Módulos Integração:} integração da comunicação do Raspberry Pi e do Servidor, ou seja, transmissão de dados;
-  \item \textbf{Módulo Interface:} conectar servidor e interface apresentando os dados recolhidos.
-\end{itemize}
+\subsection{Node Transformer}
+Após converter os dados do pacotes recebidos para um arquivo formato .CSV, o Raspberry Pi dá um cURL POST (HTTP POST através do terminal) de tempos em tempos para enviar o arquivo .CSV daquela sessão ao servidor. No servidor, o módulo node transformer particionará o arquivo (segundo alguns campos) em outros arquivos .JSON que serão salvos no banco de dados.
+
+\subsection{Node Server}
+ A partir dos arquivos .JSON citados no item anterior e um Web Site base (HTML, CSS, Javascript), o módulo Node Server responde (Response) à requisição do cliente (HTTP GET) e apresenta-o aos dados capturados.
+
+\section{Data View}
+O Data View é a parte do Web App responsável por apresentar os dados capturados de maneira clara e legível. Para isso, a biblioteca D3.js \cite{D32017} será utilizada para a plotagem de gráficos a partir dos arquivos .JSON.
+
 
 \section{Testes e validação do projeto}
 Para a validação do sistema proposto serão realizados testes de "caixa-branca" e "caixa-preta". Os testes de caixa-preta incluem testar:
