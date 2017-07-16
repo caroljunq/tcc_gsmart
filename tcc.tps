@@ -11,13 +11,13 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1058
-NormalPos.bottom=409
+NormalPos.right=1008
+NormalPos.bottom=581
 Class=LaTeXView
 Document=fundamentacao.tex
 
 [Frame0_View0,0]
-TopLine=128
+TopLine=123
 Cursor=7702
 
 [Frame1]
@@ -29,13 +29,13 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1058
-NormalPos.bottom=409
+NormalPos.right=1008
+NormalPos.bottom=581
 Class=BibTeXView
 Document=referencias.bib
 
 [Frame1_View0,0]
-TopLine=459
+TopLine=456
 Cursor=17758
 
 [SessionInfo]
