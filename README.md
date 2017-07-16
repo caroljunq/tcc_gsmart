@@ -1,5 +1,5 @@
-# Sem nome ainda
-Este trabalho ainda não tem descrição.
+# Gsmart
+Uma ferramenta de geomarketing para medição do tráfego de pessoas.
 
 ## Tecnologias
  - Latex
