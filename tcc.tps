@@ -17,8 +17,8 @@ Class=LaTeXView
 Document=fundamentacao.tex
 
 [Frame0_View0,0]
-TopLine=123
-Cursor=7702
+TopLine=0
+Cursor=0
 
 [Frame1]
 Flags=0
@@ -35,12 +35,12 @@ Class=BibTeXView
 Document=referencias.bib
 
 [Frame1_View0,0]
-TopLine=456
-Cursor=17758
+TopLine=54
+Cursor=2425
 
 [SessionInfo]
 FrameCount=2
-ActiveFrame=0
+ActiveFrame=1
 
 [Bookmarks]
 monografia.bbl=12 
