@@ -5,39 +5,31 @@
 Desde os primeiros sistemas comerciais estabelecidos até a Revolução Industrial,
 a maneira de se fazer negócios evoluiu drasticamente. Entretanto, nada se
 compara à revolução gerada com o advento da computação: a informatização das
-organizações não somente permitiu-nos coletar e armazenar volumes dados
-gigantescos, mas também combiná-los e processá-los com agilidade e precisão antes nunca
-vistos. Com isso, geramos uma quantidade de informação humanamente impossível de
+organizações permitiu coletar e armazenar volumes dados
+gigantescos. Com isso, geramos uma quantidade de informação humanamente impossível de
 ser manipulada, o que, por sua vez, demandou desenvolver-se ferramentas e
-métodos de filtragem e classificação de dados de tal modo que, minerando-se esses dados, seja possível gerar
-informação relevante - elemento hoje imprescindível no sucesso
-das decisões estratégicas de qualquer empreendimento. Avaliar se uma empresa
-deve expandir seu negócio (criar franquias, por exemplo) é um projeto
+métodos de mineração de dados para seja possível gerar informação relevante - elemento hoje imprescindível no sucesso nas decisões estratégicas de qualquer empresa. 
+
+Avaliar se uma empresa deve expandir seu negócio (criar franquias, por exemplo) é um projeto
 arriscado - se mal planejado, pode levar uma organização a sofrer sérios
-prejuízos. Segundo \citeonline{Mangini2014}, a tomada de decisão em termos de
+prejuízos * incluir os 4Ps. Segundo \citeonline{Mangini2014}, a tomada de decisão em termos de
 localização não pode ser feita de maneira aleatória e subjetiva, mas embasada em
 um método ou ferramenta que permita determinar o melhor ponto ou o mais
 adequado, de acordo com premissas objetivas e dentro de um arcabouço lógico,
 considerando as possíveis variáveis que afetam aspectos relacionados ao usuário,
-urbanismo e também relacionado à gestão e às políticas públicas. Neste contexto, o \emph{geomarketing} surge como grande tendência na gestão: reunindo conceitos em geografia espacial, estatística, gestão e marketing, tornou-se a mais abrangente ferramenta para visualização e análise do negócio como um todo - permite explorar vantagens locacionais, além de gerar um panorama completo de todas as camadas de uma instituição, identificando pontos fortes e fracos e auxiliando na definição das melhores estratégias de planejamento e decisão.
+urbanismo e também relacionado à gestão e às políticas públicas. 
 
-Neste trabalho, o foco do \emph{geomarketing} é voltado à exploração do tráfego
-de pessoas através da criação do GSmart - uma ferramenta acessível, aliada às redes de
-Internet sem fio e dispositivos móveis para captura do tráfego de pessoas em
-determinadas zonas, visando prover dados ao usuário que, de acordo com as suas
-necessidades, gerarão informações relevantes para tomada de decisão e estratégias.
+Neste contexto, o \emph{geomarketing} surge como grande tendência na gestão: reunindo conceitos em geografia espacial, estatística, gestão e marketing, tornou-se a mais abrangente ferramenta para visualização e análise do negócio como um todo - permite explorar vantagens locacionais, além de gerar um panorama completo de todas as camadas de uma instituição, identificando pontos fortes e fracos e auxiliando na definição das melhores estratégias de planejamento e decisão.
 
-\section{Problema}
-O tráfego de pessoas já é utilizado como técnica de \emph{geomarketing}, como será visto na \autoref{trabalhos-correlatos}, porém
-a maior parte de soluções do tipo são de âmbito privado. Ainda, na área de pesquisa, foi observado que as ferramentas para medição do tráfego
-são em grande maioria voltadas para o processamento de imagens.
+Neste trabalho, o foco do \emph{geomarketing} será voltado à exploração do tráfego
+de pessoas através da criação do GSmart, uma ferramenta de contagem aliada às redes de
+Internet sem fio e dispositivos móveis.
 
-\subsection{Solução proposta e motivação}
-Tendo em vista o tópico anterior, visa-se utilizar o \emph{geomarketing} em
-âmbito aberto. Para tal, propõe-se o desenvolvimento de um sistema que mede o
-tráfego de pessoas em determinadas zonas a partir de redes Wi-Fi e dispositivos móveis, pouco exploradas em
-pesquisa acadêmica, contribuindo assim para a comunidade aberta (estudantes e profissionais da área de
-marketing, computação, administração, entre outros).
+\section{Problema s solução}
+O tráfego de pessoas já é largamente utilizado como técnica de \emph{geomarketing}, porém
+no mercado predominam os softwares privados. Além disso, a maioria das ferramentas de contagem  utilizam processamento de imagens, tecnologia de alto custo e demasiadamente sofisticada para aplicações mais simples. 
+
+Visa-se, assim, criar uma solução em software livre, propiciando uma ferramenta gratuita e de fácil utilização voltada a profissionais da área de marketing, computação, administração, empresas e negócios, etc. Para tal, foram escolhidos como foco redes Wi-Fi e dispositivos móveis (celulares, tablets, etc) - isso se justifica por serem tecnologias acessíveis, relativamente baratas e amplamente utilizadas por qualquer pessoa hoje em dia. Além disso, aplicações de \emph{geomarketing} baseadas em redes sem fio são ainda pouco exploradas em pesquisas acadêmicas.
 
 \section{Objetivos}
 \label{objetivos}
@@ -48,21 +40,13 @@ pessoas em determinadas zonas através de rede Wi-Fi e dispositivos móveis.
 
 \subsection{Objetivos específicos}
 \begin{itemize}
-  \item Definir os motivos pelos quais uma organização utiliza o \emph{geomarketing};
-  \item Identificar casos de uso do tráfego de indivíduos em ambientes como técnica
-  de \emph{geomarketing};
-  \item Estudar ferramentas de contagem de pessoas em ambientes;
-  \item Definir as tecnologias para identificação e fornecimento de dados de usuários;
+  \item Estudar ferramentas de contagem de pessoas em ambientes e definir tecnologias para identificação e fornecimento de dados de usuários;
   \item Identificar a tecnologia responsável pela contagem de pessoas;
-  \item Definir o modo como o número de indivíduos será agrupado para gerar o tráfego;
-  \item Indicar como os dados capturados serão agrupados;
-  \item Implementar interface para apresentar o tráfego de pessoas;
-  \item Testar o sistema em ambientes controlados e não controlados;
-  \item Realizar ajustes para garantir precisão do sistema desenvolvido.
+  \item Definir o modo como o número de indivíduos será agrupado para gerar o tráfego, indicar como os dados capturados serão agrupados e implementar interface para visualização dos dados gerados;
 \end{itemize}
 
 \section{Organização do trabalho}
-O presente trabalho divide-se em capítulos, sendo este o primeiro (Introdução) e os demais na seguinte ordem:
+O presente trabalho divide-se em capítulos, sendo este o primeiro (Introdução). Os próximos seguirão a ordem abaixo:
 
 \begin{itemize}
   \item \textbf{Fundamentação Teórica:} apresentação dos conceitos teóricos envolvidos no trabalho, motivação de
