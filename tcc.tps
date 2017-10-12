@@ -12,13 +12,13 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
 NormalPos.right=1008
-NormalPos.bottom=227
+NormalPos.bottom=301
 Class=LaTeXView
 Document=introducao.tex
 
 [Frame0_View0,0]
-TopLine=8
-Cursor=2063
+TopLine=30
+Cursor=2
 
 [Frame1]
 Flags=0
@@ -30,12 +30,12 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
 NormalPos.right=1008
-NormalPos.bottom=227
+NormalPos.bottom=301
 Class=LaTeXView
 Document=metodologia.tex
 
 [Frame1_View0,0]
-TopLine=205
+TopLine=203
 Cursor=10310
 
 [Frame2]
@@ -48,7 +48,7 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
 NormalPos.right=1008
-NormalPos.bottom=227
+NormalPos.bottom=301
 Class=LaTeXView
 Document=conclusao.tex
 
@@ -66,12 +66,12 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
 NormalPos.right=1008
-NormalPos.bottom=227
+NormalPos.bottom=301
 Class=LaTeXView
 Document=monografia.tex
 
 [Frame3_View0,0]
-TopLine=541
+TopLine=544
 Cursor=19515
 
 [Frame4]
@@ -84,13 +84,13 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
 NormalPos.right=1008
-NormalPos.bottom=227
+NormalPos.bottom=301
 Class=LaTeXView
 Document=fundamentacao.tex
 
 [Frame4_View0,0]
-TopLine=361
-Cursor=11399
+TopLine=62
+Cursor=3760
 
 [Frame5]
 Flags=0
@@ -102,17 +102,17 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
 NormalPos.right=1008
-NormalPos.bottom=227
+NormalPos.bottom=301
 Class=BibTeXView
 Document=referencias.bib
 
 [Frame5_View0,0]
-TopLine=476
+TopLine=478
 Cursor=17096
 
 [SessionInfo]
 FrameCount=6
-ActiveFrame=2
+ActiveFrame=4
 
 [Bookmarks]
 monografia.bbl=12 
