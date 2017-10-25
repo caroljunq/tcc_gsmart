@@ -35,8 +35,8 @@ Class=LaTeXView
 Document=metodologia.tex
 
 [Frame1_View0,0]
-TopLine=84
-Cursor=3844
+TopLine=27
+Cursor=1193
 
 [Frame2]
 Flags=0
@@ -89,8 +89,8 @@ Class=LaTeXView
 Document=fundamentacao.tex
 
 [Frame4_View0,0]
-TopLine=357
-Cursor=19499
+TopLine=390
+Cursor=21552
 
 [Frame5]
 Flags=0
