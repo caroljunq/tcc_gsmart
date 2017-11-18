@@ -17,7 +17,7 @@ Class=LaTeXView
 Document=introducao.tex
 
 [Frame0_View0,0]
-TopLine=18
+TopLine=0
 Cursor=2
 
 [Frame1]
@@ -71,8 +71,8 @@ Class=LaTeXView
 Document=monografia.tex
 
 [Frame3_View0,0]
-TopLine=547
-Cursor=19515
+TopLine=431
+Cursor=15752
 
 [Frame4]
 Flags=0
@@ -89,7 +89,7 @@ Class=LaTeXView
 Document=fundamentacao.tex
 
 [Frame4_View0,0]
-TopLine=390
+TopLine=430
 Cursor=21552
 
 [Frame5]
@@ -112,7 +112,7 @@ Cursor=0
 
 [SessionInfo]
 FrameCount=6
-ActiveFrame=4
+ActiveFrame=3
 
 [Bookmarks]
 monografia.bbl=12 
