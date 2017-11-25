@@ -1,7 +1,7 @@
 
 \chapter{Materiais e Métodos}
 \label{metodologia}
-COLOCAR DESCRICAO DO CAPITULO Arqui
+Essa seção descreverá brevemente as tecnologias e metodologias empregadas na realização deste trabalho.
 
 \section{Tecnologias utilizadas}
 \label{tecnologias-usadas}
@@ -16,10 +16,41 @@ Ainda segundo \cite{SIMOES2015}, um campo de informação que pode ser recolhido
 Como explanado por \cite{Teleco2016}, para permitir que uma estação móvel comunique-se com outras em uma rede IBSS (Independent Basic Service Set) ou um AP em uma rede infra-estrutura BSS (Basic Service Set), ela deve primeiramente encontrá-las: esse processo é conhecido como \emph{varredura} e pode ser de 2 tipos: Passivo, modalidade envolvendo somente a “escuta” de tráfego, e Ativo (método utilizado neste trabalho), no qual a estação X executa uma varredura para extrair informações das demais estações e dos AP’s, economizando tempo. Para tanto, a estação ativamente transmite \emph{queries} (perguntas para extrair as respostas das estações numa BSS), movendo-se então para um canal e transmitindo um quadro do tipo \emph{probe request} (requisição de sondagem): se houver BSS no canal que coincida com o SSID (Service Set Identifier) do quadro “requisição de sondagem”, a estação irá responder, enviando um quadro \emph{probe response} (resposta de sondagem) para a estação que fez a pergunta.
 
 \subsection{Modo monitor}
+\label{modo-monitor}
+
+Para que um dispositivo móvel seja identificado independente de qualquer rede ou AP, é essencial que o sistema de detecção possua uma placa e/ou adaptador de rede (NIC) que possa ser habilitado para o modo monitor.
+
+Geralmente, uma interface de rede qualquer captura pacotes dos tipos \emph{managed} e \emph{beacons} que são originados por APs. Estes pacotes são transmitidos
+muitas vezes por segundo por APs para indicar quais redes estão realizando \emph{broadcasting}. O modo monitor (\emph{monitor mode}) é um modo de operação em que um NIC consegue capturar todos os tipos de pacotes sem estar associado a um AP \cite{Acrylic} \cite{Wireshark2017b}. Dessa forma, é possível capturar todos os tipos, como os de \emph{probe request} que são enviados de dispositivos móveis para pontos de acesso para saber quais redes próximas estão disponíveis para se conectar.
+
+Neste trabalho, um Raspberry Pi com um adaptador Wi-Fi habilitado no modo monitor captura pacotes \emph{probe request} de \meph{smartphones} para que ocorra a identificação de indivíduos (\autoref{smartphone-probe}).
+
+\subsection{Kali Linux}
+O sistema operacional Kali Linux \cite{kali} foi escolhido para o Raspberry Pi, pois possui ampla documentação
+para uso em projetos de redes, além de ferramentas, como suporte a drivers de interfaces de rede que possam
+ser habilitadas para o modo monitor, foi o caso do Ralink MT7601U.
 
 \subsection{Tshark}
+O protocolo Tshark é uma versão de terminal do protocolo
+analisador de rede Wireshark \cite{Wireshark2017} \cite{Wireshark2017a}. Ele é
+utilizado para analisar e filtrar (\emph{sniff}) e converter os dados dos
+pacotes capturados pelo sensor em um arquivo. Esse protocolo foi
+escolhido, pois permite realizar o estudo da rede a partir do recebimento de
+pacotes e seus campos, além possuir ampla documentação, maturidade e exemplos
+por ser uma tecnologia aberta.
 
 \subsection{Raspberry Pi}
+Para a detecção de dispositivos móveis um Raspberry Pi Model 3 B juntamente com um adaptador Wi-Fi são utilizados. O Raspberry foi escolhido,
+pois oferece interface amigável de programação (Kali Linux); possui poder de processamento para receber os milhares de pacotes, pré-processá-los
+e enviar para o servidor; possui entrada USB pode receber uma antena Wi-Fi e seu tamanho pequeno \cite{rpi2017}.
+
+Outras opções foram consideradas por serem baratas, acessíveis e terem documentação aberta. Foi o caso do ESP8266 que possui um tamanho extremamente
+reduzido e possui o custo médio de R\$15,00 \cite{Embarcados2015}, mas seu uso para este trabalho fica impossibilitado. Isso
+ocorre, pois essa tecnologia não consegue ser habilitada para o modo monitor da interface de rede \cite{Puhl2016} \cite{Ferreira2016}.
+
+Uma antena Wi-Fi (Ralink MT7601U) foi equipada no Raspberry para ampliar o alcance da captura já que o propósito do sistema é detecção em zonas que podem
+apresentar esparcidade de indivíduos (espalhados) e já que ela pôde ser habilitada para o modo monitor (\autoref{modo-monitor}). A antena nativa
+do Raspberry não conseguiu ser habilitada para o \emph{monitor mode}.
 
 \subsection{Node.js}
 
@@ -35,32 +66,5 @@ Como a aplicação foi desenvolvida, etc. etc.. ordem de desenvolvimento
 \label{smartphone-probe}
 Para encontrar redes a que possa se conectar, um dispositivo móvel emite de tempos em tempos (depende da fabricante) pacotes do tipo \emph{probe request} (conceito explicado na seção \autoref{tecnologias-usadas}) para os APs próximos \cite{Meraki}. Todos os APs que receberem, responderão ao dispositivo (\emph{probe response} ou \emph{received}), então o aparelho descobrirá as redes ao redor disponíveis para conexão.
 
-\section{Sensor}
-O sensor é responsável pela detecção de aparelhos e envio de dados ao servidor.
 
-\subsection{Raspberry Pi}
-Para a detecção de dispositivos móveis um Raspberry Pi Model 3 B juntamente com um adaptador Wi-Fi são utilizados. O Raspberry foi escolhido,
-pois oferece interface amigável de programação (Kali Linux); possui poder de processamento para receber os milhares de pacotes, pré-processá-los
-e enviar para o servidor; possui entrada USB pode receber uma antena Wi-Fi e seu tamanho pequeno \cite{rpi2017}.
 
-Outras opções foram consideradas por serem baratas, acessíveis e terem documentação aberta. Foi o caso do ESP8266 que possui um tamanho extremamente
-reduzido e possui o custo médio de R\$15,00 \cite{Embarcados2015}, mas seu uso para este trabalho fica impossibilitado. Isso
-ocorre, pois essa tecnologia não consegue ser habilitada para o modo monitor da interface de rede \cite{Puhl2016} \cite{Ferreira2016}.
-
-Uma antena Wi-Fi (Ralink MT7601U) foi equipada no Raspberry para ampliar o alcance da captura já que o propósito do sistema é detecção em zonas que podem
-apresentar esparcidade de indivíduos (espalhados) e já que ela pôde ser habilitada para o modo monitor (\autoref{modo-monitor}). A antena nativa
-do Raspberry não conseguiu ser habilitada para o \emph{monitor mode}.
-
-\subsection{Kali Linux}
-O sistema operacional Kali Linux \cite{kali} foi escolhido para o Raspberry Pi, pois possui ampla documentação
-para uso em projetos de redes, além de ferramentas, como suporte a drivers de interfaces de rede que possam
-ser habilitadas para o modo monitor, foi o caso do Ralink MT7601U.
-
-\subsection{Tshark}
-O protocolo Tshark é uma versão de terminal do protocolo
-analisador de rede Wireshark \cite{Wireshark2017} \cite{Wireshark2017a}. Ele é
-utilizado para analisar e filtrar (\emph{sniff}) e converter os dados dos
-pacotes capturados pelo sensor em um arquivo. Esse protocolo foi
-escolhido, pois permite realizar o estudo da rede a partir do recebimento de
-pacotes e seus campos, além possuir ampla documentação, maturidade e exemplos
-por ser uma tecnologia aberta.

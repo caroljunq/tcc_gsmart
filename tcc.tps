@@ -17,8 +17,8 @@ Class=LaTeXView
 Document=fundamentacao.tex
 
 [Frame0_View0,0]
-TopLine=0
-Cursor=2
+TopLine=380
+Cursor=17014
 
 [Frame1]
 Flags=0
@@ -53,8 +53,8 @@ Class=LaTeXView
 Document=metodologia.tex
 
 [Frame2_View0,0]
-TopLine=21
-Cursor=1425
+TopLine=103
+Cursor=6437
 
 [Frame3]
 Flags=0
@@ -107,12 +107,30 @@ Class=BibTeXView
 Document=referencias.bib
 
 [Frame5_View0,0]
-TopLine=527
-Cursor=18923
+TopLine=524
+Cursor=18943
+
+[Frame6]
+Flags=0
+ShowCmd=1
+MinPos.x=-1
+MinPos.y=-1
+MaxPos.x=-1
+MaxPos.y=-1
+NormalPos.left=4
+NormalPos.top=26
+NormalPos.right=922
+NormalPos.bottom=301
+Class=LaTeXView
+Document=arquitetura.tex
+
+[Frame6_View0,0]
+TopLine=6
+Cursor=81
 
 [SessionInfo]
-FrameCount=6
-ActiveFrame=5
+FrameCount=7
+ActiveFrame=6
 
 [Bookmarks]
 monografia.bbl=12 
