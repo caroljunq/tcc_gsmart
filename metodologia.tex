@@ -7,6 +7,13 @@ COLOCAR DESCRICAO DO CAPITULO Arqui
 \label{tecnologias-usadas}
 
 \subsection{Comunicação Wi-Fi e \emph{probe request}}
+Segundo \cite{Teleco2008}, uma Wireless LAN (WLAN) é uma rede local sem fio padronizada pelo IEEE 802.11. É conhecida também pelo nome de Wi-Fi, abreviatura de ‘wireless fidelity’ (fidelidade sem fios) e marca registrada pertencente à Wireless Ethernet Compatibility Alliance (WECA). 
+
+De acordo com \cite{SIMOES2015}, A tecnologia Wi-Fi é muito utilizada em sistemas de posicionamento indoor, pois não existe a necessidade de criar uma infraestrutura de comunicação: em praticamente todos os espaços fechados com afluência de pessoas, existe já uma criada. Vale ressaltar, porém, que redes Wi-Fi estão sujeitas a pontos cegos (desvios de sinal em áreas não atingidas pela rede) - isso pode ser causados por interferências de outros equipamentos, objetos, fiação elétrica ou mesmo paredes. Dispositivos a uma mesma distância de um ponto de acesso podem receber qualidades de sinal diferentes. 
+
+Ainda segundo \cite{SIMOES2015}, um campo de informação que pode ser recolhido pelos dispositivos móveis é o MAC Address, que permite identificar, na rede, o AP ao qual o aparelho está ligado, característica esta utilizada no desenvolvimento deste trabalho. 
+
+Como explanado por \cite{Teleco2016}, para permitir que uma estação móvel comunique-se com outras em uma rede IBSS (Independent Basic Service Set) ou um AP em uma rede infra-estrutura BSS (Basic Service Set), ela deve primeiramente encontrá-las: esse processo é conhecido como \emph{varredura} e pode ser de 2 tipos: Passivo, modalidade envolvendo somente a “escuta” de tráfego, e Ativo (método utilizado neste trabalho), no qual a estação X executa uma varredura para extrair informações das demais estações e dos AP’s, economizando tempo. Para tanto, a estação ativamente transmite \emph{queries} (perguntas para extrair as respostas das estações numa BSS), movendo-se então para um canal e transmitindo um quadro do tipo \emph{probe request} (requisição de sondagem): se houver BSS no canal que coincida com o SSID (Service Set Identifier) do quadro “requisição de sondagem”, a estação irá responder, enviando um quadro \emph{probe response} (resposta de sondagem) para a estação que fez a pergunta.
 
 \subsection{Modo monitor}
 
@@ -24,9 +31,9 @@ COLOCAR DESCRICAO DO CAPITULO Arqui
 Como a aplicação foi desenvolvida, etc. etc.. ordem de desenvolvimento
 
 
-\section{Dispositivo Móvel e \emph{Probe Request}}
+\section{Dispositivo Móvel}
 \label{smartphone-probe}
-Para encontrar redes a que possa se conectar, um dispositivo móvel emite de tempos em tempos (depende da fabricante) pacotes do tipo \emph{probe request} para os APs próximos \cite{Meraki}. Todos os APs que receberem, responderão ao dispositivo (\emph{probe response} ou \emph{received}), então o aparelho descobrirá as redes ao redor disponíveis para conexão.
+Para encontrar redes a que possa se conectar, um dispositivo móvel emite de tempos em tempos (depende da fabricante) pacotes do tipo \emph{probe request} (conceito explicado na seção \autoref{tecnologias-usadas}) para os APs próximos \cite{Meraki}. Todos os APs que receberem, responderão ao dispositivo (\emph{probe response} ou \emph{received}), então o aparelho descobrirá as redes ao redor disponíveis para conexão.
 
 \section{Sensor}
 O sensor é responsável pela detecção de aparelhos e envio de dados ao servidor.

@@ -11,14 +11,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=565
-NormalPos.bottom=82
+NormalPos.right=922
+NormalPos.bottom=301
 Class=LaTeXView
-Document=introducao.tex
+Document=fundamentacao.tex
 
 [Frame0_View0,0]
-TopLine=48
-Cursor=2161
+TopLine=0
+Cursor=2
 
 [Frame1]
 Flags=0
@@ -29,14 +29,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=565
-NormalPos.bottom=82
+NormalPos.right=922
+NormalPos.bottom=301
 Class=LaTeXView
-Document=metodologia.tex
+Document=introducao.tex
 
 [Frame1_View0,0]
-TopLine=60
-Cursor=141
+TopLine=76
+Cursor=2875
 
 [Frame2]
 Flags=0
@@ -47,14 +47,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=565
-NormalPos.bottom=82
+NormalPos.right=922
+NormalPos.bottom=301
 Class=LaTeXView
-Document=conclusao.tex
+Document=metodologia.tex
 
 [Frame2_View0,0]
-TopLine=0
-Cursor=58
+TopLine=21
+Cursor=1425
 
 [Frame3]
 Flags=0
@@ -65,14 +65,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=565
-NormalPos.bottom=82
+NormalPos.right=922
+NormalPos.bottom=301
 Class=LaTeXView
-Document=monografia.tex
+Document=conclusao.tex
 
 [Frame3_View0,0]
-TopLine=678
-Cursor=18030
+TopLine=0
+Cursor=58
 
 [Frame4]
 Flags=0
@@ -83,14 +83,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=565
-NormalPos.bottom=82
+NormalPos.right=922
+NormalPos.bottom=301
 Class=LaTeXView
-Document=fundamentacao.tex
+Document=monografia.tex
 
 [Frame4_View0,0]
-TopLine=531
-Cursor=20629
+TopLine=576
+Cursor=19765
 
 [Frame5]
 Flags=0
@@ -101,18 +101,18 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=565
-NormalPos.bottom=82
+NormalPos.right=922
+NormalPos.bottom=301
 Class=BibTeXView
 Document=referencias.bib
 
 [Frame5_View0,0]
-TopLine=15
-Cursor=0
+TopLine=527
+Cursor=18923
 
 [SessionInfo]
 FrameCount=6
-ActiveFrame=0
+ActiveFrame=5
 
 [Bookmarks]
 monografia.bbl=12 
