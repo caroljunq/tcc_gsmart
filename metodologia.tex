@@ -9,13 +9,43 @@ do sistema proposto neste trabalho.
 
 \subsection{Comunicação Wi-Fi e \emph{probe request}}
 
-Segundo \cite{Teleco2008}, uma Wireless LAN (WLAN) é uma rede local sem fio padronizada pelo IEEE 802.11. É conhecida também pelo nome de Wi-Fi, abreviatura de ‘wireless fidelity’ (fidelidade sem fios) e marca registrada pertencente à Wireless Ethernet Compatibility Alliance (WECA).
+Segundo \citeonline{Teleco2008}, uma Wireless LAN (WLAN) é uma rede local sem
+fio padronizada pelo IEEE 802.11. É conhecida também pelo nome de Wi-Fi,
+abreviatura de \emph{wireless fidelity} (fidelidade sem fios) e marca registrada
+pertencente à Wireless Ethernet Compatibility Alliance (WECA).
 
-De acordo com \cite{SIMOES2015}, A tecnologia Wi-Fi é muito utilizada em sistemas de posicionamento indoor, pois não existe a necessidade de criar uma infraestrutura de comunicação: em praticamente todos os espaços fechados com afluência de pessoas, existe já uma criada. Vale ressaltar, porém, que redes Wi-Fi estão sujeitas a pontos cegos (desvios de sinal em áreas não atingidas pela rede) - isso pode ser causados por interferências de outros equipamentos, objetos, fiação elétrica ou mesmo paredes. Dispositivos a uma mesma distância de um ponto de acesso podem receber qualidades de sinal diferentes.
+De acordo com \citeonline{SIMOES2015}, a tecnologia Wi-Fi é muito utilizada em
+sistemas de posicionamento indoor, pois não existe a necessidade de criar uma
+infraestrutura de comunicação: em praticamente todos os espaços fechados com
+afluência de pessoas, existe já uma criada. Vale ressaltar, porém, que redes
+Wi-Fi estão sujeitas a pontos cegos (desvios de sinal em áreas não atingidas
+pela rede) - isso pode ser causados por interferências de outros equipamentos,
+objetos, fiação elétrica ou mesmo paredes. Dispositivos a uma mesma distância de
+um ponto de acesso podem receber qualidades de sinal diferentes.
 
-Ainda segundo \cite{SIMOES2015}, um campo de informação que pode ser recolhido pelos dispositivos móveis é o MAC Address, que permite identificar, na rede, o AP ao qual o aparelho está ligado, característica esta utilizada no desenvolvimento deste trabalho.
+Ainda segundo \citeonline{SIMOES2015}, um campo de informação que pode ser
+recolhido pelos dispositivos móveis é o MAC Address, que permite identificar, na
+rede, o AP ao qual o aparelho está ligado, característica esta utilizada no
+desenvolvimento deste trabalho.
 
-Como explanado por \cite{Teleco2016}, para permitir que uma estação móvel comunique-se com outras em uma rede IBSS (Independent Basic Service Set) ou um AP em uma rede infra-estrutura BSS (Basic Service Set), ela deve primeiramente encontrá-las: esse processo é conhecido como \emph{varredura} e pode ser de 2 tipos: Passivo, modalidade envolvendo somente a “escuta” de tráfego, e Ativo (método utilizado neste trabalho), no qual a estação X executa uma varredura para extrair informações das demais estações e dos AP’s, economizando tempo. Para tanto, a estação ativamente transmite \emph{queries} (perguntas para extrair as respostas das estações numa BSS), movendo-se então para um canal e transmitindo um quadro do tipo \emph{probe request} (requisição de sondagem): se houver BSS no canal que coincida com o SSID (Service Set Identifier) do quadro “requisição de sondagem”, a estação irá responder, enviando um quadro \emph{probe response} (resposta de sondagem) para a estação que fez a pergunta.
+Como explanado por \citeonline{Teleco2016}, para permitir que uma estação móvel
+comunique-se com outras em uma rede IBSS (Independent Basic Service Set) ou um
+AP em uma rede infra-estrutura BSS (Basic Service Set), ela deve primeiramente
+encontrá-las - processo conhecido como \emph{varredura}. Esse processo pode ser de 2
+tipos: passivo, modalidade envolvendo somente a ``escuta'' de tráfego; e ativo
+(método utilizado neste trabalho), no qual a estação X executa uma varredura
+para extrair informações das demais estações e dos AP’s, economizando tempo.
+Para tanto, a estação ativamente transmite \emph{queries} (perguntas para
+extrair as respostas das estações numa BSS), movendo-se então para um canal e
+transmitindo um pacote do tipo \emph{probe request} (requisição de sondagem): se
+houver BSS no canal que coincida com o SSID (Service Set Identifier) do quadro
+``requisição de sondagem'', a estação irá responder, enviando um quadro
+\emph{probe response} (resposta de sondagem) para a estação que fez a pergunta.
+
+O \emph{probe request} é utilizado como meio de detecção de pessoas, pois
+independe da tecnologia do tipo de estaçãos móvel (dispositivo móvel) e está presente em todo lugar (trivial).
+Ainda, há muitos projetos
+que já fazem essa detecção através do Tshark, ou seja, há ampla documentação.
 
 \subsection{Modo monitor}
 \label{modo-monitor}
@@ -92,7 +122,7 @@ de uma das rotas de acesso à aplicação de apresentação de dados construído
 \begin{figure}[htb]
   \caption{\label{express}Código utilizando Express.js}
   \begin{center}
-    \includegraphics[width=0.90\textwidth]{img/express.png}
+    \includegraphics[width=0.70\textwidth]{img/express.png}
   \end{center}
   \legend{Fonte: Elaborada pelas autoras.}
 \end{figure}
@@ -105,8 +135,11 @@ Chrome, possibilitando utilizar Javascript tanto para o servidor quanto no lado 
 
 
 \subsection{MongoDB}
-O MongoDB é um banco de dados NoSQL baseado em coleções de documentos. O número de campos, conteúdo e tamanho de cada documento pode ser
-diferente \cite{mongo}. Cada um desses documentos é representado por um objeto javascript (JSON). Além disso, o MongoDB oferece API que forece \emph{queries} rápidas e semelhantes ao SQL.
+O MongoDB é um banco de dados NoSQL baseado em coleções de documentos. O número
+de campos, conteúdo e tamanho de cada documento pode ser diferente \cite{mongo}.
+Cada um desses documentos é representado por um objeto javascript (JSON). Além
+disso, o MongoDB oferece API que forece \emph{queries} rápidas e semelhantes ao
+SQL.
 
 Este banco de dados foi utilizado no projeto devido a representação dos dados em
 JSON já que a aplicação é interamente em Javascript, ou seja, facilitando
@@ -119,8 +152,57 @@ Por fim, os documentos do MongoDB foram manipulados pelo Node.js através do pac
 funções para abstrair as \emph{queries}.
 
 \section{Métodos e Etapas}
-A implementação deste trabalho seguiu 3 etapas distintas: inicialmente, foi feito o levantamento teórico acerca de \emph{geomarketing} - devido à abrangência do tema, fez-se necessário definir qual seria o viés a ser seguido. Decidiu-se focar o desenvolvimento em conceitos relativos à contagem de pessoas e aferição de tráfego local. Foi realizado também um levantamento bibliográfico a respeito de empresas e projetos semelhantes ao proposto nesta monografia.
+A implementação deste trabalho seguiu 4 etapas. Inicialmente, foi feito o levantamento teórico acerca de
+\emph{geomarketing} - devido à abrangência do tema, fez-se necessário definir
+qual seria o viés a ser seguido. Decidiu-se focar o desenvolvimento em conceitos
+relativos à contagem de pessoas e aferição de tráfego local. Foi realizado
+também um levantamento bibliográfico a respeito de empresas e projetos
+semelhantes ao proposto nesta monografia.
 
-A segunda etapa envolveu a escolha dos materiais e tecnologias a serem utilizados na concepção de um contator de pessoas. Foram realizados testes de compatibilidade entre hardware e Sistema operacional - no caso, utilizando-se como base o dispositivo portátil Raspberry Pi conforme \autoref{tecnologias-usadas}, fizeram-se testes para encontrar o SO adequado às necessidades do projeto, além de testes para escolha de uma antena Wi-Fi compatível com as especificações tecnológicas, uma vez que a antena nativa do Raspberry Pi não funciona em modo monitor, algo imprescindível na captura de pacotes específicos. Após selecionar hardware e SO, foram escolhidas as demais tecnologias e ferramentas a serem usadas no desenvolvimento da aplicação e visualização de dados, que se daria em forma de uma \emph{web page}: linguagens de programação, bancos de dados e servidores.
+A segunda etapa envolveu a escolha dos materiais e tecnologias a serem
+utilizados na concepção de um contator de pessoas. Foram realizados testes de
+compatibilidade entre hardware e Sistema Operacional - no caso, utilizando-se
+como base o dispositivo portátil Raspberry Pi conforme
+\autoref{tecnologias-usadas}. Fizeram-se testes para encontrar o SO adequado às
+necessidades do projeto, além de testes para escolha de uma antena Wi-Fi
+compatível com as especificações tecnológicas, uma vez que a antena nativa do
+Raspberry Pi não funcionou em modo monitor, algo imprescindível na captura de
+pacotes de \emph{probe request}. Após selecionar hardware e SO (Kali Linux e antena Ralink), foram escolhidas as demais
+tecnologias e ferramentas a serem usadas no desenvolvimento da aplicação e
+visualização de dados, que se daria em forma de um \emph{webserver}: linguagens
+de programação, bancos de dados e servidores.
 
-Na terceira etapa, durante e após o desenvolvimento e interligação de tecnologias e ferramentas, fizeram-se alguns testes em ambiente controlado para observar o comportamento do  contator e verificar se a captura de pacotes e contagem estavam ocorrendo como previsto. Foram realizados diversos ajustes a fim de otimizar a precisão da contagem, levando-se em conta o fato de que a aferição é uma estimativa média de tráfego e que existem limitações tecnológicas envolvidas. Após obtidos os resultados finais, fizeram-se testes extensivos (tanto em ambiente controlado quanto comercial) a fim de verificar-se a eficácia do dispositivo e também criar um banco de dados real, fornecendo os dados necessários ao \emph{website} para processamento e geração de informação.
+Na terceira etapa, desenvolveu o módulo de visualização de dados da aplicação.
+Primeiramente, constriu-se um servidor em Nodejs e sua hospedagem num servidor em nuvem (Digital Ocean).
+Posteriormente, decidiu-se as informações relevantes para serem extraídas dos dados.
+Logo após, foi construído o layout em HTML, CSS, Javascript, EJS (Embedded
+JavaScript- template para apresentação de dados) e Boostrap em forma de
+\emph{dashboard} para apresentar gráficos e resumo das informações. Seguindo, o
+MongoDB foi definido como banco de dados, então utilizando sua forma de
+organização (coleções e documentos), definiu-se o formato do dado (objetos e
+atributos). Por fim, os modelos de preparação e mineração  de dados e o tramento de rotas para acesso
+aos conteúdos do webserver (rotas de GET) e postagem de arquivos (rotas de POST).
+
+Na última etapa, concentrou-se em desenvolver o sensor de detecção com o Raspberry Pi e a antena Ralink
+para adequar-se ao modelo de dado definido na etapa anterior. Desenvolveu-se um \emph{script}
+que: configura a antena para o modo monitor, inicia a varredura executando o Tshark e envia os arquivos gerados para o servidor.
+Neste etapa, o programa foi sendo aperfeiçoado aos poucos testando a comunicação entre o Raspberry Pi e o servidor, e se a formatação
+dos arquivos enviados e tempo de captura estavam corretos.
+
+De modo geral, a aplicação foi testada a cada e durante as etapas, inicialmente, a partir de dados fictícios criados
+no banco de dados. Posteriormente, os testes seguiram com os dados da inúmeros capturas realizadas. Os principais objetivos
+nos testes foram:
+
+\begin{itemize}
+  \item comunicação entre módulos. Por exemplo: envio de dados do sensor para o servidor, e captura dos pacotes;
+  \item tempo de resposta de \emph{requests} para servidor;
+  \item garantir programação assíncrona que é o paradigma do Nodejs;
+  \item gerar arquivos fossem enviados;
+  \item garantir que a informações extraídas estivessem corretas do ponto de vista estatístico;
+  \item tratar todos os tipos de erros encontrados e supostos para não haver quebra no funcionamento
+  de nenhum módulos (tratamento de exceções);
+  \item garantir que o formato de dado manipulado fosse mantido em toda a aplicação, sem necessidade
+  de muitas adaptações nos módulos.
+\end{itemize}
+
+Além da fase de desenvolvimento, houve a fase de testes para aferir a precisão de medição do GSMART (veja \autoref{resultados-discussao}).
