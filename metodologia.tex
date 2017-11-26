@@ -1,39 +1,59 @@
 
 \chapter{Materiais e Métodos}
 \label{metodologia}
-COLOCAR DESCRICAO DO CAPITULO Arqui
+Este capítulo descreve as tecnologias e etapas para o desenvolvimento
+do sistema proposto neste trabalho.
 
 \section{Tecnologias utilizadas}
 \label{tecnologias-usadas}
 
 \subsection{Comunicação Wi-Fi e \emph{probe request}}
-
-\subsection{Modo monitor}
-
-\subsection{Tshark}
-
-\subsection{Raspberry Pi}
-
-\subsection{Node.js}
-
-\subsection{MongoDB e M-Lab}
-
-\subsection{Visualização de dados}
-
-\section{Métodos e Etapas}
-Como a aplicação foi desenvolvida, etc. etc.. ordem de desenvolvimento
-
-
-\section{Dispositivo Móvel e \emph{Probe Request}}
-\label{smartphone-probe}
 Para encontrar redes a que possa se conectar, um dispositivo móvel emite de tempos em tempos (depende da fabricante) pacotes do tipo \emph{probe request} para os APs próximos \cite{Meraki}. Todos os APs que receberem, responderão ao dispositivo (\emph{probe response} ou \emph{received}), então o aparelho descobrirá as redes ao redor disponíveis para conexão.
 
-\section{Sensor}
-O sensor é responsável pela detecção de aparelhos e envio de dados ao servidor.
+\subsection{Modo monitor}
+\label{modo-monitor}
+Para que um dispositivo móvel seja identificado independente de qualquer rede ou AP, é essencial que o sistema de detecção possua uma placa e/ou adaptador de rede (NIC) que possa ser habilitado para o modo monitor.
+
+Geralmente, uma interface de rede qualquer captura pacotes dos tipos \emph{managed} e \emph{beacons} que são originados por APs. Estes pacotes são transmitidos
+muitas vezes por segundo por APs para indicar quais redes estão realizando \emph{broadcasting}. O modo monitor (\emph{monitor mode}) é um modo de operação em que um NIC consegue capturar todos os tipos de pacotes sem estar associado a um AP \cite{Acrylic} \cite{Wireshark2017b}. Dessa forma, é possível capturar todos os tipos, como os de \emph{probe request} que são enviados de dispositivos móveis.
+
+Neste trabalho, um Raspberry Pi com um adaptador Wi-Fi habilitado no modo monitor captura pacotes \emph{probe request} de dispositivos móveis
+para que ocorra a identificação de indivíduos.
+
+\subsection{Tshark}
+O protocolo Tshark é a versão de terminal do protocolo
+analisador de rede Wireshark \cite{Wireshark2017} \cite{Wireshark2017a}. Ele é
+utilizado para analisar e filtrar (\emph{sniff}) os
+pacotes capturados. Esse protocolo foi
+escolhido, pois permite realizar o estudo da rede a partir do recebimento de
+pacotes e seus campos, além de possuir ampla documentação, maturidade e exemplos
+por ser uma tecnologia aberta. Um exemplo de seu uso é o comando a seguir.
+
+\begin{center}
+\emph{tshark -i wlan1 -T fields -e wlan.sa -e frame.time}
+\end{center}
+
+Cada parte do comando anterior significa:
+\begin{itemize}
+  \item \textbf{wlan1}: interface de rede que indica a antena Wi-Fi utilizada;
+  \item \textbf{wlan.sa}: mostra o endereço MAC do dispositivo que enviou o pacote (em inglês, \emph{source address});
+  \item \textbf{frame.time}: mostra a hora, dia e ano em que o pacote foi capturado;
+\end{itemize}
+
+A saída no terminal do comando apresentado está na \autoref{saida-comando}.
+
+\begin{figure}[htb]
+  \caption{\label{saida-comando}Saída após execução de comando Tshark}
+  \begin{center}
+    \includegraphics[width=0.90\textwidth]{img/packets.png}
+  \end{center}
+  \legend{Fonte: Elaborada pelas autoras.}
+\end{figure}
 
 \subsection{Raspberry Pi}
+O Raspberry Pi é um computador do tamanho de um cartão de crédito que pode ser conectado a monitores, teclados, mouse e outros dispositivos.
 Para a detecção de dispositivos móveis um Raspberry Pi Model 3 B juntamente com um adaptador Wi-Fi são utilizados. O Raspberry foi escolhido,
-pois oferece interface amigável de programação (Kali Linux); possui poder de processamento para receber os milhares de pacotes, pré-processá-los
+pois oferece interface amigável de programação (terminais gráfico e de texto); possui poder de processamento para receber os milhares de pacotes, pré-processá-los
 e enviar para o servidor; possui entrada USB pode receber uma antena Wi-Fi e seu tamanho pequeno \cite{rpi2017}.
 
 Outras opções foram consideradas por serem baratas, acessíveis e terem documentação aberta. Foi o caso do ESP8266 que possui um tamanho extremamente
@@ -44,16 +64,51 @@ Uma antena Wi-Fi (Ralink MT7601U) foi equipada no Raspberry para ampliar o alcan
 apresentar esparcidade de indivíduos (espalhados) e já que ela pôde ser habilitada para o modo monitor (\autoref{modo-monitor}). A antena nativa
 do Raspberry não conseguiu ser habilitada para o \emph{monitor mode}.
 
-\subsection{Kali Linux}
-O sistema operacional Kali Linux \cite{kali} foi escolhido para o Raspberry Pi, pois possui ampla documentação
-para uso em projetos de redes, além de ferramentas, como suporte a drivers de interfaces de rede que possam
-ser habilitadas para o modo monitor, foi o caso do Ralink MT7601U.
+O sistema operacional utilizado com esta ferramenta foi o Kali Linux, pois dentre os sistemas testados foi o que possui suporte de \emph{drivers} para a antena Ralink utilizada. Outro ponto é que este SO foi projetado
+para experimentos e projetos relacionados, então possui ampla documentação e exemplos nesse sentido \cite{kali}
 
-\subsection{Tshark}
-O protocolo Tshark é uma versão de terminal do protocolo
-analisador de rede Wireshark \cite{Wireshark2017} \cite{Wireshark2017a}. Ele é
-utilizado para analisar e filtrar (\emph{sniff}) e converter os dados dos
-pacotes capturados pelo sensor em um arquivo. Esse protocolo foi
-escolhido, pois permite realizar o estudo da rede a partir do recebimento de
-pacotes e seus campos, além possuir ampla documentação, maturidade e exemplos
-por ser uma tecnologia aberta.
+\subsection{Node.js}
+O Node ou Node.js é um \emph{runtime} que permite a execução Javascript fora dos navegadores, nesse caso do lado dos servidores \cite{node}.
+Essa ferramenta permite a criação de APIs com entradas e saídas (I/O) não bloqueantes, ou seja, emprega programação assíncrona \cite{Dzone}. Para tal, essa tecnologia é orientada a eventos, assim que um evento ocorre funções específicas são
+acionada para tratá-lo. Nesse cenário, os comandos executam em paralelo utilizando funções de \emph{callback}. Para o sistema proposto nesse trabalho, é uma característica muito importante
+já que trata de um "sistema quase em tempo real", ou seja, é possível atender todas as requisições feitas pelo usuário para a visualização dos dados, como
+a postagem de arquivos provenientes do módulo sensor (\autoref{sensor-cap}).
+
+No GSMART, o Node é utilizado tanto na parte do servidor como na parte que executa os comandos do Tshark dentro do Kali Linux, demonstrando ainda mais sua versatilidade.
+
+Outro componente importante do Node é a importação de pacotes produzidos pela comunidade aberta através do gerenciador de pacotes NPM (Node
+Package Manager), sendo essencial para facilitar e agilizar a programação. Por exemplo, o servidor deste projeto é baseado no pacote Express.js.
+
+O Express.js é um \emph{framework} que fornece conjunto robusto para aplicativos web, como: métodos HTTP e \emph{middleware} \cite{express}. Na \autoref{express} é possível observar o tratamento
+de uma das rotas de acesso à aplicação de apresentação de dados construído facilmente com o Express. Para importar este pacote, basta abrir o terminar no diretório do projeto e executar o comando \emh{npm install --save express}.
+
+\begin{figure}[htb]
+  \caption{\label{express}Código utilizando Express.js}
+  \begin{center}
+    \includegraphics[width=0.90\textwidth]{img/express.png}
+  \end{center}
+  \legend{Fonte: Elaborada pelas autoras.}
+\end{figure}
+
+Na linha 1, importa-se o pacote. Já na linha 11, ele faz o tratamento da rota "login", caso o usuário tente acessá-la (método GET), será retornado uma mensagem de "Você está logado!". Na linha 15, o servidor está escutando a porta 3000 para acesso. Esse trecho de código é um exemplo de como a programação
+com Node e seus pacotes por ser simplificada.
+
+O último ponto para a escolha do Node.js foi o fato dele ser baseado na \emph{engine} V8 de Javascript do Google
+Chrome, possibilitando utilizar Javascript tanto para o servidor quanto no lado do cliente.
+
+\subsection{MongoDB}
+O MongoDB é um banco de dados NoSQL baseado em coleções de documentos. O número de campos, conteúdo e tamanho de cada documento pode ser
+diferente \cite{mongo}. Cada um desses documentos é representado por um objeto javascript (JSON). Além disso, o MongoDB oferece API que forece \emph{queries} rápidas e semelhantes ao SQL.
+
+Este banco de dados foi utilizado no projeto devido a representação dos dados em
+JSON já que a aplicação é interamente em Javascript, ou seja, facilitando
+manipulação pelas funções. Outro ponto é a escalabilidade, uma vez que no início
+do projeto o custo de uma \emph{query} e o tamanho em \emph{bytes} da unidade do
+dado não era conhecidos. Além disso, optou-se por um banco relacional, pois os dados utilizados organizados em tabelas
+consumiria demasiado desempenho da aplicação. O modelo de dado será apresentado no \autoref{arq-cap}.
+
+Por fim, os documentos do MongoDB foram manipulados pelo Node.js através do pacote Mongoose que proporciona variadas
+funções para abstrair as \emph{queries}.
+
+\section{Métodos e Etapas}
+Como a aplicação foi desenvolvida, etc. etc.. ordem de desenvolvimento

@@ -1,7 +1,8 @@
 \chapter{Arquitetura do Projeto}
-\label{arquitetura-projeto}
+\label{arq-cap}
 
 \section{Sensor}
+\label{sensor-cap}
 
 \section{Preparação de dados}
 
@@ -100,6 +101,10 @@ assemelha-se com a função que será desempenhada pelo Node Transformer
 possuem o comando ``exec'' executam comandos diretamente no terminal do sistema
 operaciomal. Nas linhas 2-4, habilita-se o adaptador de rede para o modo
 monitor. Na linha 5, o comando Tshark rodado representa:
+\begin{center}
+\emph{tshark -i wlan1 -a duration:40 -Y ``wlan.fc.type\_subtype eq 4'' -T fields -e wlan.sa}
+\end{center}
+
 
 \begin{itemize}
   \item \textbf{wlan0}: interface de rede que indica a antena Wi-Fi;
