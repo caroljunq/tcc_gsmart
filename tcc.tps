@@ -11,14 +11,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=565
-NormalPos.bottom=82
+NormalPos.right=922
+NormalPos.bottom=301
 Class=LaTeXView
-Document=introducao.tex
+Document=fundamentacao.tex
 
 [Frame0_View0,0]
-TopLine=48
-Cursor=2161
+TopLine=380
+Cursor=17014
 
 [Frame1]
 Flags=0
@@ -29,14 +29,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=565
-NormalPos.bottom=82
+NormalPos.right=922
+NormalPos.bottom=301
 Class=LaTeXView
-Document=metodologia.tex
+Document=introducao.tex
 
 [Frame1_View0,0]
-TopLine=60
-Cursor=141
+TopLine=76
+Cursor=2875
 
 [Frame2]
 Flags=0
@@ -47,14 +47,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=565
-NormalPos.bottom=82
+NormalPos.right=922
+NormalPos.bottom=301
 Class=LaTeXView
-Document=conclusao.tex
+Document=metodologia.tex
 
 [Frame2_View0,0]
-TopLine=0
-Cursor=58
+TopLine=103
+Cursor=6437
 
 [Frame3]
 Flags=0
@@ -65,14 +65,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=565
-NormalPos.bottom=82
+NormalPos.right=922
+NormalPos.bottom=301
 Class=LaTeXView
-Document=monografia.tex
+Document=conclusao.tex
 
 [Frame3_View0,0]
-TopLine=678
-Cursor=18030
+TopLine=0
+Cursor=58
 
 [Frame4]
 Flags=0
@@ -83,14 +83,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=565
-NormalPos.bottom=82
+NormalPos.right=922
+NormalPos.bottom=301
 Class=LaTeXView
-Document=fundamentacao.tex
+Document=monografia.tex
 
 [Frame4_View0,0]
-TopLine=531
-Cursor=20629
+TopLine=576
+Cursor=19765
 
 [Frame5]
 Flags=0
@@ -101,18 +101,36 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=565
-NormalPos.bottom=82
+NormalPos.right=922
+NormalPos.bottom=301
 Class=BibTeXView
 Document=referencias.bib
 
 [Frame5_View0,0]
-TopLine=15
-Cursor=0
+TopLine=524
+Cursor=18943
+
+[Frame6]
+Flags=0
+ShowCmd=1
+MinPos.x=-1
+MinPos.y=-1
+MaxPos.x=-1
+MaxPos.y=-1
+NormalPos.left=4
+NormalPos.top=26
+NormalPos.right=922
+NormalPos.bottom=301
+Class=LaTeXView
+Document=arquitetura.tex
+
+[Frame6_View0,0]
+TopLine=6
+Cursor=81
 
 [SessionInfo]
-FrameCount=6
-ActiveFrame=0
+FrameCount=7
+ActiveFrame=6
 
 [Bookmarks]
 monografia.bbl=12 
