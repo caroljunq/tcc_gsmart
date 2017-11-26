@@ -61,6 +61,11 @@ do Raspberry não conseguiu ser habilitada para o \emph{monitor mode}.
 \section{Métodos e Etapas}
 Como a aplicação foi desenvolvida, etc. etc.. ordem de desenvolvimento
 
+A implementação deste trabalho seguiu 3 etapas distintas: inicialmente, foi feito o levantamento teórico acerca de \emph{geomarketing} - devido à abrangência do tema, fez-se necessário definir qual seria o viés a ser seguido. Decidiu-se focar o desenvolvimento em conceitos relativos à contagem de pessoas e aferição de tráfego local. Foi realizado também um levantamento bibliográfico a respeito de empresas e projetos semelhantes ao proposto nesta monografia. 
+
+A segunda etapa envolveu a escolha dos materiais e tecnologias a serem utilizados na concepção de um contator de pessoas. Foram realizados testes de compatibilidade entre hardware e Sistema operacional - no caso, utilizando-se como base o dispositivo portátil Raspberry Pi conforme \autoref{tecnologias-usadas}, fizeram-se testes para encontrar o SO adequado às necessidades do projeto, além de testes para escolha de uma antena Wi-Fi compatível com as especificações tecnológicas, uma vez que a antena nativa do Raspberry Pi não funciona em modo monitor, algo imprescindível na captura de pacotes específicos. Após selecionar hardware e SO, foram escolhidas as demais tecnologias e ferramentas a serem usadas no desenvolvimento da aplicação e visualização de dados, que se daria em forma de uma \emph{web page}: linguagens de programação, bancos de dados e servidores.
+
+Na terceira etapa, durante e após o desenvolvimento e interligação de tecnologias e ferramentas, fizeram-se alguns testes em ambiente controlado para observar o comportamento do  contator e verificar se a captura de pacotes e contagem estavam ocorrendo como previsto. Foram realizados diversos ajustes a fim de otimizar a precisão da contagem, levando-se em conta o fato de que a aferição é uma estimativa média de tráfego e que existem limitações tecnológicas envolvidas. Após obtidos os resultados finais, fizeram-se testes extensivos (tanto em ambiente controlado quanto comercial) a fim de verificar-se a eficácia do dispositivo e também criar um banco de dados real, fornecendo os dados necessários ao \emph{website} para processamento e geração de informação.
 
 \section{Dispositivo Móvel}
 \label{smartphone-probe}
