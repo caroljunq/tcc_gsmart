@@ -34,29 +34,6 @@ repositórios de armazenamento que compõe o sistema.
   \legend{Fonte: Elaborada pelas autoras.}
 \end{figure}
 
-
-\section{Servidor}
-O servidor que servirá o Web App será baseado em Node.js. Ele possui duas partes principais que serão apresentadas a seguir.
-
-\subsection{Node Transformer}
-\label{node-transformer}
-Após converter os dados do pacotes recebidos para um arquivo, o
-Raspberry Pi dá um cURL POST (HTTP POST através do terminal) de tempos em tempos
-para enviar o arquivo daquela sessão ao servidor. No servidor, o módulo
-node transformer particionará o arquivo (segundo alguns campos) em outros
-arquivos .JSON que serão salvos no banco de dados.
-
-\subsection{Node Server}
- A partir dos arquivos .JSON citados no item anterior e um Web Site base (HTML,
- CSS, Javascript), o módulo Node Server responde (Response) à requisição do
- cliente (HTTP GET) e apresenta-o os dados capturados.
-
-\section{Data View}
-O Data View é a parte do Web App responsável por apresentar os dados capturados
-de maneira clara e legível. Para isso, a biblioteca D3.js \cite{D32017} será
-utilizada para a plotagem de gráficos a partir dos arquivos .JSON.
-
-
 \section{Servidor}
 O servidor que servirá o Web App será baseado em Node.js. Ele possui duas partes principais que serão apresentadas a seguir.
 
