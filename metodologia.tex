@@ -89,26 +89,23 @@ A saída no terminal do comando apresentado está na \autoref{saida-comando}.
 
 \subsection{Raspberry Pi}
 O Raspberry Pi é um computador do tamanho de um cartão de crédito que pode ser conectado a monitores, teclados, mouse e outros dispositivos.
-Para a detecção de dispositivos móveis um Raspberry Pi Model 3 B juntamente com um adaptador Wi-Fi são utilizados. O Raspberry foi escolhido,
+Para a detecção de dispositivos móveis um Raspberry Pi Model 3 B juntamente com um adaptador Wi-Fi são utilizados. O Raspberry foi escolhido
 pois oferece interface amigável de programação (terminais gráfico e de texto); possui poder de processamento para receber os milhares de pacotes, pré-processá-los
-e enviar para o servidor; possui entrada USB pode receber uma antena Wi-Fi e seu tamanho pequeno \cite{rpi2017}.
+e enviar para o servidor; além de entrada USB para receber uma antena Wi-Fi e também por seu tamanho pequeno \cite{rpi2017}.
 
 Outras opções foram consideradas por serem baratas, acessíveis e terem documentação aberta. Foi o caso do ESP8266 que possui um tamanho extremamente
-reduzido e possui o custo médio de R\$15,00 \cite{Embarcados2015}, mas seu uso para este trabalho fica impossibilitado. Isso
-ocorre, pois essa tecnologia não consegue ser habilitada para o modo monitor da interface de rede \cite{Puhl2016} \cite{Ferreira2016}.
+reduzido e possui o custo médio de R\$15,00 \cite{Embarcados2015}, mas seu uso para este trabalho fica impossibilitado, pois essa tecnologia não consegue ser habilitada para o modo monitor da interface de rede \cite{Puhl2016} \cite{Ferreira2016}.
 
 Uma antena Wi-Fi (Ralink MT7601U) foi equipada no Raspberry para ampliar o alcance da captura já que o propósito do sistema é detecção em zonas que podem
-apresentar esparcidade de indivíduos (espalhados) e já que ela pôde ser habilitada para o modo monitor (\autoref{modo-monitor}). A antena nativa
+apresentar esparcidade (espalhamento) de indivíduos e ela pôde ser habilitada para o modo monitor (\autoref{modo-monitor}). A antena nativa
 do Raspberry não conseguiu ser habilitada para o \emph{monitor mode}.
 
-O sistema operacional utilizado com esta ferramenta foi o Kali Linux, pois dentre os sistemas testados foi o que possui suporte de \emph{drivers} para a antena Ralink utilizada. Outro ponto é que este SO foi projetado
-para experimentos e projetos relacionados, então possui ampla documentação e exemplos nesse sentido \cite{kali}
+O sistema operacional utilizado com esta ferramenta foi o Kali Linux pois, dentre os sistemas testados, foi o que suportou \emph{drivers} para a antena Ralink utilizada. Outro ponto é que este SO foi projetado para experimentos e projetos relacionados, então possui ampla documentação e exemplos nesse sentido \cite{kali}
 
 \subsection{Node.js}
 O Node ou Node.js é um \emph{runtime} que permite a execução Javascript fora dos navegadores, nesse caso do lado dos servidores \cite{node}.
 Essa ferramenta permite a criação de APIs com entradas e saídas (I/O) não bloqueantes, ou seja, emprega programação assíncrona \cite{Dzone}. Para tal, essa tecnologia é orientada a eventos, assim que um evento ocorre funções específicas são
-acionada para tratá-lo. Nesse cenário, os comandos executam em paralelo utilizando funções de \emph{callback}. Para o sistema proposto nesse trabalho, é uma característica muito importante
-já que trata de um "sistema quase em tempo real", ou seja, é possível atender todas as requisições feitas pelo usuário para a visualização dos dados, como
+acionadas para tratá-lo. Nesse cenário, os comandos executam em paralelo utilizando funções de \emph{callback}. Para o sistema proposto nesse trabalho, é uma característica muito importante, já que se trata de um "sistema quase em tempo real", ou seja, é possível atender todas as requisições feitas pelo usuário para a visualização dos dados, como
 a postagem de arquivos provenientes do módulo sensor (\autoref{sensor-cap}).
 
 No GSMART, o Node é utilizado tanto na parte do servidor como na parte que executa os comandos do Tshark dentro do Kali Linux, demonstrando ainda mais sua versatilidade.
@@ -116,8 +113,7 @@ No GSMART, o Node é utilizado tanto na parte do servidor como na parte que exec
 Outro componente importante do Node é a importação de pacotes produzidos pela comunidade aberta através do gerenciador de pacotes NPM (Node
 Package Manager), sendo essencial para facilitar e agilizar a programação. Por exemplo, o servidor deste projeto é baseado no pacote Express.js.
 
-O Express.js é um \emph{framework} que fornece conjunto robusto para aplicativos web, como: métodos HTTP e \emph{middleware} \cite{express}. Na \autoref{express} é possível observar o tratamento
-de uma das rotas de acesso à aplicação de apresentação de dados construído facilmente com o Express. Para importar este pacote, basta abrir o terminar no diretório do projeto e executar o comando \emh{npm install --save express}.
+O Express.js é um \emph{framework} que fornece conjunto robusto para aplicativos web, como: métodos HTTP e \emph{middleware} \cite{express}. Na \autoref{express} é possível observar o tratamento de uma das rotas de acesso à aplicação de apresentação de dados construído facilmente com o Express. Para importar este pacote, basta abrir o terminal no diretório do projeto e executar o comando \emh{npm install --save express}.
 
 \begin{figure}[htb]
   \caption{\label{express}Código utilizando Express.js}
@@ -130,9 +126,7 @@ de uma das rotas de acesso à aplicação de apresentação de dados construído
 Na linha 1, importa-se o pacote. Já na linha 11, ele faz o tratamento da rota "login", caso o usuário tente acessá-la (método GET), será retornado uma mensagem de "Você está logado!". Na linha 15, o servidor está escutando a porta 3000 para acesso. Esse trecho de código é um exemplo de como a programação
 com Node e seus pacotes por ser simplificada.
 
-O último ponto para a escolha do Node.js foi o fato dele ser baseado na \emph{engine} V8 de Javascript do Google
-Chrome, possibilitando utilizar Javascript tanto para o servidor quanto no lado do cliente.
-
+O último ponto para a escolha do Node.js foi o fato dele ser baseado na \emph{engine} V8 de Javascript do Google Chrome, possibilitando utilizar Javascript tanto para o servidor quanto no lado do cliente.
 
 \subsection{MongoDB}
 O MongoDB é um banco de dados NoSQL baseado em coleções de documentos. O número
@@ -142,20 +136,18 @@ disso, o MongoDB oferece API que forece \emph{queries} rápidas e semelhantes ao
 SQL.
 
 Este banco de dados foi utilizado no projeto devido a representação dos dados em
-JSON já que a aplicação é interamente em Javascript, ou seja, facilitando
+JSON, já que a aplicação é interamente em Javascript, ou seja: facilita a
 manipulação pelas funções. Outro ponto é a escalabilidade, uma vez que no início
 do projeto o custo de uma \emph{query} e o tamanho em \emph{bytes} da unidade do
-dado não era conhecidos. Além disso, optou-se por um banco relacional, pois os dados utilizados organizados em tabelas
-consumiria demasiado desempenho da aplicação. O modelo de dado será apresentado no \autoref{arq-cap}.
+dado não eram conhecidos. Além disso, optou-se por um banco não-relacional, pois os dados utilizados organizados em tabelas consumiriam demasiado desempenho da aplicação. O modelo de dado será apresentado no \autoref{arq-cap}.
 
-Por fim, os documentos do MongoDB foram manipulados pelo Node.js através do pacote Mongoose que proporciona variadas
+Por fim, os documentos do MongoDB foram manipulados pelo Node.js através do pacote Mongoose, que proporciona variadas
 funções para abstrair as \emph{queries}.
 
 \section{Métodos e Etapas}
 \label{metodos-etapas}
 
-A implementação deste trabalho seguiu 4 etapas. Inicialmente, foi feito o levantamento teórico acerca de
-\emph{geomarketing} - devido à abrangência do tema, fez-se necessário definir
+A implementação deste trabalho seguiu 4 etapas. Inicialmente, foi feito o levantamento teórico acerca de \emph{geomarketing} - devido à abrangência do tema, fez-se necessário definir
 qual seria o viés a ser seguido. Decidiu-se focar o desenvolvimento em conceitos
 relativos à contagem de pessoas e aferição de tráfego local. Foi realizado
 também um levantamento bibliográfico a respeito de empresas e projetos
@@ -174,37 +166,14 @@ tecnologias e ferramentas a serem usadas no desenvolvimento da aplicação e
 visualização de dados, que se daria em forma de um \emph{webserver}: linguagens
 de programação, bancos de dados e servidores.
 
-Na terceira etapa, desenvolveu o módulo de visualização de dados da aplicação.
-Primeiramente, construiu-se um servidor em Nodejs e sua hospedagem num servidor em nuvem (Digital Ocean).
-Posteriormente, decidiu-se as informações relevantes para serem extraídas dos dados.
-Logo após, foi construído o layout em HTML, CSS, Javascript, EJS (Embedded
-JavaScript- template para apresentação de dados) e Boostrap em forma de
-\emph{dashboard} para apresentar gráficos e resumo das informações. Seguindo, o
-MongoDB foi definido como banco de dados, então utilizando sua forma de
+Na terceira etapa, desenvolveu-se o módulo de visualização de dados da aplicação.
+Primeiramente, construiu-se um servidor em Node.js e sua hospedagem num servidor em nuvem (Digital Ocean). Posteriormente, decidiu-se quais seriam as informações relevantes para serem extraídas dos dados, e construiu-se o layout: foram utilizados HTML, CSS, Javascript, EJS (Embedded
+JavaScript - template para apresentação de dados) e Boostrap em forma de
+\emph{dashboard} para apresentar gráficos e resumo das informações. Após isso, o
+MongoDB foi definido como banco de dados - utilizando-se de sua forma de
 organização (coleções e documentos), definiu-se o formato do dado (objetos e
-atributos). Por fim, os modelos de preparação e mineração  de dados e o tramento de rotas para acesso
-aos conteúdos do webserver (rotas de GET) e postagem de arquivos (rotas de POST).
+atributos). Por fim, os modelos de preparação e mineração  de dados e o tratamento de rotas para acesso aos conteúdos do webserver (rotas de GET) e postagem de arquivos (rotas de POST).
 
-Na última etapa, concentrou-se em desenvolver o sensor de detecção com o Raspberry Pi e a antena Ralink
-para adequar-se ao modelo de dado definido na etapa anterior. Desenvolveu-se um \emph{script}
-que: configura a antena para o modo monitor, inicia a varredura executando o Tshark e envia os arquivos gerados para o servidor.
-Neste etapa, o programa foi sendo aperfeiçoado aos poucos testando a comunicação entre o Raspberry Pi e o servidor, e se a formatação
-dos arquivos enviados e tempo de captura estavam corretos.
-
-De modo geral, a aplicação foi testada a cada e durante as etapas, inicialmente, a partir de dados fictícios criados
-no banco de dados. Posteriormente, os testes seguiram com os dados da inúmeros capturas realizadas. Os principais objetivos
-nos testes foram:
-
-\begin{itemize}
-  \item comunicação entre módulos. Por exemplo: envio de dados do sensor para o servidor, e captura dos pacotes;
-  \item tempo de resposta de \emph{requests} para servidor;
-  \item garantir programação assíncrona que é o paradigma do Nodejs;
-  \item gerar arquivos fossem enviados;
-  \item garantir que a informações extraídas estivessem corretas do ponto de vista estatístico;
-  \item tratar todos os tipos de erros encontrados e supostos para não haver quebra no funcionamento
-  de nenhum módulos (tratamento de exceções);
-  \item garantir que o formato de dado manipulado fosse mantido em toda a aplicação, sem necessidade
-  de muitas adaptações nos módulos.
-\end{itemize}
+Na última etapa, concentrou-se em desenvolver o sensor de detecção com o Raspberry Pi e a antena Ralink para adequar-se ao modelo de dado definido na etapa anterior. Desenvolveu-se um \emph{script} que configura a antena para o modo monitor, inicia a varredura (executando o Tshark) e envia os arquivos gerados para o servidor. Neste etapa, o programa foi aperfeiçoado aos poucos, testando a comunicação entre o Raspberry Pi e o servidor, e se a formatação dos arquivos enviados e tempo de captura estavam corretos.
 
 Além da fase de desenvolvimento, houve a fase de testes para aferir a precisão de medição do GSMART (veja \autoref{resultados-discussao}).
