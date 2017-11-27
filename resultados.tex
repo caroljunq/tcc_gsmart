@@ -1,19 +1,17 @@
 \chapter{Resultados e Discussão}
 \label{resultados-discussao}
 
-% terceira etapa, durante e após o desenvolvimento e interligação de
-% tecnologias e ferramentas, fizeram-se alguns testes em ambiente controlado para
-% observar o comportamento do  contator e verificar se a captura de pacotes e
-% contagem estavam ocorrendo como previsto. Foram realizados diversos ajustes a
-% fim de otimizar a precisão da contagem, levando-se em conta o fato de que a
-% aferição é uma estimativa média de tráfego e que existem limitações tecnológicas
-% envolvidas. Após obtidos os resultados finais, fizeram-se testes extensivos
-% (tanto em ambiente controlado quanto comercial) a fim de verificar-se a eficácia
-% do dispositivo e também criar um banco de dados real, fornecendo os dados necessários ao \emph{website} para processamento e geração de informação.
+Essa seção descreve o procedimento de testes do sistema e os resultados obtidos a partir dos mesmos.
+
+Durante e após o desenvolvimento e interligação de tecnologias e ferramentas utilizadas conforme \autoref{metodos-etapas}, executaram-se vários testes a fim de validar se a captura de pacotes e contagem estavam ocorrendo como previsto. Ao longo dessas verificações, foram feitos também ajustes a fim de otimizar a precisão dos resultados, levando-se em conta o fato de que a aferição é uma estimativa média de tráfego e que existem limitações tecnológicas envolvidas. Fizeram-se testes extensivos (tanto em ambiente controlado quanto comercial) a fim de garantir-se a eficácia do dispositivo e também criar um banco de dados real, fornecendo os dados necessários ao \emph{website} para processamento e geração de informação.
+
+Os testes também tiveram objetivo de verificar se o volume de dados e/ou o tempo de captura interfeririam na eficiência do contador, já que foram realizadas verificações de tempo curtas (em torno de 5 a 10 minutos) e longas (3 horas ou mais ininterruptas). 
 
 \section{Testes e validação do projeto}
-Para a validação do sistema proposto serão realizados testes unitários, de integração e
-validação. Os testes unitários e de integração do sistema resumem-se em:
+Para a validação do sistema proposto, executaram-se testes unitários, de integração e
+validação. 
+
+Os testes unitários e de integração do sistema resumem-se em:
 
 \begin{itemize}
   \item detecção dos dispositivos móveis;
@@ -23,36 +21,21 @@ validação. Os testes unitários e de integração do sistema resumem-se em:
   \item determinar se sistema consegue contar pessoas.
 \end{itemize}
 
-Já os testes de validação são resumidos em determinar se o sistema consegue ou
-não determinar a contagem e o tráfego de pessoas. Para tanto, serão feitos testes em
-ambientes controlados e não controlados. Os controlados são
-aquelas zonas em que sabe-se o número de pessoas, e então confere-se com o resultante da
-detecção. Nos ambientes não-controlados, o tráfego de pessoas será testado.
+Já a validação focou-se em determinar se o sistema consegue ou
+não realizar a contagem e o tráfego de pessoas. Para tanto, foram feitos testes em
+ambientes controlados e não controlados: os controlados são zonas pequenas, em que se conhece previamente o número de pessoas, sendo possível conferir o resultado da detecção. Nos ambientes não-controlados, a medição do tráfego é feita sem que se saiba quantas pessoas poderão adentrar a zona de teste. A taxa de confiabilidade no sistema é baseada no desvio padrão dos testes realizados em ambiente controlado - o sistema final é considerado aplicável ou não conforme o desvio padrão determinado (dependendo se este encontra-se ou não dentro dos limites estabelecidos).
 
-A taxa de confiabilidade no sistema será baseada no desvio padrão dos testes
-realizados em ambiente controlados.
-O sistema final vai ser considerado aplicável ou não caso o desvio
-padrão determinado fique dentro
-dos limites estabelecidos.
+O procedimento de testes ocorreu da seguinte maneira: inicialmente, foram feitos em ambiente controlado, a fim de observar o comportamento do sistema desenvolvido. Após todas as verificações controladas, testou-se o sistema em ambiente não-controlado, ou seja: um estabelecimento comercial - nessa etapa, o projeto verificou o desempenho do sistema em ambiente real, com grande quantidade de dispositivos móveis. 
 
-Inicialmente, visa-se desenvolver os primeiros testes em ambiente
-controlado, numa área pequena e com poucos dispositivos móveis, para verificar o
-comportamento do sistema desenvolvido na medição do tráfego. Após testes
-iniciais, pretende-se encontrar uma organização parceira que esteja dentro das
-especificações necessárias e deseje conhecer melhor seu público alvo, cedendo
-seu espaço e sua rede para alguns procedimentos e testes com a aplicação proposta
- - nessa etapa, o projeto busca verificar o desempenho do
-sistema em ambiente real, com maior quantidade de dispositivos móveis.
+Como ambiente controlado, foram escolhidos o LTIA (Laboratório de Tecnologia da Informação Aplicada), localizado na UNESP de Bauru/SP (contando-se com as devidas autorizações dos responsáveis) e também a residência das autoras deste trabalho. Percebeu-se que, nos testes realizados na zona do LTIA, a contagem ficou um pouco acima do esperado devido à grande quantidade de máquinas e dispositivos que se encontravam no recinto, consideravelmente superior à de pessoas. Nos testes realizados na moradia das autoras, o tráfego obtido mostrou-se bem mais próximo ao esperado, considerando-se houve a captura de pacotes originados em  apartamentos adjacentes, já que ambas residem em condomínio.
+
+Para verificação em ambiente não-controlado, realizaram-se testes no estabelecimento comercial Camflam Lanches, em Bauru/SP (também contando-se com as devidas autorizações). A captura de pacotes e geração de dados deu-se normalmente, e os resultados obtidos mostraram-se dentro do previsto. Neste ambiente, foram feitos somente testes longos, sem interrupção, com objetivo de aproximar-se ao máximo do que seria o ambiente real no qual o dispositivo de fato operaria.
 
 \section{Análise de Riscos}
-Considerando as premissas dos tópicos anteriores, há alguns itens e áreas que podem sofrer desvios ao longo do trabalho. Estes itens e seus planos
-de contingência respectivamente são:
+Alguns fatores e requisitos funcionais estão sujeitos a desvios de planos ou falhas técnicas, sendo necessário implementar um plano de contingência para garantir a acurácia do sistema, conforme descrito abaixo:
 
 \begin{itemize}
-  \item Falha da detecção de dispositivos (precisão): serão feitas duas formas de detecção através do protocolo Tshark, as duas garantem que os dados
-  de uma e outra são verídicos, caso uma falhe há a outra para detectar os aparelhos móveis;
-  \item Processamento no servidor é complexo: caso o desenvolvimento do processamento de dados no servidor seja muito complexo e considerando
-  que trabalharemos com estatísticas, optar por uma \emph{cloud} seria uma opção;
-  \item Raspberry Pi perder a conexão com a rede para mandar dados ao servidor: um backup dos dados será feito no aparelho, e então quando
-  a conexão retornar, esses serão enviado ao servidor. Também há a possibilidade do uso de um Modem 3G para garantir o envio.
+  \item Falha da detecção de dispositivos (precisão): foram feitas duas formas de detecção através do protocolo Tshark - ambas garantem que os dados de uma e outra são verídicos - caso uma forma de detecção falhe, há outra para detectar os dispositivos móveis;
+  \item Processamento em servidor: o desenvolvimento do processamento de dados no servidor é complexo, considerando-se que trabalhamos com estatísticas. Optou-se então por uma \emph{cloud}, a fim de obter-se melhor desempenho e segurança possíveis;
+  \item Falhas de conexão: O Raspberry Pi está sujeito a perder a conexão com a rede e ficar impossibilitado de repassar os dados ao servidor - logo, um backup é armazenado dentro do aparelho: no caso de falha na conexão, quando a mesma retornar, os arquivos serão enviados ao servidor. Existe ainda a possibilidade do uso de um Modem 3G para garantir o envio.
 \end{itemize}
