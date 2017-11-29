@@ -17,7 +17,7 @@ Class=LaTeXView
 Document=fundamentacao.tex
 
 [Frame0_View0,0]
-TopLine=407
+TopLine=413
 Cursor=17014
 
 [Frame1]
@@ -35,8 +35,8 @@ Class=LaTeXView
 Document=introducao.tex
 
 [Frame1_View0,0]
-TopLine=75
-Cursor=5130
+TopLine=73
+Cursor=5129
 
 [Frame2]
 Flags=0
@@ -89,7 +89,7 @@ Class=LaTeXView
 Document=monografia.tex
 
 [Frame4_View0,0]
-TopLine=572
+TopLine=578
 Cursor=22299
 
 [Frame5]
@@ -107,7 +107,7 @@ Class=BibTeXView
 Document=referencias.bib
 
 [Frame5_View0,0]
-TopLine=550
+TopLine=556
 Cursor=19654
 
 [Frame6]
@@ -125,8 +125,8 @@ Class=LaTeXView
 Document=arquitetura.tex
 
 [Frame6_View0,0]
-TopLine=23
-Cursor=1175
+TopLine=52
+Cursor=1177
 
 [Frame7]
 Flags=0
@@ -148,7 +148,7 @@ Cursor=2377
 
 [SessionInfo]
 FrameCount=8
-ActiveFrame=6
+ActiveFrame=1
 
 [Bookmarks]
 monografia.bbl=12 

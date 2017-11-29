@@ -190,21 +190,20 @@ gerados para o servidor. Neste etapa, o programa foi aperfeiçoado aos poucos,
 testando a comunicação entre o Raspberry Pi e o servidor, e se a formatação dos
 arquivos enviados e tempo de captura estavam corretos.
 
-De modo geral, a aplicação foi testada a cada e durante as etapas, inicialmente,
-a partir de dados fictícios criados no banco de dados. Posteriormente, os testes
-seguiram com os dados da inúmeros capturas realizadas. Os principais objetivos
-nos testes foram:
+De modo geral, a aplicação foi testada durante/a cada etapa - inicialmente,
+a partir de dados fictícios, criados no banco de dados. Posteriormente, os testes
+prosseguiram com os dados das inúmeras capturas realizadas. 
+
+Os principais objetivos nos testes foram:
 
 \begin{itemize}
-  \item comunicação entre módulos. Por exemplo: envio de dados do sensor para o servidor, e captura dos pacotes;
+  \item verificar comunicação entre módulos. Por exemplo: envio de dados do sensor para o servidor, e captura dos pacotes;
   \item tempo de resposta de \emph{requests} para servidor;
-  \item garantir programação assíncrona que é o paradigma do Nodejs;
-  \item gerar arquivos fossem enviados;
+  \item garantir programação assíncrona, que é o paradigma do Node.js;
+  \item gerar arquivos que fossem corretamente enviados;
   \item garantir que a informações extraídas estivessem corretas do ponto de vista estatístico;
-  \item tratar todos os tipos de erros encontrados e supostos para não haver quebra no funcionamento
-  de nenhum módulos (tratamento de exceções);
-  \item garantir que o formato de dado manipulado fosse mantido em toda a aplicação, sem necessidade
-  de muitas adaptações nos módulos.
+  \item tratar todos os tipos de erros encontrados e supostos problemas para não haver quebra no funcionamento de nenhum módulos (tratamento de exceções);
+  \item garantir que o formato de dado manipulado fosse mantido em toda a aplicação, sem necessidade de muitas adaptações nos módulos.
 \end{itemize}
 
 Além da fase de desenvolvimento, houve a fase de testes para aferir a precisão de medição do GSMART (veja \autoref{resultados-discussao}).
