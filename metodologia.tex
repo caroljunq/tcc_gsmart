@@ -100,7 +100,11 @@ Uma antena Wi-Fi (Ralink MT7601U) foi equipada no Raspberry para ampliar o alcan
 apresentar esparcidade (espalhamento) de indivíduos e ela pôde ser habilitada para o modo monitor (\autoref{modo-monitor}). A antena nativa
 do Raspberry não conseguiu ser habilitada para o \emph{monitor mode}.
 
-O sistema operacional utilizado com esta ferramenta foi o Kali Linux pois, dentre os sistemas testados, foi o que suportou \emph{drivers} para a antena Ralink utilizada. Outro ponto é que este SO foi projetado para experimentos e projetos relacionados, então possui ampla documentação e exemplos nesse sentido \cite{kali}
+O sistema operacional utilizado com esta ferramenta foi o Kali Linux, pois,
+dentre os sistemas testados, foi o que suportou \emph{drivers} para a antena
+Ralink utilizada. Outro ponto é que este SO foi projetado para experimentos e
+projetos relacionados à redes de computadores, então possui ampla documentação e exemplos nesse sentido
+\cite{kali}.
 
 \subsection{Node.js}
 O Node ou Node.js é um \emph{runtime} que permite a execução Javascript fora dos navegadores, nesse caso do lado dos servidores \cite{node}.
@@ -126,7 +130,9 @@ O Express.js é um \emph{framework} que fornece conjunto robusto para aplicativo
 Na linha 1, importa-se o pacote. Já na linha 11, ele faz o tratamento da rota "login", caso o usuário tente acessá-la (método GET), será retornado uma mensagem de "Você está logado!". Na linha 15, o servidor está escutando a porta 3000 para acesso. Esse trecho de código é um exemplo de como a programação
 com Node e seus pacotes por ser simplificada.
 
-O último ponto para a escolha do Node.js foi o fato dele ser baseado na \emph{engine} V8 de Javascript do Google Chrome, possibilitando utilizar Javascript tanto para o servidor quanto no lado do cliente.
+O último ponto para a escolha do Node.js foi o fato dele ser baseado na
+\emph{engine} V8 de Javascript do Google Chrome, possibilitando utilizar
+Javascript tanto para o servidor quanto no lado do cliente.
 
 \subsection{MongoDB}
 O MongoDB é um banco de dados NoSQL baseado em coleções de documentos. O número
@@ -136,12 +142,12 @@ disso, o MongoDB oferece API que forece \emph{queries} rápidas e semelhantes ao
 SQL.
 
 Este banco de dados foi utilizado no projeto devido a representação dos dados em
-JSON, já que a aplicação é interamente em Javascript, ou seja: facilita a
+JSON, já que a aplicação é inteiramente em Javascript, ou seja, facilita a
 manipulação pelas funções. Outro ponto é a escalabilidade, uma vez que no início
 do projeto o custo de uma \emph{query} e o tamanho em \emph{bytes} da unidade do
 dado não eram conhecidos. Além disso, optou-se por um banco não-relacional, pois os dados utilizados organizados em tabelas consumiriam demasiado desempenho da aplicação. O modelo de dado será apresentado no \autoref{arq-cap}.
 
-Por fim, os documentos do MongoDB foram manipulados pelo Node.js através do pacote Mongoose, que proporciona variadas
+Por fim, os documentos do MongoDB foram manipulados pelo Node.js através do pacote Mongoose que proporciona variadas
 funções para abstrair as \emph{queries}.
 
 \section{Métodos e Etapas}
@@ -172,8 +178,33 @@ JavaScript - template para apresentação de dados) e Boostrap em forma de
 \emph{dashboard} para apresentar gráficos e resumo das informações. Após isso, o
 MongoDB foi definido como banco de dados - utilizando-se de sua forma de
 organização (coleções e documentos), definiu-se o formato do dado (objetos e
-atributos). Por fim, os modelos de preparação e mineração  de dados e o tratamento de rotas para acesso aos conteúdos do webserver (rotas de GET) e postagem de arquivos (rotas de POST).
+atributos). Por fim, os modelos de preparação e mineração  de dados e o
+tratamento de rotas para acesso aos conteúdos do webserver (rotas de GET) e
+postagem de arquivos (rotas de POST).
 
-Na última etapa, concentrou-se em desenvolver o sensor de detecção com o Raspberry Pi e a antena Ralink para adequar-se ao modelo de dado definido na etapa anterior. Desenvolveu-se um \emph{script} que configura a antena para o modo monitor, inicia a varredura (executando o Tshark) e envia os arquivos gerados para o servidor. Neste etapa, o programa foi aperfeiçoado aos poucos, testando a comunicação entre o Raspberry Pi e o servidor, e se a formatação dos arquivos enviados e tempo de captura estavam corretos.
+Na última etapa, concentrou-se em desenvolver o sensor de detecção com o
+Raspberry Pi e a antena Ralink para adequar-se ao modelo de dado definido na
+etapa anterior. Desenvolveu-se um \emph{script} que configura a antena para o
+modo monitor, inicia a varredura (executando o Tshark) e envia os arquivos
+gerados para o servidor. Neste etapa, o programa foi aperfeiçoado aos poucos,
+testando a comunicação entre o Raspberry Pi e o servidor, e se a formatação dos
+arquivos enviados e tempo de captura estavam corretos.
+
+De modo geral, a aplicação foi testada a cada e durante as etapas, inicialmente,
+a partir de dados fictícios criados no banco de dados. Posteriormente, os testes
+seguiram com os dados da inúmeros capturas realizadas. Os principais objetivos
+nos testes foram:
+
+\begin{itemize}
+  \item comunicação entre módulos. Por exemplo: envio de dados do sensor para o servidor, e captura dos pacotes;
+  \item tempo de resposta de \emph{requests} para servidor;
+  \item garantir programação assíncrona que é o paradigma do Nodejs;
+  \item gerar arquivos fossem enviados;
+  \item garantir que a informações extraídas estivessem corretas do ponto de vista estatístico;
+  \item tratar todos os tipos de erros encontrados e supostos para não haver quebra no funcionamento
+  de nenhum módulos (tratamento de exceções);
+  \item garantir que o formato de dado manipulado fosse mantido em toda a aplicação, sem necessidade
+  de muitas adaptações nos módulos.
+\end{itemize}
 
 Além da fase de desenvolvimento, houve a fase de testes para aferir a precisão de medição do GSMART (veja \autoref{resultados-discussao}).

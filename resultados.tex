@@ -5,7 +5,7 @@ Essa seção descreve o procedimento de testes do sistema e os resultados obtido
 
 Durante e após o desenvolvimento e interligação de tecnologias e ferramentas utilizadas conforme \autoref{metodos-etapas}, executaram-se vários testes a fim de validar se a captura de pacotes e contagem estavam ocorrendo como previsto. Ao longo dessas verificações, foram feitos também ajustes a fim de otimizar a precisão dos resultados, levando-se em conta o fato de que a aferição é uma estimativa média de tráfego e que existem limitações tecnológicas envolvidas. Fizeram-se testes extensivos (tanto em ambiente controlado quanto comercial) a fim de garantir-se a eficácia do dispositivo e também criar um banco de dados real, fornecendo os dados necessários ao \emph{website} para processamento e geração de informação.
 
-De modo geral, a aplicação foi testada durante cada etapa de desenvolvimento (veja \autoref{metodos-etapas}), inicialmente a partir de dados fictícios, criados no banco de dados. Posteriormente, os testes seguiram com os dados das inúmeras capturas realizadas. 
+De modo geral, a aplicação foi testada durante cada etapa de desenvolvimento (veja \autoref{metodos-etapas}), inicialmente a partir de dados fictícios, criados no banco de dados. Posteriormente, os testes seguiram com os dados das inúmeras capturas realizadas.
 
 
 \section{Testes e validação do projeto}
@@ -13,19 +13,8 @@ De modo geral, a aplicação foi testada durante cada etapa de desenvolvimento (
 Para a validação do sistema proposto, executaram-se testes unitários, de integração e
 validação. Os principais objetivos dos testes foram:
 
-\begin{itemize}
-  \item comunicação entre módulos. Por exemplo: envio de dados do sensor para o servidor, e captura dos pacotes;
-  \item tempo de resposta de \emph{requests} para servidor;
-  \item garantir programação assíncrona que é o paradigma do Nodejs;
-  \item gerar arquivos fossem enviados;
-  \item garantir que a informações extraídas estivessem corretas do ponto de vista estatístico;
-  \item tratar todos os tipos de erros encontrados e supostos para não haver quebra no funcionamento
-  de nenhum módulos (tratamento de exceções);
-  \item garantir que o formato de dado manipulado fosse mantido em toda a aplicação, sem necessidade
-  de muitas adaptações nos módulos.
-\end{itemize}
 
-Os testes também tiveram objetivo de verificar se o volume de dados e/ou o tempo de captura interfeririam na eficiência do contador, já que foram realizadas verificações de tempo curtas (em torno de 5 a 10 minutos) e longas (3 horas ou mais ininterruptas). 
+Os testes também tiveram objetivo de verificar se o volume de dados e/ou o tempo de captura interfeririam na eficiência do contador, já que foram realizadas verificações de tempo curtas (em torno de 5 a 10 minutos) e longas (3 horas ou mais ininterruptas).
 
 Os testes unitários e de integração do sistema resumem-se em:
 
@@ -41,7 +30,7 @@ Já a validação focou-se em determinar se o sistema consegue ou
 não realizar a contagem e o tráfego de pessoas. Para tanto, foram feitos testes em
 ambientes controlados e não controlados: os controlados são zonas pequenas, em que se conhece previamente o número de pessoas, sendo possível conferir o resultado da detecção. Nos ambientes não-controlados, a medição do tráfego é feita sem que se saiba quantas pessoas poderão adentrar a zona de teste. A taxa de confiabilidade no sistema é baseada no desvio padrão dos testes realizados em ambiente controlado - o sistema final é considerado aplicável ou não conforme o desvio padrão determinado (dependendo se este encontra-se ou não dentro dos limites estabelecidos).
 
-O procedimento de testes ocorreu da seguinte maneira: inicialmente, foram feitos em ambiente controlado, a fim de observar o comportamento do sistema desenvolvido. Após todas as verificações controladas, testou-se o sistema em ambiente não-controlado, ou seja: um estabelecimento comercial - nessa etapa, o projeto verificou o desempenho do sistema em ambiente real, com grande quantidade de dispositivos móveis. 
+O procedimento de testes ocorreu da seguinte maneira: inicialmente, foram feitos em ambiente controlado, a fim de observar o comportamento do sistema desenvolvido. Após todas as verificações controladas, testou-se o sistema em ambiente não-controlado, ou seja: um estabelecimento comercial - nessa etapa, o projeto verificou o desempenho do sistema em ambiente real, com grande quantidade de dispositivos móveis.
 
 Como ambiente controlado, foram escolhidos o LTIA (Laboratório de Tecnologia da Informação Aplicada), localizado na UNESP de Bauru/SP (contando-se com as devidas autorizações dos responsáveis) e também a residência das autoras deste trabalho. Percebeu-se que, nos testes realizados na zona do LTIA, a contagem ficou um pouco acima do esperado devido à grande quantidade de máquinas e dispositivos que se encontravam no recinto, consideravelmente superior à de pessoas. Nos testes realizados na moradia das autoras, o tráfego obtido mostrou-se bem mais próximo ao esperado, considerando-se houve a captura de pacotes originados em  apartamentos adjacentes, já que ambas residem em condomínio.
 
