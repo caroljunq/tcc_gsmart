@@ -140,3 +140,68 @@ informações necessárias para apresentar ao usuários.
 
 \section{Visualização de Dados}
 \label{data-view}
+Assim que o cliente faz requisição ao servidor, dependendo da rota que ele tentou acessar será direcionado
+a diferentes visualizações de dados.
+
+Cada visualização de dados é uma página HTML construída pela
+linguagem de \emph{template} EJS\footnote{\url{http://www.embeddedjs.com/}} (Embedded JavaScript) cuja função é
+auxiliar na injeção de conteúdo (dado) na página requisitada.
+
+Quando o cliente acessa uma rota, o servidor recebe a requisição, passa para os
+módulos de processamento de dados e, então renderiza a \emph{view} (visualização de dados) correta. Cada
+uma das visualizações serão apresentadas a seguir.
+
+\subsection{Seleção de zona}
+\label{seleciona-zona}
+Nessa tela, o usuário seleciona a zona da qual deseja informação. As zonas disponíveis para aplicação são:
+"HOMEJ", "HOMEC", "LTIA" e "Camflam".
+
+\begin{figure}[!h]
+  \caption{\label{zones-ap}Tela de seleção de zonas}
+  \begin{center}
+    \includegraphics[width=1.0\textwidth]{img/zones.png}
+  \end{center}
+  \legend{Fonte: Elaborada pelas autoras.}
+\end{figure}
+
+\subsection{Estatística diária}
+Após ter selecionado uma zona na tela da \autoref{seleciona-zona}, o usuário é
+redirecionado para a página exposta na \autoref{statistics-ap}. Nesta
+\emph{view} são apresentadas informações referentes a cada dia de captura
+realizado para aquela área.
+
+No canto superior esquerdo da \autoref{statistics-ap}, é possível ver a zona
+escolhida, além disso, pode-se selecionar o dia para visualizar as estatísticas
+no espaço reservado. O gráfico de curva representa crescimento do tráfego de pessoas ao longo das
+horas registradas. Já o gráfico setores apresenta o número e porcentagem de dispositivos por fabricante.
+
+\begin{figure}[!h]
+  \caption{\label{statistics-ap}\emph{Dashboard}}
+  \begin{center}
+    \includegraphics[width=1.0\textwidth]{img/statistics.png}
+  \end{center}
+  \legend{Fonte: Elaborada pelas autoras.}
+\end{figure}
+
+Neste trabalho foram selecionadas algumas informações com base nos estudos de \emph{geomarketing} que seriam
+de expressividade e relevância para o usuário. Essas informações são, de acordo com a ordem disposta
+na figura:
+
+\begin{itemize}
+    \item \textbf{Traffic Average}:
+    \item \textbf{Traffic Peak}:
+    \item \textbf{Total Traffic}:
+    \item \textbf{Vendor}:
+    \item \textbf{New Visits}:
+    \item \textbf{Customers}:
+\end{itemize}
+
+\subsection{Comparação de dias}
+
+\begin{figure}[!h]
+  \caption{\label{comparing-ap}Tela de Comparação}
+  \begin{center}
+    \includegraphics[width=1.0\textwidth]{img/comparing.png}
+  \end{center}
+  \legend{Fonte: Elaborada pelas autoras.}
+\end{figure}
