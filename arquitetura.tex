@@ -96,31 +96,47 @@ por zona ou por dia, dependendo da visualização de dados selecionada.
 
 \section{Node Server}
 \label{node-server}
+Este módulo que engloba o módulo da \autoref{node-transformer}, também: define
+quais recursos recursos da aplicação são acessadas pelo cliente e como os dados
+são processados segundo cada visualização de dados.
 
+\subsection{Deliberando recursos}
+O Node Server é um \emph{web service} baseado no padrão REST (Representational
+State Transfer, em português Transferência de Estado Representacional). Adotando
+esse padrão implica que temos uma RESTful API \cite{pires2017}. De modo geral, a aplicação define
+URIs que através de verbos HTTP (GET e POST), fornecem à requisão do cliente
+algum recurso específico. Por exemplo, ao acessar a URL do servidor acompanhado de "/statistics/LTIA", a API
+desenvolvida responde ao cliente com uma página HTML com informações referentes a zona LTIA.
+
+Todas as URIs possíveis foram definidas através de um \emph{middleware} com o
+pacote do Node, o Express.js\footnote{\url{http://expressjs.com/}}. Este emprega rotas para definir quais recursos
+serão fornecidos ao cliente. Na \autoref{trecho-express} temos o exemplo de trecho de código do \emph{middleware} da
+aplicação. Nesse exemplo, assim que o servidor recebe um requisição HTTP GET, após um processamento de dados, responde
+ao cliente com a visualização de dados ``statistics'' com o dado em forma de JSON (linha 5). Já \autoref{rotas} descreve
+todas as rotas (URIs) acessíveis ao cliente.
+
+\begin{figure}[!h]
+  \caption{\label{trecho-express}\emph{Middleware} com Express.js}
+  \begin{center}
+    \includegraphics[width=1.0\textwidth]{img/trecho-express.png}
+  \end{center}
+  \legend{Fonte: Elaborada pelas autoras.}
+\end{figure}
+
+\begin{figure}[!h]
+  \caption{\label{rotas}Rotas do Express}
+  \begin{center}
+    \includegraphics[width=1.0\textwidth]{img/rotas.png}
+  \end{center}
+  \legend{Fonte: Elaborada pelas autoras.}
+\end{figure}
+
+\subsection{Processando dados}
+Além de deliberar recursos, o Node Serve recupera os dados e processá-os para
+apresentar ao usuário. Assim que o cliente faz a requisição ao servidor, dados
+referentes à zona e/ou dia selecionados são recuperados do banco de dados. Em
+seguida, esses elementos passam por outros módulos que retornam JSON com as
+informações necessárias para apresentar ao usuários.
 
 \section{Visualização de Dados}
 \label{data-view}
-
-\section{Arquiteturas específicas}
--api
--rest
--MVC
-%
-% \subsection{Node Transformer}
-% \label{node-transformer}
-% Após converter os dados do pacotes recebidos para um arquivo, o
-% Raspberry Pi dá um cURL POST (HTTP POST através do terminal) de tempos em tempos
-% para enviar o arquivo daquela sessão ao servidor. No servidor, o módulo
-% node transformer particionará o arquivo (segundo alguns campos) em outros
-% arquivos .JSON, que serão salvos no banco de dados.
-%
-% \subsection{Node Server}
-%  A partir dos arquivos .JSON citados no item anterior e um Web Site base (HTML,
-%  CSS, Javascript), o módulo Node Server responde (Response) à requisição do
-%  cliente (HTTP GET) e apresenta-o os dados capturados.
-%
-% \section{Data View}
-% O Data View é a parte do Web App responsável por apresentar os dados capturados
-% de maneira clara e legível. Para isso, a biblioteca D3.js \cite{D32017} será
-% utilizada para a plotagem de gráficos a partir dos arquivos .JSON.
-%
