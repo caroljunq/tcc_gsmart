@@ -165,6 +165,7 @@ Nessa tela, o usuário seleciona a zona da qual deseja informação. As zonas di
 \end{figure}
 
 \subsection{Estatística diária}
+\label{diaria}
 Após ter selecionado uma zona na tela da \autoref{seleciona-zona}, o usuário é
 redirecionado para a página exposta na \autoref{statistics-ap}. Nesta
 \emph{view} são apresentadas informações referentes a cada dia de captura
@@ -188,15 +189,24 @@ de expressividade e relevância para o usuário. Essas informações são, de ac
 na figura:
 
 \begin{itemize}
-    \item \textbf{Traffic Average}:
-    \item \textbf{Traffic Peak}:
-    \item \textbf{Total Traffic}:
-    \item \textbf{Vendor}:
-    \item \textbf{New Visits}:
-    \item \textbf{Customers}:
+    \item \textbf{Traffic Average}: é a média de tráfego de pessoas por hora;
+    \item \textbf{Traffic Peak}: é o maior valor de detecção dentro do intervalo de horas disponíveis;
+    \item \textbf{Total Traffic}: é o número total de indivíduos (diferentes) dentre todas as horas escaneadas;
+    \item \textbf{Vendor}: fabricante de dispositivo móvel detectado em maior número;
+    \item \textbf{New Visits}: do total de indivíduos quantos estão presentes pela primeira vez;
+    \item \textbf{Customers}: número total de pessoas que já estiveram alguma vez dentro daquela zona, considera
+    só os dias anteriores.
 \end{itemize}
 
 \subsection{Comparação de dias}
+Para facilitar a comparação de todos os dias de captura de uma zona, há uma tela de comparação, como mostra
+a \autoref{comparing-ap}. Esta tela mostra num gráfico de barras todos os dias e seus respectivos número
+de dispositivos por hora. Numa mesma hora é possível ter a plotagem de várias barras para verificar
+a diferenças e semelhanças entre os dias. Logo abaixo, há uma tabela que apresenta todas as informações
+contidas na \emph{view} de estatísticas diárias (veja \autoref{diaria}) para todos os dias disponíveis dentro
+da zona.
+
+No canto superior esquerdo da tela há um espaço reservado para a mudança de zona.
 
 \begin{figure}[!h]
   \caption{\label{comparing-ap}Tela de Comparação}
@@ -205,3 +215,27 @@ na figura:
   \end{center}
   \legend{Fonte: Elaborada pelas autoras.}
 \end{figure}
+
+\section{Arquitura MVC}
+Para estruturar todos os módulos do projeto foi utilizada a arquitetura de
+software MVC (Model View Controller) que é amplamente usado com os utilizados
+Express.js e Node.js, tendo exemplos da comunidade e dentro da documentação dessas
+tecnologias.
+
+O MVC divide a aplicação em três componentes- Model, View e Controller -
+promovendo modularidade e facilidade de colaoração e reutilização \cite{mdn}. Cada componente represeta:
+
+\begin{itemize}
+    \item \textbf{Model}: armazena os dados da aplicação e notifica as \emph{views} e
+    \emph{controllers} sobre a mudança de estados desses dados. Sendo assim, as visualizações e os controladores
+    podem tomar ações, como, atualizar a visão dos dados e executar comandos, respectivamente.
+    \item \textbf{Views}: apresentam aos usuários as informações e é um meio de interação deles com
+    a aplicação;
+    \item \textbf{Controllers}: atualizam os \emph{models} e \emph{views} de acordo
+    com atualizações de dados pela própria aplicação ou por interação com o usuário.
+\end{itemize}
+
+No caso deste projeto, os \emph{models} foram construídos através do pacote do Node.js que auxilia
+na manipulação de dados do MongoDB, o Mongoose\footnote{\url{http://mongoosejs.com/}}. Já todas as \emph{views}
+foram construídas com a linguagem de template EJS e HTML. A linguagem Javascript foi utiliza para o desenvolvimento
+de todos esses componentes, facilitando pelo uso tanto do lado do servidor como a do cliente.
