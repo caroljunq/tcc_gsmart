@@ -11,14 +11,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=922
-NormalPos.bottom=398
+NormalPos.right=1161
+NormalPos.bottom=339
 Class=LaTeXView
 Document=metodologia.tex
 
 [Frame0_View0,0]
-TopLine=60
-Cursor=3136
+TopLine=250
+Cursor=12726
 
 [Frame1]
 Flags=0
@@ -29,14 +29,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=922
-NormalPos.bottom=398
+NormalPos.right=1161
+NormalPos.bottom=339
 Class=LaTeXView
 Document=resultados.tex
 
 [Frame1_View0,0]
-TopLine=0
-Cursor=0
+TopLine=141
+Cursor=1805
 
 [Frame2]
 Flags=0
@@ -47,8 +47,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=922
-NormalPos.bottom=398
+NormalPos.right=1161
+NormalPos.bottom=339
 Class=LaTeXView
 Document=arquitetura.tex
 
@@ -65,13 +65,13 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=922
-NormalPos.bottom=398
+NormalPos.right=1161
+NormalPos.bottom=339
 Class=BibTeXView
 Document=referencias.bib
 
 [Frame3_View0,0]
-TopLine=578
+TopLine=559
 Cursor=20023
 
 [Frame4]
@@ -83,13 +83,13 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=922
-NormalPos.bottom=398
+NormalPos.right=1161
+NormalPos.bottom=339
 Class=LaTeXView
 Document=conclusao.tex
 
 [Frame4_View0,0]
-TopLine=9
+TopLine=3
 Cursor=2187
 
 [Frame5]
@@ -101,13 +101,13 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=922
-NormalPos.bottom=398
+NormalPos.right=1161
+NormalPos.bottom=339
 Class=LaTeXView
 Document=monografia.tex
 
 [Frame5_View0,0]
-TopLine=606
+TopLine=586
 Cursor=23879
 
 [Frame6]
@@ -119,13 +119,13 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=922
-NormalPos.bottom=398
+NormalPos.right=1161
+NormalPos.bottom=339
 Class=LaTeXView
 Document=fundamentacao.tex
 
 [Frame6_View0,0]
-TopLine=264
+TopLine=283
 Cursor=8882
 
 [Frame7]
@@ -137,8 +137,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=922
-NormalPos.bottom=398
+NormalPos.right=1161
+NormalPos.bottom=339
 Class=LaTeXView
 Document=introducao.tex
 
@@ -148,7 +148,7 @@ Cursor=2
 
 [SessionInfo]
 FrameCount=8
-ActiveFrame=3
+ActiveFrame=1
 
 [Bookmarks]
 monografia.bbl=12 
