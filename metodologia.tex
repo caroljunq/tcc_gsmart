@@ -43,9 +43,26 @@ houver BSS no canal que coincida com o SSID (Service Set Identifier) do quadro
 \emph{probe response} (resposta de sondagem) para a estação que fez a pergunta.
 
 O \emph{probe request} é utilizado como meio de detecção de pessoas, pois
-independe da tecnologia do tipo de estaçãos móvel (dispositivo móvel) e está presente em todo lugar (trivial).
-Ainda, há muitos projetos
-que já fazem essa detecção através do Tshark, ou seja, há ampla documentação.
+independe da tecnologia do tipo de estação móvel (dispositivo móvel) e está presente em todo lugar (trivial). Ainda, há muitos projetos que já fazem essa detecção através do Tshark, ou seja: há ampla documentação.
+
+Para conectividade Wi-Fi do dispositivo Raspberry Pi, utilizamos o adaptador Ralink MT7601U, do fabricante MediaTek, seguindo o padrão IEEE 802.11:b/g/n (informações de \citeonline{MediaTek}).
+
+Segundo \citeonline{Morimoto2009}, uma das grandes dúvidas ao se montar uma rede wireless é o seu alcance efetivo, o qual sofre grande variação. O valor prometido pela maioria dos fabricantes é de 30 metros em ambientes fechados e 150 metros em ambientes abertos. Devido ao uso de mais transmissores e antenas, o padrão 802.11n oferece um alcance um pouco maior: promete até 70 metros em ambientes fechados e 250 metros em campo aberto. Porém, estes valores são estimados, gerados em testes padronizados: em situações reais, é possível que, em links de longa distância (30 km), clientes não consigam manter uma transmissão estável num ponto de acesso localizado a apenas 6 a 8 metros de distância.
+
+Três fatores explicam diferenças tão grandes: o ganho das antenas utilizadas no ponto de acesso e do cliente, a potência dos transmissores e, principalmente, fontes de interferência presentes no ambiente.
+
+Para \citeonline{Morimoto2009}, os obstáculos que mais depreciam a qualidade do sinal de uma rede são:
+
+\begin{itemize}
+  \item superfícies metálicas, como grades, janelas, portas metálicas, lajes, vigas. O metal reflete a maior parte do sinal;
+  \item materiais densos, como concreto e pedra;
+  \item corpos com grande concentração de líquido, como aquários, piscinas, caixas d'agua;
+	\item focos de interferência, que competem com o sinal do ponto de acesso;
+	\item fornos de microondas, telefones sem fio, transmissores bluetooth e outros aparelhos que operam na faixa dos 2.4 GHz (mesma das redes wireless);
+  \item interferência entre diferentes redes instaladas na mesma área
+\end{itemize}
+
+Portanto, combinação de todos esses fatores faz com que o alcance varie muito de acordo com o ambiente, não sendo possível pré-estabelecer um valor fixo que estipule o alcance da antena.
 
 \subsection{Modo monitor}
 \label{modo-monitor}
