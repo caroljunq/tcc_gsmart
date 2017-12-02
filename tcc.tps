@@ -14,11 +14,11 @@ NormalPos.top=26
 NormalPos.right=1022
 NormalPos.bottom=371
 Class=LaTeXView
-Document=metodologia.tex
+Document=resultados.tex
 
 [Frame0_View0,0]
-TopLine=259
-Cursor=299
+TopLine=353
+Cursor=20060
 
 [Frame1]
 Flags=0
@@ -32,11 +32,11 @@ NormalPos.top=26
 NormalPos.right=1022
 NormalPos.bottom=371
 Class=LaTeXView
-Document=resultados.tex
+Document=fundamentacao.tex
 
 [Frame1_View0,0]
-TopLine=0
-Cursor=0
+TopLine=391
+Cursor=19654
 
 [Frame2]
 Flags=0
@@ -50,11 +50,11 @@ NormalPos.top=26
 NormalPos.right=1022
 NormalPos.bottom=371
 Class=LaTeXView
-Document=arquitetura.tex
+Document=introducao.tex
 
 [Frame2_View0,0]
-TopLine=23
-Cursor=829
+TopLine=67
+Cursor=5129
 
 [Frame3]
 Flags=0
@@ -71,8 +71,8 @@ Class=BibTeXView
 Document=referencias.bib
 
 [Frame3_View0,0]
-TopLine=584
-Cursor=20023
+TopLine=0
+Cursor=0
 
 [Frame4]
 Flags=0
@@ -90,7 +90,7 @@ Document=conclusao.tex
 
 [Frame4_View0,0]
 TopLine=66
-Cursor=680
+Cursor=0
 
 [Frame5]
 Flags=0
@@ -107,8 +107,8 @@ Class=LaTeXView
 Document=monografia.tex
 
 [Frame5_View0,0]
-TopLine=0
-Cursor=0
+TopLine=399
+Cursor=15281
 
 [Frame6]
 Flags=0
@@ -122,33 +122,15 @@ NormalPos.top=26
 NormalPos.right=1022
 NormalPos.bottom=371
 Class=LaTeXView
-Document=fundamentacao.tex
+Document=arquitetura.tex
 
 [Frame6_View0,0]
-TopLine=384
-Cursor=8882
-
-[Frame7]
-Flags=0
-ShowCmd=1
-MinPos.x=-1
-MinPos.y=-1
-MaxPos.x=-1
-MaxPos.y=-1
-NormalPos.left=4
-NormalPos.top=26
-NormalPos.right=1022
-NormalPos.bottom=371
-Class=LaTeXView
-Document=introducao.tex
-
-[Frame7_View0,0]
 TopLine=0
-Cursor=2
+Cursor=0
 
 [SessionInfo]
-FrameCount=8
-ActiveFrame=4
+FrameCount=7
+ActiveFrame=5
 
 [Bookmarks]
 monografia.bbl=12 
