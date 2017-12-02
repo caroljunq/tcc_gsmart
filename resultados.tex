@@ -5,123 +5,68 @@ Este capítulo descreve os testes realizados em relação ao sistema e a discuss
 
 \section{Método de teste}
 \label{metodo-teste}
-Os testes realizados tiveram como principal objetivo verificar se o GSMART mede o tráfego
-de pessoas numa determinada zona.
+Os testes realizados tiveram como principal objetivo verificar a precisão e exatidão do GSMART em relação a
+medição do tráfego de pessoas.
 
 Os experimentos consistiram em deixar o sensor detectando dentro de zonas
-selecionadas durante certos períodos de tempo. Buscou-se variar os ambientes de
+selecionadas durante certos períodos de tempo (escolha aleatória e de acordo com a disponibilidade
+dos donos). Buscou-se variar os ambientes de
 detecção nos quesitos: concentração de pessoas e tempo de detecção. Para algumas
 áreas menos concentradas foi possível registrar presencialmente o número de
 pessoas por hora para comparação com os resultados do sistema. Em nenhum momento durante os experimentos
 houve queda de energia, que impediria o escaneamento da zona.
 
-Os métodos utilizados para aferir a precisão do sistema serão: comparação de médias e desvio padrão.
+Os métodos de avaliação estão centrados nos conceitos de: valor referência, média amostral e desvio padrão.
+A variável quantitativa discreta identificada é o número de pessoas. O tratamento estatística adotado nos testes
+é a inferência estatística (amostras) que é uma maneira rápida e econômica de fazer
+inferência acerda da população \cite{Cabral2004}. As escolha do método de amostras
+foi escolhido considerando que nem todos as horas foram monitoradas e as diferentes condições de
+cada ambiente de teste.
 
-\section{Zona 1: LTIA}
-\label{ltia-zone}
+\section{Terminologias estatísticas}
+Antes de expor os testes e seus resultados é necessária uma revisão acerca de termos estatísticos segundo \citeonline{Cabral2004}. Eles são:
+\begin{itemize}
+    \item \textbf{valor verdadeiro}: o valor que obteríamos numa medição ideal, feita de condições
+    perfeitas com instrumentos perfeitos e por operadores perfeitos;
+    \item \textbf{exatidão:} a maior ou menor aproximação entre o resultado e o valor verdadeiro;
+    \item \textbf{precisão:} está associada à dispersão dos valores resultantes da repetição das medições.
+\end{itemize}
 
-\begin{table}[h]
-\centering
-\caption{Contagem total na Zona LTIA}
-\vspace{0.5cm}
-\begin{tabular}{c|cc}
-Dia & GSmart & Real \\
-\hline                                          
-24-07-2017 & x & x \\
-25-07-2017 & x & x 
-\end{tabular}
-\end{table}
+\section{Ambientes de teste}
+Os ambientes de teste foram escolhidos de acordo com a disponibilidade de horário e autorização
+para detecção. A condição que variou em cada um deles foi: concentração de pessoas e horários de detecção.
+Outras características que influenciaram na detecção seram discutidos na \autoref{erros-influencia}.
 
-\section{Zona 2: HOMEJ}
-\label{homej-zone}
+\subsection{HOMEC}
 
-Os testes desta zona foram realizados em um edifício residencial pequeno, com 3 andares e 6 apartamentos - por esse motivo, o alcance da antena capturou mais indivíduos do que os que se localizavam na área do apartamento (4 pessoas) durante as medições. 
+\subsection{HOMEJ}
+Os testes desta zona foram realizados em um edifício residencial pequeno, com 3
+andares e 6 apartamentos - por esse motivo, o alcance da antena capturou mais
+indivíduos do que os que se localizavam na área do apartamento (4 pessoas)
+durante as medições.
 
-Para exemplificação, são mostradas aqui as capturas coletadas numa sexta, entre 00:00 e 04:00 horas, executadas de hora em hora dentro desse intervalo, e no sábado, em 2 intervalos (também efetuando-se a captura de hora em hora): 12:00 às 17:00 horas e 20:00 às 22:00 horas.
+Para exemplificação, são mostradas aqui as capturas coletadas numa sexta, entre
+00:00 e 04:00 horas, executadas de hora em hora dentro desse intervalo, e no
+sábado, em 2 intervalos (também efetuando-se a captura de hora em hora): 12:00
+às 17:00 horas e 20:00 às 22:00 horas.
 
-\begin{table}[h]
-\centering
-\caption{Contagem total na Zona HOMEJ}
-\vspace{0.5cm}
-\begin{tabular}{c|cc}
-Dia & GSmart & Real \\
-\hline                                          
-24-11-2017 & 12 & 4 \\
-25-11-2017 & 49 & 4 
-\end{tabular}
-\end{table}
+\subsection{LTIA}
 
+\subsection{Camflam}
 
-\section{Zona 3: HOMEC}
-\label{homec-zone}
+\section{Teste de precisão}
 
-Blablabla
+\section{Teste de exatidão}
 
-Bla Bla Bla bla bla bla bla bla
+\section{Erros e influenciadores na medição}
+\label{erros-influencia}
 
-\begin{table}[h]
-\centering
-\caption{Contagem total na Zona HOMEC}
-\vspace{0.5cm}
-\begin{tabular}{c|cc}
-Dia & GSmart & Real \\
-\hline                                          
-24-11-2017 & x & x \\
-25-11-2017 & x & x 
-\end{tabular}
-\end{table}
-
-\section{Zona 4: Camflam}
-\label{camflam-zone}
-
-\begin{table}[h]
-\centering
-\caption{Contagem total na Zona Camflam}
-\vspace{0.5cm}
-\begin{tabular}{c|cc}
-
-Dia & GSmart & Real \\
-\hline                                          
-24-07-2017 & x & x \\
-25-07-2017 & x & x 
-
-\end{tabular}
-\end{table}
-
-\section{Avaliação de informações fornecidas}
-\label{avalia-info}
-
-\section{Avaliação de medição de tráfego}
-\label{avalia-trafego}
-
-%
-% \section{Testes e validação do projeto}
-%
-% Para a validação do sistema proposto, executaram-se testes unitários, de integração e
-% validação. Os principais objetivos dos testes foram:
+% Durante as medições foram identificados e observados os tipos de erros: sistematico e grosseiro.
+% identificar quais deles
+% teoricos -> por simplificacao de modelos
 %
 %
-% Os testes também tiveram objetivo de verificar se o volume de dados e/ou o tempo de captura interfeririam na eficiência do contador, já que foram realizadas verificações de tempo curtas (em torno de 5 a 10 minutos) e longas (3 horas ou mais ininterruptas).
-%
-% Os testes unitários e de integração do sistema resumem-se em:
-%
-%
-%
-% Já a validação focou-se em determinar se o sistema consegue ou
-% não realizar a contagem e o tráfego de pessoas. Para tanto, foram feitos testes em
-% ambientes controlados e não controlados: os controlados são zonas pequenas, em que se conhece previamente o número de pessoas, sendo possível conferir o resultado da detecção. Nos ambientes não-controlados, a medição do tráfego é feita sem que se saiba quantas pessoas poderão adentrar a zona de teste. A taxa de confiabilidade no sistema é baseada no desvio padrão dos testes realizados em ambiente controlado - o sistema final é considerado aplicável ou não conforme o desvio padrão determinado (dependendo se este encontra-se ou não dentro dos limites estabelecidos).
-%
-% O procedimento de testes ocorreu da seguinte maneira: inicialmente, foram feitos em ambiente controlado, a fim de observar o comportamento do sistema desenvolvido. Após todas as verificações controladas, testou-se o sistema em ambiente não-controlado, ou seja: um estabelecimento comercial - nessa etapa, o projeto verificou o desempenho do sistema em ambiente real, com grande quantidade de dispositivos móveis.
-%
-% Como ambiente controlado, foram escolhidos o LTIA (Laboratório de Tecnologia da Informação Aplicada), localizado na UNESP de Bauru/SP (contando-se com as devidas autorizações dos responsáveis) e também a residência das autoras deste trabalho. Percebeu-se que, nos testes realizados na zona do LTIA, a contagem ficou um pouco acima do esperado devido à grande quantidade de máquinas e dispositivos que se encontravam no recinto, consideravelmente superior à de pessoas. Nos testes realizados na moradia das autoras, o tráfego obtido mostrou-se bem mais próximo ao esperado, considerando-se houve a captura de pacotes originados em  apartamentos adjacentes, já que ambas residem em condomínio.
-%
-% Para verificação em ambiente não-controlado, realizaram-se testes no estabelecimento comercial Camflam Lanches, em Bauru/SP (também contando-se com as devidas autorizações). A captura de pacotes e geração de dados deu-se normalmente, e os resultados obtidos mostraram-se dentro do previsto. Neste ambiente, foram feitos somente testes longos, sem interrupção, com objetivo de aproximar-se ao máximo do que seria o ambiente real no qual o dispositivo de fato operaria.
-%
-% \section{Análise de Riscos}
-% Alguns fatores e requisitos funcionais estão sujeitos a desvios de planos ou falhas técnicas, sendo necessário implementar um plano de contingência para garantir a acurácia do sistema, conforme descrito abaixo:
-%
-% \begin{itemize}
-%   \item Falha da detecção de dispositivos (precisão): foram feitas duas formas de detecção através do protocolo Tshark - ambas garantem que os dados de uma e outra são verídicos - caso uma forma de detecção falhe, há outra para detectar os dispositivos móveis;
-%   \item Processamento em servidor: o desenvolvimento do processamento de dados no servidor é complexo, considerando-se que trabalhamos com estatísticas. Optou-se então por uma \emph{cloud}, a fim de obter-se melhor desempenho e segurança possíveis;
-%   \item Falhas de conexão: O Raspberry Pi está sujeito a perder a conexão com a rede e ficar impossibilitado de repassar os dados ao servidor - logo, um backup é armazenado dentro do aparelho: no caso de falha na conexão, quando a mesma retornar, os arquivos serão enviados ao servidor. Existe ainda a possibilidade do uso de um Modem 3G para garantir o envio.
-% \end{itemize}
+% % --> grafico de dispersao mostra que curva é similar com o verdadeiro ou correlacao linear
+% %
+% % valor referencia para análise de exatidão --> media dos valores verdadeiros
+% % quanto varia se varia,
