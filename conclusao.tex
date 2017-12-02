@@ -1,7 +1,6 @@
 \chapter{Conclusão}
 \label{conclusao}
 
-
 O foco principal deste trabalho foi disponibilizar um sistema \emph{opensource}
 que aplique os conceitos de \emph{geomarketing} vistos, abrangendo o estudo de
 redes de computadores (redes sem fio) e dispositivos móveis aplicados à
@@ -34,11 +33,26 @@ O contator se comporta bem em áreas onde existe alta frequência na entrada e s
 restaurantes e lojas, em que os transeuntes geralmente portam um aparelho móvel
 pessoal (\emph{smarthphone} ou \emph{tablet}). Portanto, o dispositivo não é indicado para espaços com poucas pessoas e muita quantidade de máquinas ao redor. O GSmart seria bastante útil na gestão de rede e dimensionamento de perfil tecnológico, por exemplo.
 
-Outro fator observado é que indivíduos inicialmente detectados no ambiente, ao irem embora, ainda permanecerão na contagem, ou seja: a saída de pessoas não é considerada, somente a chegada - se uma pessoa ficar por apenas 1 minuto no local, será contada pelo dispositivo. Para futura implementação, seria interessante capturar também o tempo de permanência de cada indivíduo/ MAC na área, além de utilizar esse período para validar se, por exemplo, uma pessoa que adentre um estabelecimento comercial de fato utilizou os serviços do local ou se está somente de passagem. Durante o tempo de detecção, ocorrem intervalos em que pessoas podem não ser detectadas, causados por interferências, obstáculos ou limitações tecnológicas, conforme descrito em \autoref{wifi}.
+Foi observado também que, indivíduos inicialmente detectados no ambiente, ao irem embora, ainda permanecerão na contagem, ou seja: a saída de pessoas não é considerada, somente a chegada - se uma pessoa ficar por apenas 1 minuto no local, será contada pelo dispositivo. Para futura implementação, seria interessante capturar também o tempo de permanência de cada indivíduo/ MAC na área, além de utilizar esse período para validar se, por exemplo, uma pessoa que adentre um estabelecimento comercial de fato utilizou os serviços do local ou se está somente de passagem. Durante o tempo de detecção, ocorrem intervalos em que pessoas podem não ser detectadas, causados por interferências, obstáculos ou limitações tecnológicas, conforme descrito em \autoref{wifi}.
 
 Diante do exposto neste trabalho, apesar das limitações verificadas, concluímos que o dispositivo cumpre o objetivo de capturar, armazenar e processar dados de tráfego para geração e visualização de informações gráficas, além de prover estatísticas comparativas e métricas. Além disso, o GSmart mostrou-se uma ferramenta muito útil para estudantes, proporcionando recursos ao estudo de \emph{Geomarketing} à comunidade aberta e demais interessados. 
 
 
+\section{Trabalhos Futuros}
+Como trabalhos futuros, propõe-se alguma melhorias para garantir maior exatidão e
+precisão do sistema deste trabalhos. Essas melhorias são:
+\begin{itemize}
+    \item \textbf{Tempo de estadia}: considerar um tempo mínimo de estadia dentro de uma zona para indivíduo ser
+    contado;
+    \item \textbf{Classificar dispositivos}: tentar diferenciar \emph{smartphones} de computadores comerciais;
+    \item \textbf{Explorar comunicação GSM}: com autorização de empresas de telefonia, explorar comunicação GSM
+    para não depender somente do Wi-Fi;
+    \item \textbf{Detectar múltiplos aparelhos por pessoa}: através da potência de sinal e \emph{timestamp}
+    de pacotes determinar se dispositivos tendem a pertencer a um mesmo indivíduo.
+\end{itemize}
 
-
+Além da melhoria no trabalho desenvolvido, indica-se o sistema construído como um potencial para gestão de redes
+de computadores dentro de zonas urbanas e rurais onde é possível mapear grande quantidade de dispositivos com o
+que já foi levantado neste trabalho. Além disso, pode-se aplicar o GSMART como ferramenta de decisões para mobilidade
+urbana a partir do momento em que horas de pico de tráfego podem ser inferidas.
 
