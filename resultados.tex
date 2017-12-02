@@ -57,12 +57,19 @@ sábado, em 2 intervalos (também efetuando-se a captura de hora em hora): 12:00
 \section{Teste de precisão}
 
 \section{Teste de exatidão}
+O teste de exatidão compreende em dividir a média dos valores obtidos com GSMART
+pela média dos valores reais. Desta operação, a resultante é a proporção do
+número de dispositivos detectados pelo sistema em relação ao valores
+verdadeiros. Quanto mais próximo de 1 for este resultado, mais acurado e exato
+será o sensor.
 
+Na \autoref{exato-ltia}, a média de valores encontrados pelo sensor foi 80,67, enquanto a média real foi 15,67. Dividindo um valor pelo
+outro obtém
 \begin{table}[h]
 \def\arraystretch{1.5}
 \centering
 \caption{Teste Exatidão para zona LTIA}
-\label{my-label}
+\label{exato-ltia}
 \begin{tabular}{cccl}
 \cline{1-3}
 \multicolumn{1}{|c|}{\textbf{Data}}                                            & \multicolumn{1}{c|}{\textbf{Contagem GSMART}} & \multicolumn{1}{c|}{\textbf{Contagem Real}} &  \\ \cline{1-3}
