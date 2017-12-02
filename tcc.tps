@@ -11,13 +11,13 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1161
-NormalPos.bottom=339
+NormalPos.right=1022
+NormalPos.bottom=417
 Class=LaTeXView
 Document=metodologia.tex
 
 [Frame0_View0,0]
-TopLine=250
+TopLine=258
 Cursor=12726
 
 [Frame1]
@@ -29,14 +29,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1161
-NormalPos.bottom=339
+NormalPos.right=1022
+NormalPos.bottom=417
 Class=LaTeXView
 Document=resultados.tex
 
 [Frame1_View0,0]
-TopLine=141
-Cursor=1805
+TopLine=63
+Cursor=4810
 
 [Frame2]
 Flags=0
@@ -47,8 +47,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1161
-NormalPos.bottom=339
+NormalPos.right=1022
+NormalPos.bottom=417
 Class=LaTeXView
 Document=arquitetura.tex
 
@@ -65,13 +65,13 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1161
-NormalPos.bottom=339
+NormalPos.right=1022
+NormalPos.bottom=417
 Class=BibTeXView
 Document=referencias.bib
 
 [Frame3_View0,0]
-TopLine=559
+TopLine=578
 Cursor=20023
 
 [Frame4]
@@ -83,8 +83,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1161
-NormalPos.bottom=339
+NormalPos.right=1022
+NormalPos.bottom=417
 Class=LaTeXView
 Document=conclusao.tex
 
@@ -101,13 +101,13 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1161
-NormalPos.bottom=339
+NormalPos.right=1022
+NormalPos.bottom=417
 Class=LaTeXView
 Document=monografia.tex
 
 [Frame5_View0,0]
-TopLine=586
+TopLine=592
 Cursor=23879
 
 [Frame6]
@@ -119,13 +119,13 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1161
-NormalPos.bottom=339
+NormalPos.right=1022
+NormalPos.bottom=417
 Class=LaTeXView
 Document=fundamentacao.tex
 
 [Frame6_View0,0]
-TopLine=283
+TopLine=336
 Cursor=8882
 
 [Frame7]
@@ -137,8 +137,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1161
-NormalPos.bottom=339
+NormalPos.right=1022
+NormalPos.bottom=417
 Class=LaTeXView
 Document=introducao.tex
 
