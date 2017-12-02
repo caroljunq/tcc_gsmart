@@ -11,27 +11,34 @@ semelhantes, foi possível agrupar a contagem de pessoas por períodos e descobr
 informações relevantes para a tomada de decisão estratégica em negócios
 (\autoref{importancia}).
 
-O protótipo desenvolvido consegue realizar a contagem de pessoas em zonas
-específicas, porém ressalvamos que, em áreas muito grandes, faz-se necessário
-multiplicar o número de sensores de acordo com a cobertura necessitada, a fim de
-manter-se resultados pontuais. Foi ainda observado que, em locais com alta de
-densidade de máquinas e dispositivos fixos por pessoa, como o LTIA (Laboratório
-de Tecnologia da Informação Aplicada), a eficácia da estimativa foi
-comprometida: como a quantia de dispositivos é muito mais alta do que a de
-pessoas, esse fator pode inflar as estimativas, exibindo uma frequência de
-pessoas acima do real. Logo, por se basear no \emph{MAC Address} de dispositivos
-para contagem, o sistema não é indicado para medição em locais com alta
-concentração de aparelhos fixos. O contator se comporta com eficácia em áreas
-onde existe alta mobilidade (grande entrada e saída de pessoas), como
-restaurantes e lojas, onde os transeuntes geralmente portam um dispositivo móvel
-pessoal (\emph{smarthphone} ou \emph{tablet}).
-
-Outro ponto a ser salientado é que, como a as soluções de \emph{geomarketing}
+Salientamos que, como a as soluções de \emph{geomarketing}
 são, em maior parte, de âmbito privado, grande parte da fundamentação teórica
 volta-se para consultorias, estudos de caso e trabalhos correlatos. Por essa
-razão, foi difícil também o levantamento de dados financeiros para estimarem-se
-os custos do serviço. Em livros, muitos conceitos teóricos podem ser encontrados -
+razão, não foi possível o levantamento de dados financeiros sobre custos do serviço. Em livros, muitos conceitos teóricos podem ser encontrados -
 entretanto, não como são aplicados, existiram dificuldades no desenvolvimento do
 sistema proposto, como decidir de que forma organizar a fase estatística na
 agregação/ contagem de pessoas e processamento de dados: a precisão do sistema e
 as informações coletadas devem ser relevantes e numerosas (generalização).
+
+O protótipo desenvolvido consegue realizar a contagem de pessoas em zonas
+específicas, porém ressalvamos que, em áreas muito grandes, faz-se necessário
+multiplicar o número de sensores de acordo com a cobertura necessitada, a fim de
+manter-se resultados pontuais. 
+
+Outro fator é que, no experimento realizado no LTIA, a diferença entre o número real de pessoas e o detectado foi grande:  observou-se que, em locais com alta de densidade de máquinas e dispositivos fixos por pessoa, a eficácia da estimativa é comprometida: como a quantia de dispositivos é muito mais alta do que a de pessoas, esse fator pode inflar as estimativas, exibindo uma frequência de
+pessoas acima do real. Logo, por se basear no \emph{MAC Address} de dispositivos
+para contagem, o sistema não é indicado para medição em locais com alta
+concentração de aparelhos fixos. 
+
+O contator se comporta bem em áreas onde existe alta frequência na entrada e saída de pessoas, como
+restaurantes e lojas, em que os transeuntes geralmente portam um aparelho móvel
+pessoal (\emph{smarthphone} ou \emph{tablet}). Portanto, o dispositivo não é indicado para espaços com poucas pessoas e muita quantidade de máquinas ao redor. O GSmart seria bastante útil na gestão de rede e dimensionamento de perfil tecnológico, por exemplo.
+
+Outro fator observado é que indivíduos inicialmente detectados no ambiente, ao irem embora, ainda permanecerão na contagem, ou seja: a saída de pessoas não é considerada, somente a chegada - se uma pessoa ficar por apenas 1 minuto no local, será contada pelo dispositivo. Para futura implementação, seria interessante capturar também o tempo de permanência de cada indivíduo/ MAC na área, além de utilizar esse período para validar se, por exemplo, uma pessoa que adentre um estabelecimento comercial de fato utilizou os serviços do local ou se está somente de passagem. Durante o tempo de detecção, ocorrem intervalos em que pessoas podem não ser detectadas, causados por interferências, obstáculos ou limitações tecnológicas, conforme descrito em \autoref{wifi}.
+
+Diante do exposto neste trabalho, apesar das limitações verificadas, concluímos que o dispositivo cumpre o objetivo de capturar, armazenar e processar dados de tráfego para geração e visualização de informações gráficas, além de prover estatísticas comparativas e métricas. Além disso, o GSmart mostrou-se uma ferramenta muito útil para estudantes, proporcionando recursos ao estudo de \emph{Geomarketing} à comunidade aberta e demais interessados. 
+
+
+
+
+
