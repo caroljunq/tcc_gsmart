@@ -17,8 +17,8 @@ Class=LaTeXView
 Document=resultados.tex
 
 [Frame0_View0,0]
-TopLine=353
-Cursor=20060
+TopLine=354
+Cursor=21177
 
 [Frame1]
 Flags=0
@@ -89,8 +89,8 @@ Class=LaTeXView
 Document=conclusao.tex
 
 [Frame4_View0,0]
-TopLine=66
-Cursor=0
+TopLine=45
+Cursor=3430
 
 [Frame5]
 Flags=0
@@ -107,8 +107,8 @@ Class=LaTeXView
 Document=monografia.tex
 
 [Frame5_View0,0]
-TopLine=399
-Cursor=15281
+TopLine=387
+Cursor=14532
 
 [Frame6]
 Flags=0
