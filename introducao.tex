@@ -8,18 +8,25 @@ compara ao advento da computação nas empresas: informatizar
 organizações permitiu coletar e armazenar volumes de dados
 gigantescos, gerando uma quantidade de informação humanamente impossível de
 ser manipulada. Como consequência, foi imprescindível desenvolverem-se ferramentas e
-métodos de mineração para que, dentre esse emaranhado de dados, fosse possível extrair-se informação relevante. 
+métodos de mineração para que, dentre esse emaranhado de dados, fosse possível extrair-se informação relevante.
 
-Hoje, o conhecimento estatístico é um elemento vital na tomada de decisões em negócios: a qualidade e abrangência das informações levantadas pode significar o sucesso ou fracasso na estratégia empresarial. Avaliar a expansão através de filiais, por exemplo, é um passo arriscado - se mal planejado, poderá incorrer em sérios prejuízos. Estudos detalhados acerca de geolocalização devem ser realizados numa região antes da instalação de uma nova loja. 
+Hoje, o conhecimento estatístico é um elemento vital na tomada de decisões em negócios: a qualidade e abrangência das informações levantadas pode significar o sucesso ou fracasso na estratégia empresarial. Avaliar a expansão através de filiais, por exemplo, é um passo arriscado - se mal planejado, poderá incorrer em sérios prejuízos. Estudos detalhados acerca de geolocalização devem ser realizados numa região antes da instalação de uma nova loja.
 
-Ressaltamos aqui, segundo \citeonline{Kotler2013}, a importância da geolocalização: as atividades de marketing foram classificadas em um mix contendo quatro tipos amplos, denominados \emph{Quatro Ps do marketing}: produto, preço, praça e promoção (do inglês, \emph{product, price, place e promotion}). Neste trabalho, a \emph{praça} é de especial importância: engloba fatores relacionados à geolocalização que influenciam direta e indiretamente nas estratégias de marketing, tais como: canais de distribuição, cobertura, sortimentos, locais, estoque e transporte. 
+Ressaltamos aqui, segundo \citeonline{Kotler2013}, a importância da
+geolocalização: as atividades de marketing foram classificadas em um mix
+contendo quatro tipos amplos, denominados \emph{Quatro Ps do marketing}:
+produto, preço, praça e promoção (do inglês, \emph{product, price, place e
+promotion}). Neste trabalho, a \emph{praça} é de especial importância: engloba
+fatores relacionados à geolocalização que influenciam direta e indiretamente nas
+estratégias de marketing, tais como canais de distribuição, cobertura,
+sortimentos, locais, estoque e transporte.
 
 Segundo \citeonline{Mangini2014}, a tomada de decisão em termos de
 localização não pode ser feita de maneira aleatória e subjetiva, mas embasada em
 um método ou ferramenta que permita determinar o melhor ponto ou o mais
 adequado, de acordo com premissas objetivas e dentro de um arcabouço lógico,
 considerando as possíveis variáveis que afetam aspectos relacionados ao usuário,
-urbanismo e também relacionado à gestão e às políticas públicas. 
+urbanismo e também relacionado à gestão e às políticas públicas.
 
 Diante deste contexto, o \emph{geomarketing} surge como grande tendência na gestão: reunindo conceitos em geografia espacial, estatística, gestão e marketing, tornou-se a mais abrangente ferramenta para visualização e análise do negócio como um todo - permite explorar vantagens locacionais, além de gerar um panorama completo de todas as camadas de uma instituição, identificando pontos fortes e fracos e auxiliando na definição das melhores estratégias de planejamento e decisão.
 
@@ -29,7 +36,7 @@ Internet sem fio e dispositivos móveis.
 
 \section{Problema e justificativa}
 O tráfego de pessoas já é largamente utilizado como técnica de \emph{geomarketing}, porém
-no mercado predominam os softwares privados. Além disso, a maioria das ferramentas de contagem utiliza processamento de imagens, tecnologia de alto custo e demasiadamente sofisticada para aplicações mais simples. 
+no mercado predominam os softwares privados. Além disso, a maioria das ferramentas de contagem utiliza processamento de imagens, tecnologia de alto custo e demasiadamente sofisticada para aplicações mais simples.
 
 Visa-se, assim, criar uma solução em software livre, propiciando uma ferramenta gratuita e de fácil utilização voltada a profissionais da área de marketing, computação, administração, empresas e negócios, etc. Para tal, foram escolhidos como foco redes Wi-Fi e dispositivos móveis (celulares, tablets, etc) - isso se justifica por serem tecnologias acessíveis, relativamente baratas e amplamente utilizadas por qualquer pessoa hoje em dia. Além disso, aplicações de \emph{geomarketing} baseadas em redes sem fio são ainda pouco exploradas em pesquisas acadêmicas.
 
@@ -37,14 +44,16 @@ Visa-se, assim, criar uma solução em software livre, propiciando uma ferrament
 \label{objetivos}
 
 \subsection{Objetivos Gerais}
-Este trabalho tem como objetivo desenvolver um sistema /emph{opensource} para medição do tráfego de
+Este trabalho tem como objetivo desenvolver um sistema \emph{opensource} para medição do tráfego de
 pessoas em determinadas zonas através de rede Wi-Fi e dispositivos móveis.
 
 \subsection{Objetivos específicos}
 \begin{itemize}
-  \item Estudar ferramentas de contagem de pessoas em ambientes e definir tecnologias para identificação e fornecimento de dados de usuários;
+  \item Estudar ferramentas de contagem de pessoas em ambientes;
+  \item Definir tecnologias para identificação e fornecimento de dados de usuários;
   \item Identificar a tecnologia responsável pela contagem de pessoas;
-  \item Definir o modo como o número de indivíduos será agrupado para gerar o tráfego, indicar como os dados capturados serão agrupados e implementar interface para visualização dos dados gerados;
+  \item Definir o modo como o número de indivíduos será agrupado para gerar dados de tráfego;
+  \item Implementar interface para visualização dos dados gerados.
 \end{itemize}
 
 \section{Organização do trabalho}
@@ -52,7 +61,8 @@ O presente trabalho divide-se em capítulos, sendo este o primeiro (Introdução
 
 \begin{itemize}
   \item \textbf{Fundamentação Teórica:} apresentação dos conceitos teóricos envolvidos no trabalho, casos de uso e soluções semelhantes;
-  \item \textbf{Materiais e Métodos:} ferramentas escolhidas para o desenvolvimento;
-  \item \textbf{Arquitetura do Projeto}: sensor, preparação de dados, processos, servidor;
-	\item \textbf{Resultados e Discussão}: testes, análise de riscos; 
+  \item \textbf{Materiais e Métodos:} ferramentas escolhidas para o desenvolvimento e descrição das etapas e testes de desenvolvimento;
+  \item \textbf{Arquitetura do Projeto}: apresentação dos módulos que compõe o sistema;
+  \item \textbf{Resultados e Discussão}: descreve a metodologia de testes utilizada e apresenta os resultados encontrados;
+  \item \textbf{Conclusão}: considerações finais sobre o sistema e trabalhos futuros.
 \end{itemize}

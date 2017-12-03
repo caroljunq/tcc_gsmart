@@ -44,16 +44,15 @@ sensor. Ele funciona em 3 fluxos:
 
 \begin{itemize}
     \item \textbf{startDate}: esse fluxo, representado na linha 78
-    do código, executa a função "startDate" cada 60 minutos, criando um arquivo com
+    do código, executa a função ``startDate'' a cada 60 minutos, criando um arquivo com
     o nome "ZONA\_YYYY-MM-DD\_HH:00", especificando zona, dia e hora de detecção. Logo
     após, salva o arquivo e inicia o fluxo a seguir;
-    \item \textbf{scan}: este fluxo (linha 78) repete a função "scan" a cada 40 segundos durante 50 minutos que executa o
+    \item \textbf{scan}: este fluxo (linha 78) repete a função ``scan'' a cada 40 segundos durante 50 minutos. Esta função executa o
     comando Tshark (veja \autoref{tshark-section}) que vai armazenando os endereço
     MAC num arquivo temporário. Quando as execuções do Tshark chegam na contagem 50
     o conteúdo do arquivo  é copiado para o arquivo gerado no fluxo anterior, então é enviado ao servidor;
-    \item \textbf{sendAllFiles}: este fluxo (linha 80) repete a função "sendAllFiles" a cada 5 minutos enviando todos os arquivos que tiveram falha no seu
+    \item \textbf{sendAllFiles}: este fluxo (linha 80) repete a função ``sendAllFiles'' a cada 5 minutos enviando todos os arquivos que tiveram falha no seu
     primeiro envio.
-    capturado.
 \end{itemize}
 
 \section{Node Transformer}
@@ -63,8 +62,8 @@ módulo de transformação.
 
 O Node Transformer é um módulo dentro do \emph{webserver}
 que transforma os endereços MAC em dados formatados.
-de dados. Primeiro, são eliminadas os endereços repetidos. Depois, a estrutura de dado (objeto)
-que representa um registro do banco é preenchida com a informações. Uma parte importante dessa preparação
+Primeiro, são eliminados os endereços repetidos. Depois, a estrutura de dado (objeto)
+que representa um registro do banco é preenchida com as informações. Uma parte importante dessa preparação
 é que o fabricante de cada dispositivo é obtido através de uma API\footnote{\url{https://macvendors.com/}} de consulta de endereços MAC. Por fim,
 o objeto preenchido é salvo no banco de dados.
 
@@ -88,7 +87,7 @@ Cada objeto como o da \autoref{formatacao-dado}, possui os seguintes campos sobr
     \item \textbf{macs}: vetor de todos os endereços MAC capturados;
     \item \textbf{customer}: se o endereço captado já foi capturado outro(s) dia(s);
     \item \textbf{vendor}: fabricante do dispositivo;
-    \item \textbf{mac}: endereços MAC.
+    \item \textbf{mac}: endereço MAC.
 \end{itemize}
 
 O maior ganho com essa formatação é durante as \emph{queries} e processamento dos dados. O dado pode ser recuperado
@@ -103,17 +102,20 @@ são processados segundo cada visualização de dados.
 \subsection{Deliberando recursos}
 O Node Server é um \emph{web service} baseado no padrão REST (Representational
 State Transfer, em português Transferência de Estado Representacional). Adotando
-esse padrão implica que temos uma RESTful API \cite{pires2017}. De modo geral, a aplicação define
-URIs que através de verbos HTTP (GET e POST), fornecem à requisão do cliente
-algum recurso específico. Por exemplo, ao acessar a URL do servidor acompanhado de "/statistics/LTIA", a API
-desenvolvida responde ao cliente com uma página HTML com informações referentes a zona LTIA.
+esse padrão implica que a aplicação proposta é RESTful API \cite{pires2017}. De
+modo geral, a aplicação define URIs que através de verbos HTTP (GET e POST),
+fornece à requisão do cliente algum recurso específico. Por exemplo, ao acessar
+a URL do servidor acompanhado de "/statistics/LTIA", a API desenvolvida responde
+ao cliente com uma página HTML com informações referentes a zona LTIA.
 
 Todas as URIs possíveis foram definidas através de um \emph{middleware} com o
-pacote do Node, o Express.js\footnote{\url{http://expressjs.com/}}. Este emprega rotas para definir quais recursos
-serão fornecidos ao cliente. Na \autoref{trecho-express} temos o exemplo de trecho de código do \emph{middleware} da
-aplicação. Nesse exemplo, assim que o servidor recebe um requisição HTTP GET, após um processamento de dados, responde
-ao cliente com a visualização de dados ``statistics'' com o dado em forma de JSON (linha 5). Já \autoref{rotas} descreve
-todas as rotas (URIs) acessíveis ao cliente.
+pacote do Node, o Express.js\footnote{\url{http://expressjs.com/}}. Este emprega
+rotas para definir quais recursos serão fornecidos ao cliente. Na
+\autoref{trecho-express} temos o exemplo de trecho de código do
+\emph{middleware} da aplicação. Nesse exemplo, assim que o servidor recebe um
+requisição HTTP GET, após um processamento de dados, responde ao cliente com a
+visualização de dados ``statistics'' com o dado em forma de JSON (linha 5). Já
+\autoref{rotas} descreve todas as rotas (URIs) acessíveis ao cliente.
 
 \begin{figure}[!h]
   \caption{\label{trecho-express}\emph{Middleware} com Express.js}
@@ -154,7 +156,7 @@ uma das visualizações serão apresentadas a seguir.
 \subsection{Seleção de zona}
 \label{seleciona-zona}
 Nessa tela, o usuário seleciona a zona da qual deseja informação. As zonas disponíveis para aplicação são:
-"HOMEJ", "HOMEC", "LTIA" e "Camflam".
+``HOMEJ'', ``HOMEC'', ``LTIA'' e ``Camflam''.
 
 \begin{figure}[!h]
   \caption{\label{zones-ap}Tela de seleção de zonas}
@@ -172,8 +174,7 @@ redirecionado para a página exposta na \autoref{statistics-ap}. Nesta
 realizado para aquela área.
 
 No canto superior esquerdo da \autoref{statistics-ap}, é possível ver a zona
-escolhida, além disso, pode-se selecionar o dia para visualizar as estatísticas
-no espaço reservado. O gráfico de curva representa crescimento do tráfego de pessoas ao longo das
+escolhida e selecionar o dia para visualizar as estatísticas. O gráfico de curva representa crescimento do tráfego de pessoas ao longo das
 horas registradas. Já o gráfico setores apresenta o número e porcentagem de dispositivos por fabricante.
 
 \begin{figure}[!h]
@@ -185,8 +186,8 @@ horas registradas. Já o gráfico setores apresenta o número e porcentagem de d
 \end{figure}
 
 Neste trabalho foram selecionadas algumas informações com base nos estudos de \emph{geomarketing} que seriam
-de expressividade e relevância para o usuário. Essas informações são, de acordo com a ordem disposta
-na figura:
+de expressividade e relevância para o usuário. De acordo com a ordem disposta
+na figura, essas informações são:
 
 \begin{itemize}
     \item \textbf{Traffic Average}: é a média de tráfego de pessoas por hora;
@@ -199,12 +200,12 @@ na figura:
 \end{itemize}
 
 \subsection{Comparação de dias}
-Para facilitar a comparação de todos os dias de captura de uma zona, há uma tela de comparação, como mostra
-a \autoref{comparing-ap}. Esta tela mostra num gráfico de barras todos os dias e seus respectivos número
-de dispositivos por hora. Numa mesma hora é possível ter a plotagem de várias barras para verificar
-a diferenças e semelhanças entre os dias. Logo abaixo, há uma tabela que apresenta todas as informações
-contidas na \emph{view} de estatísticas diárias (veja \autoref{diaria}) para todos os dias disponíveis dentro
-da zona.
+Para facilitar a comparação de todos os dias de captura de uma zona, há uma tela
+de comparação, como mostra a \autoref{comparing-ap}. Esta tela mostra num
+gráfico de barras todos os dias e seus respectivos números de dispositivos por
+hora. Numa mesma hora é possível ter a plotagem de várias barras para verificar
+a diferenças e semelhanças entre os dias. Logo baixo, há uma tabela que
+apresenta todas as informações para todos os dias disponíveis dentro da zona.
 
 No canto superior esquerdo da tela há um espaço reservado para a mudança de zona.
 
@@ -218,12 +219,12 @@ No canto superior esquerdo da tela há um espaço reservado para a mudança de z
 
 \section{Arquitura MVC}
 Para estruturar todos os módulos do projeto foi utilizada a arquitetura de
-software MVC (Model View Controller) que é amplamente usado com os utilizados
+software MVC (Model View Controller) que é amplamente usado com projetos
 Express.js e Node.js, tendo exemplos da comunidade e dentro da documentação dessas
 tecnologias.
 
 O MVC divide a aplicação em três componentes- Model, View e Controller -
-promovendo modularidade e facilidade de colaoração e reutilização \cite{mdn}. Cada componente represeta:
+promovendo modularidade e facilidade de colaboração e reutilização \cite{mdn}. Cada componente represeta:
 
 \begin{itemize}
     \item \textbf{Model}: armazena os dados da aplicação e notifica as \emph{views} e
@@ -238,4 +239,4 @@ promovendo modularidade e facilidade de colaoração e reutilização \cite{mdn}
 No caso deste projeto, os \emph{models} foram construídos através do pacote do Node.js que auxilia
 na manipulação de dados do MongoDB, o Mongoose\footnote{\url{http://mongoosejs.com/}}. Já todas as \emph{views}
 foram construídas com a linguagem de template EJS e HTML. A linguagem Javascript foi utiliza para o desenvolvimento
-de todos esses componentes, facilitando pelo uso tanto do lado do servidor como a do cliente.
+de todos esses componentes, sendo adotada tanto do lado do servidor como a do cliente.

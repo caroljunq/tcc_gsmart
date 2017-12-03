@@ -17,9 +17,9 @@ pessoas por hora para comparação com os resultados do sistema. Em nenhum momen
 houve queda de energia, que impediria o escaneamento da zona.
 
 Os métodos de avaliação estão centrados nos conceitos de: valor referência, média amostral e desvio padrão.
-A variável quantitativa discreta identificada é o número de pessoas. O tratamento estatística adotado nos testes
+A variável quantitativa discreta identificada é o número de pessoas. O tratamento estatístico adotado nos testes
 é a inferência estatística (amostras) que é uma maneira rápida e econômica de fazer
-inferência acerda da população \cite{Cabral2004}. As escolha do método de amostras
+inferência acerca da população \cite{Cabral2004}. O método de amostras
 foi escolhido considerando que nem todos as horas foram monitoradas e as diferentes condições de
 cada ambiente de teste.
 
@@ -29,41 +29,49 @@ Antes de expor os testes e seus resultados é necessária uma revisão acerca de
     \item \textbf{valor verdadeiro}: o valor que obteríamos numa medição ideal, feita de condições
     perfeitas com instrumentos perfeitos e por operadores perfeitos;
     \item \textbf{exatidão:} a maior ou menor aproximação entre o resultado e o valor verdadeiro;
-    \item \textbf{precisão:} está associada à dispersão dos valores resultantes da repetição das medições.
+    \item \textbf{precisão:} está associada à dispersão dos valores resultantes das medições, ou seja, o grau de variação.
 \end{itemize}
 
 \section{Ambientes de teste}
 Os ambientes de teste foram escolhidos de acordo com a disponibilidade de horário e autorização
 para detecção. A condição que variou em cada um deles foi: concentração de pessoas e horários de detecção.
-Outras características que influenciaram na detecção seram discutidos na \autoref{erros-influencia}.
+Outras características que influenciaram na detecção serão discutidos na \autoref{erros-influencia}.
 
 \subsection{HOMEC}
 
-Os testes nesta zona foram realizados em um edifício residencial com 4
-andares, logo a antena capturou mais indivíduos do que os que se localizavam na área do apartamento (de  5 a 3 pessoas) durante as medições. As capturas foram coletadas numa sexta, entre
-as 18:00 e as 23:00 horas, executadas de hora em hora dentro desse intervalo.
+Os testes nesta zona foram realizados em um edifício residencial com 4 andares,
+logo a antena capturou mais indivíduos do que os que se localizavam na área do
+apartamento (5 pessoas) durante as medições. As capturas foram coletadas
+no dia 24/11, entre as 18:00 e as 23:00 horas.
 
 \subsection{HOMEJ}
 Os testes foram realizados em um edifício residencial pequeno, com 3
 andares e 6 apartamentos - por esse motivo, o alcance da antena capturou mais
 indivíduos do que os que se localizavam na área do apartamento (4 pessoas)
-durante as medições. São mostradas aqui as capturas coletadas numa sexta, entre
-00:00 e 04:00 horas, executadas de hora em hora dentro desse intervalo, e no
-sábado, em 2 intervalos (também efetuando-se a captura de hora em hora): 12:00
-às 17:00 horas e 20:00 às 22:00 horas.
+durante as medições. A captura ocorreu no dia 24/11, entre
+20:00 e 22:00, e no dia
+25/11, entre 00:00 e 03:00 e 12:00 e 17:00.
 
 \subsection{LTIA}
-Os testes nesta zona foram realizados no Laboratório de Tecnologia de Informação Aplicada, localizado no campus da UNESP em Bauru/SP. Durante o período de captura, haviam de 15 a 18 pessoas circulando pela área.  Os testes ocorreram das 16:00 às 18:00 horas, executados de hora em hora dentro desse intervalo. Devido à grande quantidade de máquinas e dispositivos no laboratório, houve uma certa disparidade na contagem de indivíduos.
+Os testes nesta zona foram realizados no Laboratório de Tecnologia de Informação
+Aplicada, localizado no campus da UNESP em Bauru/SP. Durante o período de
+captura, haviam de 15 a 18 pessoas circulando pela área.  Os testes ocorreram
+das 16:00 às 18:00 horas, executados de hora em hora dentro desse intervalo.
+Devido à grande quantidade de máquinas e dispositivos no laboratório, houve uma
+certa disparidade na contagem de indivíduos.
 
 \subsection{Camflam}
 Os testes ocorreram no estabelecimento comercial Camflam Lanches, localizado em Bauru/SP. Durante o período de captura, não era possível saber a quantidade real de pessoas que circularam pela lanchonete.  Os testes ocorreram das 18:00 às 22:00 horas, executados de hora em hora dentro desse intervalo.
 
 \section{Teste de precisão}
-Os testes de precisão calculam as métricas estatísticas Variância ($S^{2}$) e Coeficiente de Variação (CV) das amostras obtidas, através da média aritmética entre todos os valores de contagem (Xi) obtidos de hora em hora e do Desvio Padrão. Foram realizados para cada zona. O valor do CV, nos 4 casos, mostrou-se bastante aceitável, sendo um pouco mais elevado na zona Camflam, onde ocorria de fato grande variação de frequentadores e não era possível saber antecipadamente quantas pessoas iriam ao estabelecimento.
-
-Os valores para o CV estão em decimal e indicam uma porcentagem.
-
-\begin{table}[]
+Os testes de precisão calculam as métricas estatísticas Variância ($S^{2}$) e
+Coeficiente de Variação (CV) das amostras obtidas, através da média aritmética
+entre todos os valores de contagem (Xi) obtidos de hora em hora e do Desvio
+Padrão. Foram realizados para cada zona. O valor do CV, nos 4 casos, variou de 18\% a 66\%,
+sendo um pouco mais elevado na zona Camflam, onde ocorria de
+fato grande variação de frequentadores. Portanto, é possível considerar
+o sistema com média precisão.
+\begin{table}[htb]
 \centering
 \caption{Teste de precisão para a zona LTIA}
 \label{ltia}
@@ -78,7 +86,7 @@ Os valores para o CV estão em decimal e indicam uma porcentagem.
 \end{tabular}
 \end{table}
 
-\begin{table}[]
+\begin{table}[htb]
 \centering
 \caption{Teste de precisão para a zona HOMEJ}
 \label{homej}
@@ -102,7 +110,7 @@ Os valores para o CV estão em decimal e indicam uma porcentagem.
 \multicolumn{1}{l}{}                 & \multicolumn{1}{l|}{} & CV               & 0,411       \\ \cline{3-4}\end{tabular}
 \end{table}
 
-\begin{table}[]
+\begin{table}[htb]
 \centering
 \caption{Teste de precisão para a zona Camflam}
 \label{camflam}
@@ -119,7 +127,7 @@ Os valores para o CV estão em decimal e indicam uma porcentagem.
 \end{tabular}
 \end{table}
 
-\begin{table}[]
+\begin{table}[htb]
 \centering
 \caption{Teste de precisão para a zona HOMEC}
 \label{homec}
@@ -130,11 +138,14 @@ Os valores para o CV estão em decimal e indicam uma porcentagem.
 \multicolumn{1}{|c|}{24-11-17 21:00} & 45            & 9                & 81         \\ \hline
 \multicolumn{1}{|c|}{24-11-17 22:00} & 30            & -6               & 36         \\ \hline
 \multicolumn{1}{|c|}{24-11-17 23:00} & 28            & -8               & 64         \\ \hline
-                                     &               & $S^{2}$ = \sum \limits_{i=1}^n \frac{(Xi - \overline{X})^{2}}{n-1} & 68,67      \\ \cline{3-4}
-                                     &               & CV               & 0,23      \\ \cline{3-4}
+                                     &               & $S^{2}$ = \sum \limits_{i=1}^n \frac{(Xi - \overline{X})^{2}}{n-1} & 68,67      \\ \cline{3-4}                                     &               & CV               & 0,23      \\ \cline{3-4}
 \end{tabular}
 \end{table}
+\FloatBarrier
 
+\subsection{Avaliação de precisão}
+Como os valores de Coeficiente de variação estão entre 18\% e 66\%, considera-se o GSMART com precisão
+média.
 
 \section{Teste de exatidão}
 \label{exatidao-teste}
@@ -148,7 +159,7 @@ Na \autoref{exato-ltia} sobre a zona LTIA, a média de valores encontrados pelo 
 enquanto a média real foi 15,67. Dividindo um valor pelo outro obtém-se 5,15. Portanto,
 o sistema identificou 5,15 indivíduos e/ou dispositivos a mais do que o valor real.
 
-\begin{table}[h]
+\begin{table}[htb]
 \def\arraystretch{1.5}
 \centering
 \caption{Teste Exatidão para zona LTIA}
@@ -165,7 +176,7 @@ o sistema identificou 5,15 indivíduos e/ou dispositivos a mais do que o valor r
 
 Quando o teste é realizado para a zona HOMEC apresentado na \autoref{exato-homec}, a proporção encontrada é de 9 (36/4), demonstrando sendo ainda maior
 que o valor encontrado anteriormente.
-\begin{table}[h]
+\begin{table}[htb]
 \def\arraystretch{1.5}
 \centering
 \caption{Teste Exatidão para zona HOMEC}
@@ -183,7 +194,7 @@ que o valor encontrado anteriormente.
 
 Por fim, para a zona HOMEJ (\autoref{exato-homej}), o valor encontrado no teste foi 3 (12/4).
 
-\begin{table}[h]
+\begin{table}[htb]
 \def\arraystretch{1.5}
 \centering
 \caption{Teste Exatidão para zona HOMEJ}
@@ -208,13 +219,15 @@ Por fim, para a zona HOMEJ (\autoref{exato-homej}), o valor encontrado no teste 
 \end{tabular}
 \end{table}
 
-Esse teste não foi executado com a zona Camflam, pois não foi possível obter os valores reais da quantidade
-de clientes.
+\FloatBarrier
+
+Esse teste não foi executado com a zona Camflam, pois não foi possível obter os
+valores reais da quantidade de clientes.
 
 \subsection{Avaliação de exatidão}
 O teste de exatidão mostra que nenhum dos valores encontrados das proporções da zonas em relação aos valores
 verdadeiros é igual a 1 (ideal), expondo que o GSMART identifica mais dispositivos do que indivíduos dentro
-de cada zona. Portanto, o GSMART não pode ser considera um sistema exato, pois distancia-se dos valores referência.
+de cada zona. Portanto, o GSMART não pode ser considerado um sistema exato, pois distancia-se dos valores referência.
 
 
 \section{Testes empíricos}
@@ -230,7 +243,7 @@ de pessoas quanto aos pontos: se houve queda, quando houve horários de pico,
 horários de menor movimento, entre outros. Por exemplo, ao confrontar a \autoref{homec-graph} que representa
 o gráfico de detecção da zona HOMEC com os dados reais (veja \autoref{exatidao-teste}), percebe-se que
 o sensor conseguiu detectar a variação de pessoas dentro do ambiente. Nesse caso, na duas primeiras horas havia 5 pessoas, na 2 horas
-seguintes o gráfico decresce, confirmando o decaimento também do número de indíviduos que foi para 4.
+seguintes o gráfico decresce, confirmando o decaimento também do número de indivíduos que foi para 4.
 
 \begin{figure}[!h]
   \caption{\label{homec-graph}Gráfico da zona HOMEC}
@@ -241,7 +254,7 @@ seguintes o gráfico decresce, confirmando o decaimento também do número de in
 \end{figure}
 
 No gráfico da zona Camflam que está na \autoref{camflam-graph}, observa-se que
-há crescimento relevante entre ás 20:00 e 22:00. Em conversa com o proprietário
+há crescimento relevante entre às 20:00 e 22:00. Em conversa com o proprietário
 do restaurante e com os garçons, foi confirmado que o horário de pico ocorreu
 entre as 21:30 e 22:30, mais uma vez corroborando para o cenário trazido por este
 gráfico, onde o pico encontra-se às 22:00. O restaurante abre às 18:00, assim como visto,
@@ -291,9 +304,9 @@ representa os valores reais - e possui uma precisão de medição entre 18\% e
 \begin{itemize}
     \item \textbf{Passagem rápida}: pessoas que passam rapidamente pelas zonas são contadas, mesmo que não
     permaneçam por muito tempo;
-    \item \textbf{Dispositivos ao redor}: o número de dispositivos móveis ao redor da zona,como computadores, tablets,
+    \item \textbf{Dispositivos ao redor}: o número de dispositivos móveis ao redor da zona, como computadores, tablets,
     ou mais de um aparelho por pessoa, influenciam no aumento significativo no número de dispositivos identificados;
-    \item \textbf{Antena Wi-Fi não ligada}: se o indivíduo não estive pelor menos com a antena Wi-Fi ligada, mesmo sem
+    \item \textbf{Antena Wi-Fi não ligada}: se o dispositivo não estiver com a antena Wi-Fi ligada, mesmo sem
     estar associado a nenhum AP, o sensor não o detecta;
     \item \textbf{Número de aparelhos por indivíduo}: se um indivíduo estiver portando mais de um aparelho
     móvel, será contabilizado duas vezes.

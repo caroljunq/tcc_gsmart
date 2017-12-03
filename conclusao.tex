@@ -19,15 +19,19 @@ sistema proposto, como decidir de que forma organizar a fase estatística na
 agregação/ contagem de pessoas e processamento de dados: a precisão do sistema e
 as informações coletadas devem ser relevantes e numerosas (generalização).
 
-O protótipo desenvolvido consegue realizar a contagem de pessoas em zonas
+O sistema desenvolvido consegue realizar a contagem de pessoas em zonas
 específicas, porém ressalvamos que, em áreas muito grandes, faz-se necessário
 multiplicar o número de sensores de acordo com a cobertura necessitada, a fim de
-manter-se resultados pontuais. 
+manter-se resultados pontuais.
 
-Outro fator é que, no experimento realizado no LTIA, a diferença entre o número real de pessoas e o detectado foi grande:  observou-se que, em locais com alta de densidade de máquinas e dispositivos fixos por pessoa, a eficácia da estimativa é comprometida: como a quantia de dispositivos é muito mais alta do que a de pessoas, esse fator pode inflar as estimativas, exibindo uma frequência de
-pessoas acima do real. Logo, por se basear no \emph{MAC Address} de dispositivos
-para contagem, o sistema não é indicado para medição em locais com alta
-concentração de aparelhos fixos. 
+Outro fator é que, no experimento realizado no LTIA, a diferença entre o número
+real de pessoas e o detectado foi grande:  observou-se que, em locais com alta
+de densidade de máquinas e dispositivos fixos por pessoa, a eficácia da
+estimativa é comprometida: como a quantia de dispositivos é muito mais alta do
+que a de pessoas, esse fator pode inflar as estimativas, exibindo uma frequência
+de pessoas acima do real. Logo, por se basear no \emph{MAC Address} de
+dispositivos para contagem, o sistema não é indicado para medição em locais com
+alta concentração de aparelhos fixos.
 
 O contator se comporta bem em áreas onde existe alta frequência na entrada e saída de pessoas, como
 restaurantes e lojas, em que os transeuntes geralmente portam um aparelho móvel
@@ -35,12 +39,17 @@ pessoal (\emph{smarthphone} ou \emph{tablet}). Portanto, o dispositivo não é i
 
 Foi observado também que, indivíduos inicialmente detectados no ambiente, ao irem embora, ainda permanecerão na contagem, ou seja: a saída de pessoas não é considerada, somente a chegada - se uma pessoa ficar por apenas 1 minuto no local, será contada pelo dispositivo. Para futura implementação, seria interessante capturar também o tempo de permanência de cada indivíduo/ MAC na área, além de utilizar esse período para validar se, por exemplo, uma pessoa que adentre um estabelecimento comercial de fato utilizou os serviços do local ou se está somente de passagem. Durante o tempo de detecção, ocorrem intervalos em que pessoas podem não ser detectadas, causados por interferências, obstáculos ou limitações tecnológicas, conforme descrito na \autoref{wifi} e \autoref{erros-influencia}.
 
-Diante do exposto neste trabalho, apesar das limitações verificadas, concluímos que o dispositivo cumpre o objetivo de capturar, armazenar e processar dados de tráfego para geração e visualização de informações gráficas, além de prover estatísticas comparativas e métricas. Além disso, o GSmart mostrou-se uma ferramenta muito útil para estudantes, proporcionando recursos ao estudo de \emph{geomarketing} à comunidade aberta e demais interessados. 
+Diante do exposto neste trabalho, apesar das limitações verificadas, concluímos
+que o dispositivo cumpre o objetivo de medição de tráfego com baixa exatidão e precisão média,
+além de prover
+estatísticas comparativas e métricas. Além disso, o GSMART mostrou-se uma
+ferramenta muito útil para estudantes, proporcionando recursos ao estudo de
+\emph{geomarketing} à comunidade aberta e demais interessados.
 
 
 \section{Trabalhos Futuros}
 Como trabalhos futuros, propõe-se alguma melhorias para garantir maior exatidão e
-precisão do sistema deste trabalhos. Essas melhorias são:
+precisão do sistema deste trabalho. Essas melhorias são:
 \begin{itemize}
     \item \textbf{Tempo de estadia}: considerar um tempo mínimo de estadia dentro de uma zona para indivíduo ser
     contado;
@@ -55,4 +64,3 @@ Além da melhoria no trabalho desenvolvido, indica-se o sistema construído como
 de computadores dentro de zonas urbanas e rurais onde é possível mapear grande quantidade de dispositivos com o
 que já foi levantado neste trabalho. Além disso, pode-se aplicar o GSMART como ferramenta de decisões para mobilidade
 urbana a partir do momento em que horas de pico de tráfego podem ser inferidas.
-

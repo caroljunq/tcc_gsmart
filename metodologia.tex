@@ -57,7 +57,7 @@ Para \citeonline{Morimoto2009}, os obstáculos que mais depreciam a qualidade do
 \begin{itemize}
   \item superfícies metálicas, como grades, janelas, portas metálicas, lajes, vigas. O metal reflete a maior parte do sinal;
   \item materiais densos, como concreto e pedra;
-  \item corpos com grande concentração de líquido, como aquários, piscinas, caixas d'agua;
+  \item corpos com grande concentração de líquido, como aquários, piscinas, caixas d'água;
 	\item focos de interferência, que competem com o sinal do ponto de acesso;
 	\item fornos de microondas, telefones sem fio, transmissores bluetooth e outros aparelhos que operam na faixa dos 2.4 GHz (mesma das redes wireless);
   \item interferência entre diferentes redes instaladas na mesma área
@@ -129,14 +129,18 @@ projetos relacionados à redes de computadores, então possui ampla documentaç�
 O Node ou Node.js é um \emph{runtime} que permite a execução Javascript fora dos navegadores, nesse caso do lado dos servidores \cite{node}.
 Essa ferramenta permite a criação de APIs com entradas e saídas (I/O) não bloqueantes, ou seja, emprega programação assíncrona \cite{Dzone}. Para tal, essa tecnologia é orientada a eventos, assim que um evento ocorre funções específicas são
 acionadas para tratá-lo. Nesse cenário, os comandos executam em paralelo utilizando funções de \emph{callback}. Para o sistema proposto nesse trabalho, é uma característica muito importante, já que se trata de um "sistema quase em tempo real", ou seja, é possível atender todas as requisições feitas pelo usuário para a visualização dos dados, como
-a postagem de arquivos provenientes do módulo sensor (\autoref{sensor-cap}).
+a postagem de arquivos provenientes do módulo sensor (\autoref{secao-sensor}).
 
 No GSMART, o Node é utilizado tanto na parte do servidor como na parte que executa os comandos do Tshark dentro do Kali Linux, demonstrando ainda mais sua versatilidade.
 
 Outro componente importante do Node é a importação de pacotes produzidos pela comunidade aberta através do gerenciador de pacotes NPM (Node
 Package Manager), sendo essencial para facilitar e agilizar a programação. Por exemplo, o servidor deste projeto é baseado no pacote Express.js.
 
-O Express.js é um \emph{framework} que fornece conjunto robusto para aplicativos web, como: métodos HTTP e \emph{middleware} \cite{express}. Na \autoref{express} é possível observar o tratamento de uma das rotas de acesso à aplicação de apresentação de dados construído facilmente com o Express. Para importar este pacote, basta abrir o terminal no diretório do projeto e executar o comando \emh{npm install --save express}.
+O Express.js é um \emph{framework} que fornece conjunto robusto para aplicativos
+web, como: métodos HTTP e \emph{middleware} \cite{express}. Na \autoref{express} é
+possível observar um exemplo de tratamento de uma rota de acesso a uma aplicação.
+Para importar este pacote, basta abrir o terminal no diretório do projeto e executar o comando
+\emh{npm install --save express}.
 
 \begin{figure}[htb]
   \caption{\label{express}Código utilizando Express.js}
@@ -157,7 +161,7 @@ Javascript tanto para o servidor quanto no lado do cliente.
 O MongoDB é um banco de dados NoSQL baseado em coleções de documentos. O número
 de campos, conteúdo e tamanho de cada documento pode ser diferente \cite{mongo}.
 Cada um desses documentos é representado por um objeto javascript (JSON). Além
-disso, o MongoDB oferece API que forece \emph{queries} rápidas e semelhantes ao
+disso, o MongoDB oferece API que fornece \emph{queries} rápidas e semelhantes ao
 SQL.
 
 Este banco de dados foi utilizado no projeto devido a representação dos dados em
@@ -199,7 +203,7 @@ MongoDB foi definido como banco de dados - utilizando-se de sua forma de
 organização (coleções e documentos), definiu-se o formato do dado (objetos e
 atributos). Por fim, os modelos de preparação e mineração  de dados e o
 tratamento de rotas para acesso aos conteúdos do webserver (rotas de GET) e
-postagem de arquivos (rotas de POST).
+postagem de arquivos (rotas de POST) foram desenvolvidos.
 
 Na última etapa, concentrou-se em desenvolver o sensor de detecção com o
 Raspberry Pi e a antena Ralink para adequar-se ao modelo de dado definido na
