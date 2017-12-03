@@ -17,8 +17,8 @@ Class=LaTeXView
 Document=resultados.tex
 
 [Frame0_View0,0]
-TopLine=354
-Cursor=21177
+TopLine=359
+Cursor=20134
 
 [Frame1]
 Flags=0
@@ -53,8 +53,8 @@ Class=LaTeXView
 Document=introducao.tex
 
 [Frame2_View0,0]
-TopLine=67
-Cursor=5129
+TopLine=62
+Cursor=4124
 
 [Frame3]
 Flags=0
@@ -89,8 +89,8 @@ Class=LaTeXView
 Document=conclusao.tex
 
 [Frame4_View0,0]
-TopLine=45
-Cursor=3430
+TopLine=43
+Cursor=3474
 
 [Frame5]
 Flags=0
@@ -107,8 +107,8 @@ Class=LaTeXView
 Document=monografia.tex
 
 [Frame5_View0,0]
-TopLine=387
-Cursor=14532
+TopLine=75
+Cursor=3920
 
 [Frame6]
 Flags=0
@@ -128,9 +128,27 @@ Document=arquitetura.tex
 TopLine=0
 Cursor=0
 
+[Frame7]
+Flags=0
+ShowCmd=1
+MinPos.x=-1
+MinPos.y=-1
+MaxPos.x=-1
+MaxPos.y=-1
+NormalPos.left=4
+NormalPos.top=26
+NormalPos.right=1022
+NormalPos.bottom=371
+Class=LaTeXView
+Document=metodologia.tex
+
+[Frame7_View0,0]
+TopLine=247
+Cursor=15536
+
 [SessionInfo]
-FrameCount=7
-ActiveFrame=5
+FrameCount=8
+ActiveFrame=7
 
 [Bookmarks]
 monografia.bbl=12 
