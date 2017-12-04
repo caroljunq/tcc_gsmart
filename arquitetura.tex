@@ -1,9 +1,9 @@
 \chapter{Arquitetura do Projeto}
 \label{arq-cap}
-Este capítulo descreve o funcionamento de cada componente do GSMART. A
-\autoref{esquema-geral} representa um esquema geral dos módulos do projeto, já a
+Este capítulo descreve o funcionamento de cada componente do GSmart. A
+\autoref{esquema-geral} representa um esquema geral dos módulos do projeto - já a
 \autoref{diagrama-fluxo} apresenta o mesmo esquema da visão de um diagrama de
-fluxo, sendo apontados entidades e processos do sistema.
+fluxo, apontando entidades e processos do sistema.
 
 \begin{figure}[!h]
   \caption{\label{esquema-geral}Arquitetura geral do sistema}
@@ -24,12 +24,8 @@ fluxo, sendo apontados entidades e processos do sistema.
 
 \section{Sensor}
 \label{secao-sensor}
-O módulo Sensor é um processo que roda num Raspberry Pi Model 3 B equipado de
-uma antena Ralink no modo monitor. Este processo é um programa escrito em
-Node.js que: habilita o modo monitor da antena, executa comandos Tshark para capturar de pacotes
-\emph{probe request}, salva os endereços MAC
-capturados num arquivo que, posteriormente, é recuperado do diretório de
-arquivos (\emph{Files Directory}) e enviado ao servidor.
+O módulo Sensor é um processo que roda num Raspberry Pi Model 3 B equipado com uma antena Ralink no modo monitor. Este processo é um programa escrito em Node.js que habilita o modo monitor da antena, executa comandos Tshark para capturar de pacotes \emph{probe request}, salva os endereços MAC capturados num arquivo (posteriormente recuperado do diretório de
+arquivos (\emph{Files Directory})) e enviado ao servidor.
 
 \begin{figure}[!h]
   \caption{\label{trecho-sensor}Trecho de código do sensor}
@@ -48,11 +44,10 @@ sensor. Ele funciona em 3 fluxos:
     o nome "ZONA\_YYYY-MM-DD\_HH:00", especificando zona, dia e hora de detecção. Logo
     após, salva o arquivo e inicia o fluxo a seguir;
     \item \textbf{scan}: este fluxo (linha 78) repete a função ``scan'' a cada 40 segundos durante 50 minutos. Esta função executa o
-    comando Tshark (veja \autoref{tshark-section}) que vai armazenando os endereço
-    MAC num arquivo temporário. Quando as execuções do Tshark chegam na contagem 50
-    o conteúdo do arquivo  é copiado para o arquivo gerado no fluxo anterior, então é enviado ao servidor;
-    \item \textbf{sendAllFiles}: este fluxo (linha 80) repete a função ``sendAllFiles'' a cada 5 minutos enviando todos os arquivos que tiveram falha no seu
-    primeiro envio.
+    comando Tshark (veja \autoref{tshark-section}), que vai armazenando os endereços
+    MAC num arquivo temporário. Quando as execuções do Tshark chegam na contagem 50,
+    o conteúdo do arquivo é copiado para o arquivo gerado no fluxo anterior e então é enviado ao servidor;
+    \item \textbf{sendAllFiles}: este fluxo (linha 80) repete a função ``sendAllFiles'' a cada 5 minutos, enviando todos os arquivos que tiveram falha no seu primeiro envio.
 \end{itemize}
 
 \section{Node Transformer}
@@ -79,7 +74,7 @@ Dentro da aplicação e do banco, o dado possui o formato do JSON da \autoref{fo
   \legend{Fonte: Elaborada pelas autoras.}
 \end{figure}
 
-Cada objeto como o da \autoref{formatacao-dado}, possui os seguintes campos sobre a medição:
+Cada objeto como o da \autoref{formatacao-dado} possui os seguintes campos sobre a medição:
 \begin{itemize}
     \item \textbf{day}: dia;
     \item \textbf{hour}: hora;
@@ -95,18 +90,17 @@ por zona ou por dia, dependendo da visualização de dados selecionada.
 
 \section{Node Server}
 \label{node-server}
-Este módulo que engloba o módulo da \autoref{node-transformer}, também: define
-quais recursos recursos da aplicação são acessadas pelo cliente e como os dados
+Este módulo engloba o módulo da \autoref{node-transformer} - também define
+quais recursos da aplicação são acessados pelo cliente e como os dados
 são processados segundo cada visualização de dados.
 
 \subsection{Deliberando recursos}
 O Node Server é um \emph{web service} baseado no padrão REST (Representational
-State Transfer, em português Transferência de Estado Representacional). Adotando
-esse padrão implica que a aplicação proposta é RESTful API \cite{pires2017}. De
-modo geral, a aplicação define URIs que através de verbos HTTP (GET e POST),
-fornece à requisão do cliente algum recurso específico. Por exemplo, ao acessar
+State Transfer, em português Transferência de Estado Representacional). Adotar esse padrão implica que a aplicação proposta é do tipo RESTful API \cite{pires2017}. De
+modo geral, a aplicação define URIs que, através de verbos HTTP (GET e POST),
+fornecem à requisão do cliente algum recurso específico. Por exemplo, ao acessar
 a URL do servidor acompanhado de "/statistics/LTIA", a API desenvolvida responde
-ao cliente com uma página HTML com informações referentes a zona LTIA.
+ao cliente com uma página HTML contendo informações referentes à zona LTIA.
 
 Todas as URIs possíveis foram definidas através de um \emph{middleware} com o
 pacote do Node, o Express.js\footnote{\url{http://expressjs.com/}}. Este emprega
@@ -134,11 +128,11 @@ visualização de dados ``statistics'' com o dado em forma de JSON (linha 5). J�
 \end{figure}
 
 \subsection{Processando dados}
-Além de deliberar recursos, o Node Serve recupera os dados e processá-os para
-apresentar ao usuário. Assim que o cliente faz a requisição ao servidor, dados
+Além de deliberar recursos, o Node Serve recupera os dados e processa-os para
+apresentação ao usuário. Assim que o cliente faz a requisição ao servidor, dados
 referentes à zona e/ou dia selecionados são recuperados do banco de dados. Em
 seguida, esses elementos passam por outros módulos que retornam JSON com as
-informações necessárias para apresentar ao usuários.
+informações necessárias à visualização dos usuários.
 
 \section{Visualização de Dados}
 \label{data-view}
@@ -150,8 +144,8 @@ linguagem de \emph{template} EJS\footnote{\url{http://www.embeddedjs.com/}} (Emb
 auxiliar na injeção de conteúdo (dado) na página requisitada.
 
 Quando o cliente acessa uma rota, o servidor recebe a requisição, passa para os
-módulos de processamento de dados e, então renderiza a \emph{view} (visualização de dados) correta. Cada
-uma das visualizações serão apresentadas a seguir.
+módulos de processamento de dados e então renderiza a \emph{view} (visualização de dados) correta. Cada
+uma das visualizações será apresentada a seguir.
 
 \subsection{Seleção de zona}
 \label{seleciona-zona}
@@ -173,7 +167,7 @@ redirecionado para a página exposta na \autoref{statistics-ap}. Nesta
 \emph{view} são apresentadas informações referentes a cada dia de captura
 realizado para aquela área.
 
-No canto superior esquerdo da \autoref{statistics-ap}, é possível ver a zona
+No canto superior esquerdo da \autoref{statistics-ap} é possível ver a zona
 escolhida e selecionar o dia para visualizar as estatísticas. O gráfico de curva representa crescimento do tráfego de pessoas ao longo das
 horas registradas. Já o gráfico setores apresenta o número e porcentagem de dispositivos por fabricante.
 
@@ -194,16 +188,15 @@ na figura, essas informações são:
     \item \textbf{Traffic Peak}: é o maior valor de detecção dentro do intervalo de horas disponíveis;
     \item \textbf{Total Traffic}: é o número total de indivíduos (diferentes) dentre todas as horas escaneadas;
     \item \textbf{Vendor}: fabricante de dispositivo móvel detectado em maior número;
-    \item \textbf{New Visits}: do total de indivíduos quantos estão presentes pela primeira vez;
-    \item \textbf{Customers}: número total de pessoas que já estiveram alguma vez dentro daquela zona, considera
-    só os dias anteriores.
+    \item \textbf{New Visits}: do total de indivíduos, quantos estão presentes pela primeira vez;
+    \item \textbf{Customers}: número total de pessoas que já estiveram alguma vez dentro daquela zona (considera só os dias anteriores).
 \end{itemize}
 
 \subsection{Comparação de dias}
 Para facilitar a comparação de todos os dias de captura de uma zona, há uma tela
-de comparação, como mostra a \autoref{comparing-ap}. Esta tela mostra num
+específica, como mostra a \autoref{comparing-ap}. Esta tela mostra num
 gráfico de barras todos os dias e seus respectivos números de dispositivos por
-hora. Numa mesma hora é possível ter a plotagem de várias barras para verificar
+hora. Numa mesma hora é possível obter a plotagem de várias barras para verificar
 a diferenças e semelhanças entre os dias. Logo baixo, há uma tabela que
 apresenta todas as informações para todos os dias disponíveis dentro da zona.
 
@@ -219,24 +212,23 @@ No canto superior esquerdo da tela há um espaço reservado para a mudança de z
 
 \section{Arquitura MVC}
 Para estruturar todos os módulos do projeto foi utilizada a arquitetura de
-software MVC (Model View Controller) que é amplamente usado com projetos
-Express.js e Node.js, tendo exemplos da comunidade e dentro da documentação dessas
+software MVC (Model View Controller), amplamente usada com projetos
+Express.js e Node.js, havendo exemplos na comunidade e dentro da documentação dessas
 tecnologias.
 
-O MVC divide a aplicação em três componentes- Model, View e Controller -
-promovendo modularidade e facilidade de colaboração e reutilização \cite{mdn}. Cada componente represeta:
+O MVC divide a aplicação em três componentes (Model, View e Controller),
+promovendo modularidade e facilidade de colaboração e reutilização \cite{mdn}. Cada componente representa:
 
 \begin{itemize}
     \item \textbf{Model}: armazena os dados da aplicação e notifica as \emph{views} e
     \emph{controllers} sobre a mudança de estados desses dados. Sendo assim, as visualizações e os controladores
-    podem tomar ações, como, atualizar a visão dos dados e executar comandos, respectivamente.
-    \item \textbf{Views}: apresentam aos usuários as informações e é um meio de interação deles com
+    podem tomar ações, como atualizar a visão dos dados e executar comandos, respectivamente.
+    \item \textbf{Views}: apresentam as informações - é o meio de interação do usuário com
     a aplicação;
     \item \textbf{Controllers}: atualizam os \emph{models} e \emph{views} de acordo
     com atualizações de dados pela própria aplicação ou por interação com o usuário.
 \end{itemize}
 
-No caso deste projeto, os \emph{models} foram construídos através do pacote do Node.js que auxilia
-na manipulação de dados do MongoDB, o Mongoose\footnote{\url{http://mongoosejs.com/}}. Já todas as \emph{views}
-foram construídas com a linguagem de template EJS e HTML. A linguagem Javascript foi utiliza para o desenvolvimento
-de todos esses componentes, sendo adotada tanto do lado do servidor como a do cliente.
+No caso deste projeto, os \emph{models} foram construídos através do pacote do Node.js, que auxilia
+na manipulação de dados do MongoDB, o Mongoose\footnote{\url{http://mongoosejs.com/}}. Já as \emph{views}
+foram construídas com a linguagem de template EJS e HTML. A linguagem Javascript foi utiliza para o desenvolvimento de todos esses componentes, sendo adotada tanto do lado do servidor como do cliente.

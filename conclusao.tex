@@ -10,7 +10,7 @@ semelhantes, foi possível agrupar a contagem de pessoas por períodos e descobr
 informações relevantes para a tomada de decisão estratégica em negócios
 (\autoref{importancia}).
 
-Salientamos que, como a as soluções de \emph{geomarketing}
+Salientamos que, como as soluções de \emph{geomarketing}
 são, em maior parte, de âmbito privado, grande parte da fundamentação teórica
 volta-se para consultorias, estudos de caso e trabalhos correlatos. Por essa
 razão, não foi possível o levantamento de dados financeiros sobre custos do serviço. Em livros, muitos conceitos teóricos podem ser encontrados -
@@ -22,45 +22,39 @@ as informações coletadas devem ser relevantes e numerosas (generalização).
 O sistema desenvolvido consegue realizar a contagem de pessoas em zonas
 específicas, porém ressalvamos que, em áreas muito grandes, faz-se necessário
 multiplicar o número de sensores de acordo com a cobertura necessitada, a fim de
-manter-se resultados pontuais.
+que os resultados mantenham-se pontuais.
 
 Outro fator é que, no experimento realizado no LTIA, a diferença entre o número
 real de pessoas e o detectado foi grande:  observou-se que, em locais com alta
 de densidade de máquinas e dispositivos fixos por pessoa, a eficácia da
 estimativa é comprometida: como a quantia de dispositivos é muito mais alta do
 que a de pessoas, esse fator pode inflar as estimativas, exibindo uma frequência
-de pessoas acima do real. Logo, por se basear no \emph{MAC Address} de
-dispositivos para contagem, o sistema não é indicado para medição em locais com
-alta concentração de aparelhos fixos.
+acima do real. Logo, por se basear no \emph{MAC Address} de
+dispositivos para contagem, o sistema não é indicado para medição em locais com poucas pessoas e alta concentração de aparelhos.
 
-O contator se comporta bem em áreas onde existe alta frequência na entrada e saída de pessoas, como
-restaurantes e lojas, em que os transeuntes geralmente portam um aparelho móvel
-pessoal (\emph{smarthphone} ou \emph{tablet}). Portanto, o dispositivo não é indicado para espaços com poucas pessoas e muita quantidade de máquinas ao redor. O GSmart seria bastante útil na gestão de rede e dimensionamento de perfil tecnológico, por exemplo.
+O GSmart se comporta bem em áreas onde existe alta frequência na entrada e saída de pessoas, como
+restaurantes e lojas, em que os transeuntes geralmente portam um único aparelho móvel
+pessoal (\emph{smarthphone} ou \emph{tablet}) - seria de grande valia em gestão de redes e dimensionamento de perfis tecnológicos, por exemplo.
 
-Foi observado também que, indivíduos inicialmente detectados no ambiente, ao irem embora, ainda permanecerão na contagem, ou seja: a saída de pessoas não é considerada, somente a chegada - se uma pessoa ficar por apenas 1 minuto no local, será contada pelo dispositivo. Para futura implementação, seria interessante capturar também o tempo de permanência de cada indivíduo/ MAC na área, além de utilizar esse período para validar se, por exemplo, uma pessoa que adentre um estabelecimento comercial de fato utilizou os serviços do local ou se está somente de passagem. Durante o tempo de detecção, ocorrem intervalos em que pessoas podem não ser detectadas, causados por interferências, obstáculos ou limitações tecnológicas, conforme descrito na \autoref{wifi} e \autoref{erros-influencia}.
+Foi observado também que indivíduos inicialmente detectados no ambiente, ao irem embora, ainda permanecerão na contagem, ou seja: a saída de pessoas não é considerada, somente a chegada - se uma pessoa ficar por apenas 1 minuto no local, será contada pelo dispositivo. Para futura implementação, seria interessante capturar também o tempo de permanência de cada indivíduo (dispositivo) na área, além de utilizar tal período para validar se, por exemplo, uma pessoa que adentre um estabelecimento comercial de fato utilizou os serviços do local ou se está somente de passagem. Durante o tempo de detecção ocorrem ainda intervalos em que pessoas podem não ser detectadas, causados por interferências, obstáculos ou limitações tecnológicas, conforme descrito na \autoref{wifi} e \autoref{erros-influencia}.
 
 Diante do exposto neste trabalho, apesar das limitações verificadas, concluímos
-que o dispositivo cumpre o objetivo de medição de tráfego com baixa exatidão e precisão média,
-além de prover
-estatísticas comparativas e métricas. Além disso, o GSMART mostrou-se uma
-ferramenta muito útil para estudantes, proporcionando recursos ao estudo de
-\emph{geomarketing} à comunidade aberta e demais interessados.
+que o dispositivo cumpre o objetivo de medição de tráfego - com baixa exatidão e precisão média -
+e é capaz de prover estatísticas comparativas e métricas. Em especial, percebemos que GSmart se mostra uma
+ferramenta útil e promissora aos estudantes, proporcionando recursos no aprendizado de \emph{geomarketing} à comunidade aberta e demais interessados.
 
 
 \section{Trabalhos Futuros}
-Como trabalhos futuros, propõe-se alguma melhorias para garantir maior exatidão e
+Como trabalhos futuros, propõe-se algumas melhorias para garantir maior exatidão e
 precisão do sistema deste trabalho. Essas melhorias são:
 \begin{itemize}
-    \item \textbf{Tempo de estadia}: considerar um tempo mínimo de estadia dentro de uma zona para indivíduo ser
-    contado;
+    \item \textbf{Tempo de estadia}: considerar um tempo mínimo de estadia dentro de uma zona para um indivíduo ser contado;
     \item \textbf{Classificar dispositivos}: tentar diferenciar \emph{smartphones} de computadores comerciais;
-    \item \textbf{Explorar comunicação GSM}: com autorização de empresas de telefonia, explorar comunicação GSM
-    para não depender somente do Wi-Fi;
+    \item \textbf{Explorar comunicação GSM}: com autorização de empresas de telefonia, explorar comunicação GSM para não depender somente do Wi-Fi;
     \item \textbf{Detectar múltiplos aparelhos por pessoa}: através da potência de sinal e \emph{timestamp}
     de pacotes determinar se dispositivos tendem a pertencer a um mesmo indivíduo.
 \end{itemize}
 
 Além da melhoria no trabalho desenvolvido, indica-se o sistema construído como um potencial para gestão de redes
 de computadores dentro de zonas urbanas e rurais onde é possível mapear grande quantidade de dispositivos com o
-que já foi levantado neste trabalho. Além disso, pode-se aplicar o GSMART como ferramenta de decisões para mobilidade
-urbana a partir do momento em que horas de pico de tráfego podem ser inferidas.
+que já foi levantado neste trabalho. Além disso, pode-se aplicar o GSmart como ferramenta de decisões para mobilidade urbana, já que horários de pico no tráfego podem ser inferidos.

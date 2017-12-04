@@ -5,26 +5,22 @@ Este capítulo descreve os testes realizados em relação ao sistema e a discuss
 
 \section{Método de teste}
 \label{metodo-teste}
-Os testes realizados tiveram como principal objetivo verificar a precisão e exatidão do GSMART em relação a
-medição do tráfego de pessoas.
+Os testes realizados tiveram como principal objetivo verificar a precisão e exatidão do GSmart em relação à medição do tráfego de pessoas.
 
 Os experimentos consistiram em deixar o sensor detectando dentro de zonas
 selecionadas durante certos períodos de tempo (escolha aleatória e de acordo com a disponibilidade
-dos donos). Buscou-se variar os ambientes de
-detecção nos quesitos: concentração de pessoas e tempo de detecção. Para algumas
-áreas menos concentradas foi possível registrar presencialmente o número de
-pessoas por hora para comparação com os resultados do sistema. Em nenhum momento durante os experimentos
-houve queda de energia, que impediria o escaneamento da zona.
+dos donos). Buscou-se variar os ambientes de detecção nos quesitos: concentração de pessoas e tempo de detecção. Para algumas áreas menos concentradas, foi possível registrar presencialmente o número de
+pessoas por hora, a fim de comparação com os resultados do sistema. Em nenhum momento durante os experimentos houve queda de energia, que impediria o escaneamento da zona.
 
 Os métodos de avaliação estão centrados nos conceitos de: valor referência, média amostral e desvio padrão.
 A variável quantitativa discreta identificada é o número de pessoas. O tratamento estatístico adotado nos testes
-é a inferência estatística (amostras) que é uma maneira rápida e econômica de fazer
+é a inferência estatística (amostras), uma maneira rápida e econômica de fazer
 inferência acerca da população \cite{Cabral2004}. O método de amostras
-foi escolhido considerando que nem todos as horas foram monitoradas e as diferentes condições de
-cada ambiente de teste.
+foi escolhido considerando que nem todas as horas foram monitoradas e existiam diferentes condições
+de ambiente em cada teste.
 
 \section{Terminologias estatísticas}
-Antes de expor os testes e seus resultados é necessária uma revisão acerca de termos estatísticos segundo \citeonline{Cabral2004}. Eles são:
+Antes de expor os testes e seus resultados é necessária uma revisão acerca de termos estatísticos segundo \citeonline{Cabral2004}. São eles:
 \begin{itemize}
     \item \textbf{valor verdadeiro}: o valor que obteríamos numa medição ideal, feita de condições
     perfeitas com instrumentos perfeitos e por operadores perfeitos;
@@ -35,7 +31,7 @@ Antes de expor os testes e seus resultados é necessária uma revisão acerca de
 \section{Ambientes de teste}
 Os ambientes de teste foram escolhidos de acordo com a disponibilidade de horário e autorização
 para detecção. A condição que variou em cada um deles foi: concentração de pessoas e horários de detecção.
-Outras características que influenciaram na detecção serão discutidos na \autoref{erros-influencia}.
+Outras características que influenciaram na detecção serão discutidas na \autoref{erros-influencia}.
 
 \subsection{HOMEC}
 
@@ -56,12 +52,12 @@ durante as medições. A captura ocorreu no dia 24/11, entre
 Os testes nesta zona foram realizados no Laboratório de Tecnologia de Informação
 Aplicada, localizado no campus da UNESP em Bauru/SP. Durante o período de
 captura, haviam de 15 a 18 pessoas circulando pela área.  Os testes ocorreram
-das 16:00 às 18:00 horas, executados de hora em hora dentro desse intervalo.
+das 16:00 às 18:00, executados de hora em hora dentro desse intervalo.
 Devido à grande quantidade de máquinas e dispositivos no laboratório, houve uma
 certa disparidade na contagem de indivíduos.
 
 \subsection{Camflam}
-Os testes ocorreram no estabelecimento comercial Camflam Lanches, localizado em Bauru/SP. Durante o período de captura, não era possível saber a quantidade real de pessoas que circularam pela lanchonete.  Os testes ocorreram das 18:00 às 22:00 horas, executados de hora em hora dentro desse intervalo.
+Os testes ocorreram no estabelecimento comercial Camflam Lanches, localizado em Bauru/SP. Durante o período de captura, não era possível saber a quantidade real de pessoas em circulação pela lanchonete.  Os testes ocorreram das 18:00 às 22:00 horas, executados de hora em hora dentro desse intervalo.
 
 \section{Teste de precisão}
 Os testes de precisão calculam as métricas estatísticas Variância ($S^{2}$) e
@@ -70,7 +66,7 @@ entre todos os valores de contagem (Xi) obtidos de hora em hora e do Desvio
 Padrão. Foram realizados para cada zona. O valor do CV, nos 4 casos, variou de 18\% a 66\%,
 sendo um pouco mais elevado na zona Camflam, onde ocorria de
 fato grande variação de frequentadores. Portanto, é possível considerar
-o sistema com média precisão.
+o sistema como de média precisão.
 \begin{table}[htb]
 \centering
 \caption{Teste de precisão para a zona LTIA}
@@ -144,12 +140,12 @@ o sistema com média precisão.
 \FloatBarrier
 
 \subsection{Avaliação de precisão}
-Como os valores de Coeficiente de variação estão entre 18\% e 66\%, considera-se o GSMART com precisão
+Como os valores de Coeficiente de Variação estão entre 18\% e 66\%, considera-se o GSmart como de precisão
 média.
 
 \section{Teste de exatidão}
 \label{exatidao-teste}
-O teste de exatidão compreende em dividir a média dos valores obtidos com GSMART
+O teste de exatidão compreende dividir a média dos valores obtidos com GSmart
 pela média dos valores reais. Desta operação, a resultante é a proporção do
 número de dispositivos detectados pelo sistema em relação ao valores
 verdadeiros. Quanto mais próximo de 1 for este resultado, mais acurado e exato
@@ -174,8 +170,7 @@ o sistema identificou 5,15 indivíduos e/ou dispositivos a mais do que o valor r
 \end{tabular}
 \end{table}
 
-Quando o teste é realizado para a zona HOMEC apresentado na \autoref{exato-homec}, a proporção encontrada é de 9 (36/4), demonstrando sendo ainda maior
-que o valor encontrado anteriormente.
+Quando o teste é realizado para a zona HOMEC, apresentado na \autoref{exato-homec}, a proporção encontrada é de 9 (36/4), demonstrando ser ainda maior que o valor encontrado anteriormente.
 \begin{table}[htb]
 \def\arraystretch{1.5}
 \centering
@@ -221,29 +216,24 @@ Por fim, para a zona HOMEJ (\autoref{exato-homej}), o valor encontrado no teste 
 
 \FloatBarrier
 
-Esse teste não foi executado com a zona Camflam, pois não foi possível obter os
+Esse teste não foi executado com a zona Camflam pois não foi possível obter os
 valores reais da quantidade de clientes.
 
 \subsection{Avaliação de exatidão}
-O teste de exatidão mostra que nenhum dos valores encontrados das proporções da zonas em relação aos valores
-verdadeiros é igual a 1 (ideal), expondo que o GSMART identifica mais dispositivos do que indivíduos dentro
-de cada zona. Portanto, o GSMART não pode ser considerado um sistema exato, pois distancia-se dos valores referência.
+O teste de exatidão mostra que nenhum dos valores encontrados nas proporções da zonas em relação aos valores verdadeiros é igual a 1 (ideal), expondo que o GSmart identifica mais dispositivos do que indivíduos dentro de cada zona - portanto, não pode ser considerado um sistema exato, pois distancia-se dos valores referência.
 
 
 \section{Testes empíricos}
-Depois de testes sobre exatidão e precisão que buscaram quantificar e expressar através de métricas
-as conclusões, através da observação e discussão - empirismo - surgiram importantes temas a serem debatidos
+Após testes em exatidão e precisão, os quais buscaram quantificar e expressar as conclusões em forma de métricas, através de observação e discussão (empirismo) surgiram importantes temas a serem debatidos
 a seguir.
 
 \subsection{Análise da curva de crescimento dos gráficos}
-Após realizar os testes é possível observar que o sistema não fornece informações
+Após os testes, foi possível observar que o sistema não fornece informações
 que expressem uma realidade quantitativa. Entretanto, através do método
 empírico, nota-se que a curva de crescimento dos gráficos pode estimar o tráfego
-de pessoas quanto aos pontos: se houve queda, quando houve horários de pico,
-horários de menor movimento, entre outros. Por exemplo, ao confrontar a \autoref{homec-graph} que representa
+de pessoas quanto à queda de movimento e quando ocorrem horários de pico e de menor movimento, entre outros. Por exemplo, ao confrontar a \autoref{homec-graph} que representa
 o gráfico de detecção da zona HOMEC com os dados reais (veja \autoref{exatidao-teste}), percebe-se que
-o sensor conseguiu detectar a variação de pessoas dentro do ambiente. Nesse caso, na duas primeiras horas havia 5 pessoas, na 2 horas
-seguintes o gráfico decresce, confirmando o decaimento também do número de indivíduos que foi para 4.
+o sensor conseguiu detectar a variação de pessoas dentro do ambiente. Nesse caso, nas duas primeiras horas havia 5 pessoas - nas 2 horas seguintes o gráfico decresce, confirmando o decaimento também do número de indivíduos, que foi para 4.
 
 \begin{figure}[!h]
   \caption{\label{homec-graph}Gráfico da zona HOMEC}
@@ -257,8 +247,7 @@ No gráfico da zona Camflam que está na \autoref{camflam-graph}, observa-se que
 há crescimento relevante entre às 20:00 e 22:00. Em conversa com o proprietário
 do restaurante e com os garçons, foi confirmado que o horário de pico ocorreu
 entre as 21:30 e 22:30, mais uma vez corroborando para o cenário trazido por este
-gráfico, onde o pico encontra-se às 22:00. O restaurante abre às 18:00, assim como visto,
-na \autoref{camflam-graph} foi um do horários de baixo tráfego.
+gráfico, onde o pico encontra-se às 22:00. O restaurante abre às 18:00 - assim como visto na \autoref{camflam-graph}, este foi um dos horários de baixo tráfego.
 
 
 \begin{figure}[!h]
@@ -270,15 +259,11 @@ na \autoref{camflam-graph} foi um do horários de baixo tráfego.
 \end{figure}
 
 \subsection{Informações propostas}
-Na \autoref{diaria} descrevemos que informações foram derivadas dos dados capturados. Acerca delas e a partir
-dos testes realizados descritos neste capítulo, é possível inferir que a informação sobre o pico de tráfego
-é a que melhor corresponde o comportamento real do tráfego. Apesar de não saber indicar o quanto realmente houve de pico, o
-horário pode ser identificado, assim como discutimos na subseção anterior.
+Na \autoref{diaria} descrevemos que informações foram derivadas dos dados capturados. Acerca delas e a partir dos testes realizados descritos neste capítulo, é possível inferir que a informação sobre o pico de tráfego é a que melhor corresponde ao comportamento real do tráfego. Apesar de não saber indicar a quantidade do pico, o seu horário pode ser identificado, assim como discutimos na subseção anterior.
 
-Sobre os fabricantes notou-se certa tendência em todas as zonas das fabricantes Samsung e Motorola estarem
-sempre dentre as primeiras, observe os gráficos de setor na \autoref{graf1} e \autoref{graf2}. Não é possível afirmar se de fato corresponde a proporção real, pois o intervalo de envio
-de \emph{probe requests} muda de acordo com o fabricante. Além disso, a Apple emprega técnicas que dificultam
-a identificação da marca através do endereço MAC, a técnica utilizada é a randomização de MACs e verificações passivas \cite{Apple2016}.
+Sobre fabricantes, notou-se certa tendência em todas as zonas de Samsung e Motorola estarem
+sempre dentre as primeiras - observe os gráficos de setor na \autoref{graf1} e \autoref{graf2}. Não é possível afirmar se de fato corresponde à proporção real, pois o intervalo de envio
+de \emph{probe requests} muda de acordo com o fabricante. Além disso, a Apple emprega técnicas que dificultam a identificação da marca através do endereço MAC (utiliza a randomização de MACs e verificações passivas \cite{Apple2016}).
 
 \begin{figure}[!h]
   \caption{\label{graf1}Fabricantes encontrados na zona Camflam}
@@ -300,7 +285,7 @@ a identificação da marca através do endereço MAC, a técnica utilizada é a 
 \label{erros-influencia}
 Conclui-se a partir dos testes que o sistema proposto neste trabalho não é exato - não
 representa os valores reais - e possui uma precisão de medição entre 18\% e
-66\%. Além disso observou-se alguns pontos que podem ter levado às diferenças nas medições:
+66\%. Além disso, observaram-se alguns pontos que podem ter levado às diferenças nas medições:
 \begin{itemize}
     \item \textbf{Passagem rápida}: pessoas que passam rapidamente pelas zonas são contadas, mesmo que não
     permaneçam por muito tempo;
