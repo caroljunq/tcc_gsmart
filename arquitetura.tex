@@ -46,7 +46,7 @@ sensor. Ele funciona em 3 fluxos:
     \item \textbf{scan}: este fluxo (linha 78) repete a função ``scan'' a cada 40 segundos durante 50 minutos. Esta função executa o
     comando Tshark (veja \autoref{tshark-section}), que vai armazenando os endereços
     MAC num arquivo temporário. Quando as execuções do Tshark chegam na contagem 50,
-    o conteúdo do arquivo é copiado para o arquivo gerado no fluxo anterior e então é enviado ao servidor;
+    o conteúdo do arquivo é copiado para o arquivo gerado no fluxo anterior e então é enviado ao servidor; e
     \item \textbf{sendAllFiles}: este fluxo (linha 80) repete a função ``sendAllFiles'' a cada 5 minutos, enviando todos os arquivos que tiveram falha no seu primeiro envio.
 \end{itemize}
 
@@ -81,7 +81,7 @@ Cada objeto como o da \autoref{formatacao-dado} possui os seguintes campos sobre
     \item \textbf{zone}: zona em que foi realizada;
     \item \textbf{macs}: vetor de todos os endereços MAC capturados;
     \item \textbf{customer}: se o endereço captado já foi capturado outro(s) dia(s);
-    \item \textbf{vendor}: fabricante do dispositivo;
+    \item \textbf{vendor}: fabricante do dispositivo; e
     \item \textbf{mac}: endereço MAC.
 \end{itemize}
 
@@ -188,7 +188,7 @@ na figura, essas informações são:
     \item \textbf{Traffic Peak}: é o maior valor de detecção dentro do intervalo de horas disponíveis;
     \item \textbf{Total Traffic}: é o número total de indivíduos (diferentes) dentre todas as horas escaneadas;
     \item \textbf{Vendor}: fabricante de dispositivo móvel detectado em maior número;
-    \item \textbf{New Visits}: do total de indivíduos, quantos estão presentes pela primeira vez;
+    \item \textbf{New Visits}: do total de indivíduos, quantos estão presentes pela primeira vez; e
     \item \textbf{Customers}: número total de pessoas que já estiveram alguma vez dentro daquela zona (considera só os dias anteriores).
 \end{itemize}
 
@@ -224,7 +224,7 @@ promovendo modularidade e facilidade de colaboração e reutilização \cite{mdn
     \emph{controllers} sobre a mudança de estados desses dados. Sendo assim, as visualizações e os controladores
     podem tomar ações, como atualizar a visão dos dados e executar comandos, respectivamente.
     \item \textbf{Views}: apresentam as informações - é o meio de interação do usuário com
-    a aplicação;
+    a aplicação; e
     \item \textbf{Controllers}: atualizam os \emph{models} e \emph{views} de acordo
     com atualizações de dados pela própria aplicação ou por interação com o usuário.
 \end{itemize}
